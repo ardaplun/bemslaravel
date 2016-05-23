@@ -17,7 +17,7 @@
         <script src="{{asset('js/html5shiv.js')}}"></script>
         <script src="{{asset('js/respond.min.js')}}"></script>
         <![endif]-->
-        <link rel="shortcut icon" href="{{asset('images/ico/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
@@ -59,9 +59,9 @@
                             <div class="mainmenu pull-right">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>Home</a></li>
-                                    <li><a href="{{url('menu')}}" {{$page == 'products' ? 'class=active' : ''}}>Menu</a></li>
-                                    <li><a href="{{url('about-us')}}" {{$page == 'blog' ? 'class=active' : ''}}>About Us</a></li>
-                                    <li><a href="{{url('login')}}" {{$page == 'contact_us' ? 'class=active' : ''}}>Login</a></li>
+                                    <li><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>Menu</a></li>
+                                    <li><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>About Us</a></li>
+                                    <li><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -77,12 +77,18 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                        <p>Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
+                      <div class="col-sm-12">
+                      <center>
+                      </br>
+                        <p style="color:white">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
+                        <p style="color:white"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
+                      </center>
+                    </div>
                     </div>
                 </div>
             </div>
-<!--
-            <div class="footer-widget">
+
+            <!--<div class="footer-widget">
                 <div class="container">
 
                 </div>
@@ -90,15 +96,11 @@
 
             <div class="footer-bottom">
                 <div class="container">
-                    <div class="row">
-                        <p class="pull-right"><span>Designed and Builded by<a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
-                    </div>
+
                 </div>
             </div>
 
         </footer><!--/Footer-->
-
-
 
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
