@@ -32,7 +32,7 @@
                 </div>
             </div><!--/header_top-->
 
-            <div class="header-middle" style="background-color:darkblue;height:10px;"><!--header-middle-->
+            <div class="header-middle" style="background-color:#22334d;height:10px;"><!--header-middle-->
                 <div class="container">
 
                 </div>
@@ -45,9 +45,13 @@
                         <div class="logo pull-left">
                             <a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" /></a>
                         </div>
-
                       </div>
-                        <div class="col-sm-9">
+                      <div class="col-sm-3">
+                        <div>
+                            <h4>Jam</h4><h5>Jamjuga</h5>
+                        </div>
+                      </div>
+                        <div class="col-sm-6">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="sr-only">Toggle navigation</span>
@@ -73,15 +77,15 @@
 
         @yield('content')
 
-        <footer id="footer" style="background-color:darkblue;"><!--Footer-->
+        <footer id="footer" style="background-color:#22334d;"><!--Footer-->
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
                       <div class="col-sm-12">
                       <center>
                       </br>
-                        <p style="color:white">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
-                        <p style="color:white"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
+                        <p style="color:white;font-size:9px">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
+                        <p style="color:white;font-size:9px"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
                       </center>
                     </div>
                     </div>
