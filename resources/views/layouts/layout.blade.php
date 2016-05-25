@@ -12,16 +12,14 @@
         <link href="{{asset('css/price-range.css')}}" rel="stylesheet">
         <link href="{{asset('css/animate.css')}}" rel="stylesheet">
         <link href="{{asset('css/main.css')}}" rel="stylesheet">
+        <link href="{{asset('css/bems.css')}}" rel="stylesheet">
         <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="{{asset('js/html5shiv.js')}}"></script>
         <script src="{{asset('js/respond.min.js')}}"></script>
         <![endif]-->
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
+
     </head><!--/head-->
 
     <body>
@@ -42,16 +40,19 @@
                 <div class="container">
                     <div class="row">
                       <div class="col-sm-3">
-                        <div class="logo pull-left">
-                            <a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" /></a>
-                        </div>
+                        <div class="row">
+                            <div class="logo center-logo">
+                                <center><a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" /></a></center>
+                            </div>
+
                       </div>
-                      <div class="col-sm-3">
-                        <div>
-                            <h4>Jam</h4><h5>Jamjuga</h5>
-                        </div>
+
                       </div>
-                        <div class="col-sm-6">
+
+
+
+                        <div class="col-sm-9">
+
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="sr-only">Toggle navigation</span>
@@ -60,8 +61,13 @@
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            <div class="mainmenu pull-right">
-                                <ul class="nav navbar-nav collapse navbar-collapse">
+                            <div id="timer" class="mainmenu pull-left" >
+                              <span class="show-time">{{date("H:i")}}</span>
+                              <span class="show-weekday">{{date("l")}}</span>
+                              <div class="show-date" >{{date("d M Y")}}</div>
+                            </div>
+                            <div class="mainmenu pull-right center-nav">
+                                <ul class="nav navbar-nav collapse navbar-collapse vertical">
                                     <li><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>Home</a></li>
                                     <li><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>Menu</a></li>
                                     <li><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>About Us</a></li>
@@ -81,13 +87,7 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                      <div class="col-sm-12">
-                      <center>
-                      </br>
-                        <p style="color:white;font-size:9px">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
-                        <p style="color:white;font-size:9px"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
-                      </center>
-                    </div>
+
                     </div>
                 </div>
             </div>
@@ -100,7 +100,12 @@
 
             <div class="footer-bottom">
                 <div class="container">
+                  <div class="col-sm-12">
 
+                    <p class="pull-left"style="color:white;font-size:9px">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
+                    <p class="pull-right"style="color:white;font-size:9px"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
+
+                  </div>
                 </div>
             </div>
 

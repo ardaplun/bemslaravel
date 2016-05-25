@@ -15,32 +15,32 @@ class Home extends Controller
      */
     public function index()
     {
-        return view('home', array('page' => 'home'));
+        return view('pages/home', array('page' => 'home'));
     }
 
     public function maps()
     {
-        return view('maps', array('page' => 'maps'));
+        return view('pages/maps', array('page' => 'maps'));
     }
 
-    public function detail_building($id)
+    public function detail_building($building)
     {
-        return view('detail_building', array('page' => 'detail_building'));
+        return view('pages/building', array('page' => 'detail_building', 'building'=> $building ));
     }
 
     public function detail_floor($id)
     {
-      return view('detail_floor', array('page' => 'detail_floor'));
+      return view('detail_floor', array('page' => 'detail-floor'));
     }
 
     public function detail_room($id)
     {
-        return view('detail_room', array('page' => 'detail_room'));
+        return view('detail_room', array('page' => 'detail-room'));
     }
 
     public function about_us()
     {
-        return view('about_us', array('page' => 'about_us'));
+        return view('pages/about_us', array('page' => 'about-us'));
     }
 
     public function menu()
@@ -50,6 +50,6 @@ class Home extends Controller
 
     public function login()
     {
-        return view('login', array('page' => 'login'));
+        return view('admins/login', array('page' => 'login'));
     }
 }

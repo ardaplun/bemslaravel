@@ -1,0 +1,31 @@
+.show-time {
+	color:#008ec3;
+	font-size:1.8em;
+}
+
+.show-weekday {
+	color:#008ec3;
+	font-size:1.3em;
+}
+
+.show-date {
+	color:#707070;
+	font-size:0.8em;
+	margin-left:0.3em;
+}
+
+.center-nav{
+	padding-top: 0.5em;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-left: 2em;
+}
+
+.center-logo{
+	padding-top: 0.6em;
+}
+
+#timer{
+	padding-left: 2em;
+	border-left:1px solid #ccc;
+}
