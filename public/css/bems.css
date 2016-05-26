@@ -29,3 +29,92 @@
 	padding-left: 2em;
 	border-left:1px solid #ccc;
 }
+
+.footer-image{
+	padding-top: 2em;
+}
+
+.line-title{
+  position:absolute;
+  left:0;
+  border-top:3px solid #A6C331;
+  width:35%;
+}
+
+.cycle-title{
+  position: relative;
+  border-radius: 80px;
+  border: 3px solid #A6C331;
+  width: 32px;
+  height: 32px;
+  top: -18px;
+  left: 30px;
+  float: right;
+}
+
+.upline-title{
+	line-height:28px;
+	font-size:2em;
+	color:#A6C331;
+	padding-left: 3em;
+}
+
+.bottomline-title{
+	line-height:38px;
+	font-size:1.5em;
+	color:#A6C331;
+	padding-left: 4em;
+}
+
+#status-jam{
+	width:20%;
+	font-size:1.1em;
+	display:inline-block;
+	margin:4px 0 0 4px;
+	color:#666;
+}
+
+#faculty-name{
+	width:75%;
+	display:inline-block;
+	color:#666;
+}
+
+#left-clock{
+	display:inline-block;
+	width:20%;
+	background-color:#EFA9C5;
+	color:white;
+	font-weight:bold;
+	padding: 0.25em;
+}
+
+#dept-name{
+	display:inline-block;
+	font-size:1em;
+	color:#707070;
+	padding: 5px;
+	width: 79%;
+}
+
+.box-percentage-status{
+	line-height:3.3em;
+	font-size:2em;
+	text-align:center;
+	display:inline-block;
+	width:3em;
+	height:3em;
+	float:right;
+	border-radius:20px 0 20px 0;
+	margin:2px 6px;
+	color:white;
+
+}
+
+#daily-consumed{
+	display:inline-block;
+	font-size:1em;
+	line-height:2.5em;
+	color:#666;
+	margin:0 0 0 4px;
+}

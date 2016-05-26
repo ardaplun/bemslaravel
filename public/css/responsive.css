@@ -23,14 +23,7 @@
 	width: 100%;
 }
 
-#similar-product .carousel-inner .item img{
-	width: 65px;
-}
 
-#cart_items .cart_info .cart_description h4,
-#cart_items .cart_info .cart_description p{
-	text-align: center;
-}
 
 }
 
@@ -45,6 +38,7 @@
 
 	.center-logo{
 		width:10%;
+		padding-left: 0.5em;
 	}
 	.show-weekday {
 	display: none;
@@ -136,6 +130,7 @@
 
 /* xs */
 @media (max-width: 767px) {
+
 	#timer{
 		display:none;
 	}
@@ -299,7 +294,33 @@ ul.sub-menu{
 
 /* XS Portrait */
 @media (max-width: 480px) {
-  #timer{
+	#daily-consumed{
+		display:inline-block;
+		font-size:0.9em;
+		line-height:3em;
+		color:#666;
+		margin:0 0 0 4px;
+	}
+	.footer-image{
+		display: none;
+	}
+
+	.upline-title{
+		line-height:28px;
+		font-size:1.5em;
+		color:#A6C331;
+		padding-left: 0.8em;
+	}
+
+	.bottomline-title{
+		line-height:38px;
+		font-size:1.2em;
+		color:#A6C331;
+		padding-left: 1em;
+	}
+
+
+	#timer{
     display: none;
   }
 .contactinfo{

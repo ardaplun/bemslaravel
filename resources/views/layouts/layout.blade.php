@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Designed and builded by Sensativ Engineer in the terms of contribution for Dept. Electrical Engineering and Information Technology UGM">
+        <meta name="author" content="Sentativ by Yulian Tenta Wardana">
         <title>Home | UGM Building Management System </title>
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
@@ -86,9 +86,9 @@
         <footer id="footer" style="background-color:#22334d;"><!--Footer-->
             <div class="footer-top">
                 <div class="container">
-                    <div class="row">
-
-                    </div>
+                  <div class="pull-right">
+                    <img class="footer-image"src="{{asset('images/home/footer-image.png')}}" alt="" />
+                  </div>
                 </div>
             </div>
 
@@ -114,7 +114,6 @@
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
-        <script src="{{asset('js/price-range.js')}}"></script>
         <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
     </body>
