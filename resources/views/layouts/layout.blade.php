@@ -9,7 +9,6 @@
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
-        <link href="{{asset('css/price-range.css')}}" rel="stylesheet">
         <link href="{{asset('css/animate.css')}}" rel="stylesheet">
         <link href="{{asset('css/main.css')}}" rel="stylesheet">
         <link href="{{asset('css/bems.css')}}" rel="stylesheet">
@@ -19,10 +18,16 @@
         <script src="{{asset('js/respond.min.js')}}"></script>
         <![endif]-->
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
+
+
+
 
     </head><!--/head-->
 
-    <body>
+    <body style="background:url({{asset('images/home/background.jpg')}}) top center repeat">
         <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
@@ -65,6 +70,8 @@
                               <span class="show-time">{{date("H:i")}}</span>
                               <span class="show-weekday">{{date("l")}}</span>
                               <div class="show-date" >{{date("d M Y")}}</div>
+                        <script type="text/javascript">window.onload = date_time('date_time');</script>
+
                             </div>
                             <div class="mainmenu pull-right center-nav">
                                 <ul class="nav navbar-nav collapse navbar-collapse vertical">
