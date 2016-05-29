@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.main-layout')
 
 @section('content')
 <section id="slider"><!--slider-->
@@ -14,7 +14,7 @@ Donec aliquam nulla vel quam tincidunt elementum vitae at odio. Aliquam aliquet 
 
 Praesent eu leo vulputate, posuere nunc quis, feugiat felis. Vivamus nibh orci, semper ac tempus nec, viverra et nulla. Praesent placerat et nisi eget eleifend. Praesent suscipit nisl ac velit ornare eleifend. Ut in ornare purus, nec vestibulum leo. Quisque non sem ex. Integer dapibus pretium dolor, vitae tempus eros fermentum vitae.
 
-Mauris in orci at libero rutrum lobortis. Etiam nisi odio, pretium non accumsan bibendum, posuere eu turpis. Quisque sit amet sagittis neque, ut ultricies erat. In at dui quis ex rutrum eleifend. Maecenas ultrices maximus risus eu egestas. Donec sodales est in purus rutrum, ac commodo nibh gravida. Vivamus sagittis nisl eu ipsum semper fringilla. Cras fringilla sagittis enim a tincidunt. Etiam viverra sagittis commodo. Etiam ut erat dictum, consectetur mi vel, sodales magna.                
+Mauris in orci at libero rutrum lobortis. Etiam nisi odio, pretium non accumsan bibendum, posuere eu turpis. Quisque sit amet sagittis neque, ut ultricies erat. In at dui quis ex rutrum eleifend. Maecenas ultrices maximus risus eu egestas. Donec sodales est in purus rutrum, ac commodo nibh gravida. Vivamus sagittis nisl eu ipsum semper fringilla. Cras fringilla sagittis enim a tincidunt. Etiam viverra sagittis commodo. Etiam ut erat dictum, consectetur mi vel, sodales magna.
               </p><center>
 
             </div>
