@@ -79,10 +79,32 @@
 	display:inline-block;
 	color:#666;
 }
+#status-jam-building{
+	width:25%;
+	font-size:0.8em;
+	display:inline-block;
+	margin:4px 0 0 4px;
+	color:#666;
+}
+
+#faculty-name-building{
+	width:65%;
+	font-size: 0.8em;
+	display:inline-block;
+	color:#666;
+}
 
 #left-clock{
 	display:inline-block;
 	width:20%;
+	background-color:#EFA9C5;
+	color:white;
+	font-weight:bold;
+	padding: 0.25em;
+}
+#left-clock-building{
+	display:inline-block;
+	width:25%;
 	background-color:#EFA9C5;
 	color:white;
 	font-weight:bold;
@@ -97,6 +119,14 @@
 	width: 79%;
 }
 
+#floor-name{
+	display:inline-block;
+	font-size:1.1em;
+	color:#707070;
+	width: 65%;
+	line-height: 0.5em;
+	padding-left: 3px;
+}
 .box-percentage-status{
 	line-height:3.3em;
 	font-size:2em;
@@ -122,4 +152,8 @@
 #show-energy{
 	font-family: Helvetica Neue;
 
+}
+
+.mepet{
+	padding:1px;
 }

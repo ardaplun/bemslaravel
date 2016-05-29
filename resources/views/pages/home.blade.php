@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.main-layout')
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
@@ -16,7 +16,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-6 col-sm-offset-3">
         <div style="background-color:white;">
           <div id="top-status">
             <span id="status-jam" class="show-date">lol</span>
@@ -24,8 +24,8 @@
           </div>
           <div id="middle-status" style="background-color:#F8DAE6;">
             <span id="left-clock">
-            <span style="font-size:1em;margin:4px 0 0 4px;">88</span>
-            <span style="font-size:1em;display:inline-block;">:00-99:59</span>
+              <span style="font-size:1em;margin-left:4px" class="show-hour"></span>
+              <span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour"></span><span>:59</span>
             </span>
             <span id="dept-name">Dept. Electrical Engineering and Information Technology</span>
           </div>
@@ -66,6 +66,6 @@
     </div>
 
   </div>
-  <a href="{{url('building/dteti')}}">Go to building details</a>
+  <!-- <a href="{{url('building/dteti')}}">Go to building details</a> -->
 </body>
 @endsection

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Designed and builded by Sensativ Engineer in the terms of contribution for Dept. Electrical Engineering and Information Technology UGM">
         <meta name="author" content="Sentativ by Yulian Tenta Wardana">
-        <title>Home | UGM Building Management System </title>
+        <title>UGM Building Management System | {{$page - $building}}</title>
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
@@ -21,7 +21,7 @@
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
-
+        <script type="text/javascript">window.onload = date_time('date_time');</script>
 
 
 
@@ -35,7 +35,7 @@
                 </div>
             </div><!--/header_top-->
 
-            <div class="header-middle" style="background-color:#22334d;height:10px;"><!--header-middle-->
+            <div class="header-middle" style="background-color:#22334d;height:25px;"><!--header-middle-->
                 <div class="container">
 
                 </div>
@@ -50,37 +50,31 @@
                                 <center><a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" /></a></center>
                             </div>
 
+                        </div>
                       </div>
-
-                      </div>
-
-
-
                         <div class="col-sm-9">
-
-                            <div class="navbar-header">
+                            <!-- <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                            </div>
+                            </div> -->
                             <div id="timer" class="mainmenu pull-left" >
                               <span class="show-time">{{date("H:i")}}</span>
                               <span class="show-weekday">{{date("l")}}</span>
                               <div class="show-date" >{{date("d M Y")}}</div>
-                        <script type="text/javascript">window.onload = date_time('date_time');</script>
 
                             </div>
-                            <div class="mainmenu pull-right center-nav">
+                            <!-- <div class="mainmenu pull-right center-nav">
                                 <ul class="nav navbar-nav collapse navbar-collapse vertical">
                                     <li><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>Home</a></li>
                                     <li><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>Menu</a></li>
                                     <li><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>About Us</a></li>
                                     <li><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>Login</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
 
                     </div>

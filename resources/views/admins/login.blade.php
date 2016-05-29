@@ -1,6 +1,6 @@
-@extends('layouts.layout')
+@extends('layouts.main-layout')
 
-@section('content')       
+@section('content')
        <section id="form"><!--form-->
             <div class="container">
                 <div class="row">
@@ -11,7 +11,7 @@
                                 <input type="text" placeholder="Name" />
                                 <input type="email" placeholder="Email Address" />
                                 <span>
-                                    <input type="checkbox" class="checkbox"> 
+                                    <input type="checkbox" class="checkbox">
                                     Keep me signed in
                                 </span>
                                 <button type="submit" class="btn btn-default">Login</button>

@@ -31,6 +31,7 @@ function date_time(id)
         //$(".show-sec").html(': '+s);
         $(".show-date").html(d+' '+months_collapse[month]+' '+year);
         $(".show-weekday").html(days[day]);
+        $(".show-hour").html(h);
         //$(".show-month").html(months[month]);
         //$(".show-year").html(year);
         console.log("hello, lol");
