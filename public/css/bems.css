@@ -157,3 +157,18 @@
 .mepet{
 	padding:1px;
 }
+
+.right-build-container{
+	 width:69%;
+	 display:inline-block;
+}
+
+.left-build-container{
+	width:30%;
+	display:inline-block;
+}
+
+.floor-chart{
+	height:18em;
+	width:38.3em;
+}

@@ -1,9 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<script src="{{asset('js/chart.js')}}"></script>
-<script type="text/javascript">
-</script>
+
 <!-- title content -->
 <div id="chart-title">
       <div class="upline-title">STATUS</div>
@@ -49,7 +47,7 @@
           </div>
           <div id="status-chart-line">
             <!-- generate chart -->
-            <div id="all_container" style="height:200px; width:100%;" >
+            <div id="chart_container" style="height:200px; width:100%;" >
             </div>
               <span style="margin:0 0 0 4px;"><hr style="background-color:#F5C922;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Warning Level 98 kW</span>
               <span style="float:right;margin-right:4px;"><hr style="background-color:#bc250c;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Alert Level 87 kW</span>
@@ -68,4 +66,7 @@
   </div>
   <!-- <a href="{{url('building/dteti')}}">Go to building details</a> -->
 </body>
+<script src="{{asset('js/chart.js')}}"></script>
+<script type="text/javascript"> mainchart('chart_container');
+</script>
 @endsection
