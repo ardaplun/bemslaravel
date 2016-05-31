@@ -25,11 +25,13 @@ class Home extends Controller
 
     public function detail_building($building)
     {
-        return view('pages/building', array('page' => 'detail-building', 'building'=> $building ));
+        $data_floor = \DB::table('data_floor')->where('id_building',$building)->get();
+        return view('pages/building', array('page' => 'detail-building', 'building'=> $building, 'data_floors'=>$data_floor ));
     }
 
     public function detail_floor($building, $floor)
     {
+
       return view('pages/detail_floor', array('page' => 'detail-floor', 'building' => $building, 'floor' => $floor));
     }
 

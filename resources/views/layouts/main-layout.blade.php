@@ -22,12 +22,13 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
         <script type="text/javascript">window.onload = date_time('date_time');</script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
 
 
     </head><!--/head-->
 
-    <body style="background:url({{asset('images/home/background.jpg')}}) top center repeat">
+    <body style="background-color:white">
         <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
