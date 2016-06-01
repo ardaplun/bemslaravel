@@ -22,10 +22,9 @@
           </div>
           <div id="middle-status" style="background-color:#F8DAE6;">
             <span id="left-clock">
-              <span style="font-size:1em;margin-left:4px" class="show-hour"></span>
-              <span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour"></span><span>:59</span>
+              <span style="font-size:1em;margin-left:4px" class="show-hour"></span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour"></span><span>:59</span>
             </span>
-            <span id="dept-name">Dept. Electrical Engineering and Information Technology</span>
+            <a href="{{url('/building/DTETI')}}"><span id="dept-name" >Dept. Electrical Engineering and Information Technology</span></a>
           </div>
           <!-- generate status overview -->
           <div id="status-big">

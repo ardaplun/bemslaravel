@@ -6,7 +6,8 @@
   <div class="container">
     <div class="row mepet">
       <div class="left-build-container">
-
+        <div id="{{$building}}container_pie" style="width: 100%;display:inline-block;"></div>
+        <script type="text/javascript">Donutchart('{{$building}}container_pie');</script>
       </div>
       <div class="right-build-container">
 
@@ -20,7 +21,7 @@
 
              <li id="show_{{$data_floor->id_floor}}">
                <div class="col-sm-12 mepet">
-                   <div class="mepet" style="width:53%;display:inline-block;">
+                   <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->floor_name}}"><div class="mepet" style="width:53%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;">
                          <div>
                            <span id="status-jam-building" class="show-date"></span>
@@ -30,7 +31,7 @@
                            <span id="left-clock-building">
                            <span style="font-size:1.1em;margin-left:4px" class="show-hour"></span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour"></span><span>:59</span>
                            </span>
-                           <span id="floor-name">{{$data_floor->floor_name}}</span>
+                           <span id="floor-name">{{$data_floor->floor_name}} Floor</span>
                          </div>
                          <div style="height:92px;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);line-height:3em;">
                            <div style="width:20%;left:1em;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;">
@@ -48,7 +49,7 @@
                            <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:6.6em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
                          </div>
                          </div>
-                   </div>
+                   </div></a>
                         <div class="status__chart" style="display:inline-block;min-width:46%;height:230px;float:right;">
                             <div style="line-height:20px;font-size:0.7em;color:#707070;background-color:#FFF">
                                     <span style="margin:0 0 0 4px;">Current Demand <span id="'+bld_pnt_name+'_show_power'+show_data+'"></span> kW</span>
@@ -69,8 +70,8 @@
 
              </ul>
             <hr style="background-color: #44ACD1;height:2px;">
-            <div id="eng4_container_pie" style="width: 100%;display:inline-block;"></div>
-
+            <div id="{{$building}}container_pie" style="width: 100%;display:inline-block;"></div>
+            <script type="text/javascript">Donutchart('{{$building}}container_pie');</script>
           </div>
 
       </div>

@@ -29,7 +29,7 @@
 
     </head><!--/head-->
 
-    <body style="background-color:white">
+    <body>
         <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">

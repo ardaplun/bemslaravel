@@ -1,16 +1,16 @@
 .show-time {
 	color:#008ec3;
-	font-size:1.8em;
+	font-size:3em;
 }
 
 .show-weekday {
 	color:#008ec3;
-	font-size:1.3em;
+	font-size:2em;
 }
 
 .show-date {
 	color:#707070;
-	font-size:0.8em;
+	font-size:1em;
 	margin-left:0.3em;
 }
 
@@ -172,3 +172,9 @@
 	height:18em;
 	width:37.2em;
 }
+
+.txt_large{font-size: 2.5em; }
+.txt_pink{color:#f49ac1;}
+.txt_green{color:#65a90d;}
+.txt_white{color:white;}
+.txt_blue{color:#008ec3;}
