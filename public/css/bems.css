@@ -72,6 +72,7 @@
 	display:inline-block;
 	margin:4px 0 0 4px;
 	color:#666;
+	padding-left: 0.4em;
 }
 
 #faculty-name{
@@ -301,6 +302,6 @@
 	background-color: #eee ;
 	/*border-radius: 5px;*/
 	margin-top:4px;
-	min-height: 250px;
-	min-width: 400px;
+	height: 25em;
+	/*min-width: 400px;*/
 }

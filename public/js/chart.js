@@ -275,14 +275,16 @@ function Donutchart(container,title){
         plotShadow: false,
         renderTo: container,
         type: 'pie',
-        marginTop:-40
+        // marginTop:90
     },
     title: {
         text: title,
         style: {
           fontWeight: 'lighter',
 
-            }
+        },
+        verticalAlign: 'middle',
+        floating: true
     },
     tooltip: {
         enabled:false,
@@ -310,8 +312,8 @@ function Donutchart(container,title){
     series: [{
         name: 'Brands',
         colorByPoint: true,
-        size: '40%',
-        innerSize: '60%',
+        size: '70%',
+        innerSize: '70%',
         allowPointSelect:false,
         states: {
             hover: {

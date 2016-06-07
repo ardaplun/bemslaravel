@@ -21,7 +21,10 @@
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
-        <script type="text/javascript">window.onload = date_time('date_time');</script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+          date_time('date_time');
+        });</script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
 

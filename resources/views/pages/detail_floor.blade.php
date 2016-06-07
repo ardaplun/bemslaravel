@@ -109,11 +109,11 @@
               </div>
               <div class="col-sm-5" >
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
-                  <div id="container_pie0" class="container_donut_style"style="width:100%;"></div>
+                  <div id="container_pie0" class="container_donut_style" style="width:100%;height:24em"></div>
                   <script type="text/javascript">Donutchart('container_pie0','Area Usage');</script>
                 </div>
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
-                  <div id="container_pie1" class="container_donut_style" style="width:100%;"></div>
+                  <div id="container_pie1" class="container_donut_style" style="width:100%;height:24em"></div>
                   <script type="text/javascript">Donutchart('container_pie1', 'Load Usage');</script>
                 </div>
               </div>
