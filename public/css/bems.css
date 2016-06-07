@@ -113,7 +113,7 @@
 
 #dept-name{
 	display:inline-block;
-	font-size:1em;
+	font-size:1.2em;
 	color:#707070;
 	padding: 5px;
 	width: 79%;
@@ -178,3 +178,129 @@
 .txt_green{color:#65a90d;}
 .txt_white{color:white;}
 .txt_blue{color:#008ec3;}
+
+.location-room-stay{
+	width: 100%;
+}
+
+.location-floor{
+	width: 35%;
+}
+
+.location-room{
+	width: 67%;
+}
+.location-room-stay{
+	background: #f4f4f4;
+	width: 100%;
+	height: 65px;
+	margin-bottom: 4px;
+	border-radius: 5px;
+
+}
+.location-bar-title{
+	height:35px;
+	float:left;
+}
+.location-floor{
+	width: 29%;
+	float: left;
+	padding: 6px 0 0 6px;
+}
+.location-floor-number{
+	float:left;
+	padding:0;
+	vertical-align:text-top;
+}
+.location-floor-suffix{
+	float:left;
+	margin:3px 0 0 4px;
+}
+.location-room{
+	display: block;
+	background: #008ec3;
+	width: 70%;
+	height: 65px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	float: right;
+	padding: 6px 0 0 6px;
+}
+
+.box-gray-redius,
+.box-transparent-redius {
+	border-radius: 5px;
+	padding: 5px;
+	margin: 4px 0;
+}
+.box-gray-redius{ background-color:rgba(255, 255, 255, 0.68); border:1px solid #cccccc;}
+.box-transparent-redius {  border:1px solid #e1e1e8; }
+.mode_black{
+  background-color:#363636;
+  color:white;
+  border-radius: 3px;
+  line-height: 1.8em;
+  margin: 5px 0;
+}
+.map_meaning{
+  background-color:#4A4A4A;
+  /*position:absolute;*/
+  height: 300px;
+  width:91.5%;
+  z-index:5;
+  opacity:0.95;
+  color: white;
+  padding:5px;
+	display: inline-block;
+}
+.map-meaning{
+	background:#828282;
+	height: 151px;
+	position: relative;
+}
+.dropdown-menu-black {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: 1000;
+  display: none;
+  float: left;
+  width: 100%;
+  padding: 2px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: black;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  opacity: 0.85;
+}
+.dropdown-menu-black > li > a {
+  display: block;
+  padding: 3px 20px;
+  margin: 10px ;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: white;
+  white-space: nowrap;
+
+}
+
+.dropdown-menu-black > li:hover,
+.dropdown-menu-black > li > a:hover {
+      color:white;
+      background:#7C7A7B;
+}
+.chart_style{
+	border: 1px solid #ccc ;
+	background-color: #eee ;
+	/*border-radius: 5px;*/
+	margin-top:4px;
+	min-height: 250px;
+	min-width: 400px;
+}

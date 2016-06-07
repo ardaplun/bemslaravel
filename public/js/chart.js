@@ -266,7 +266,7 @@ function buildingchart(container){
         return chart;
 
 }
-function Donutchart(container){
+function Donutchart(container,title){
 
       var chart = new Highcharts.Chart({
         chart: {
@@ -274,11 +274,15 @@ function Donutchart(container){
         plotBorderWidth: null,
         plotShadow: false,
         renderTo: container,
-        type: 'pie'
+        type: 'pie',
+        marginTop:-40
     },
     title: {
+        text: title,
+        style: {
+          fontWeight: 'lighter',
 
-        text: ''
+            }
     },
     tooltip: {
         enabled:false,
@@ -295,6 +299,7 @@ function Donutchart(container){
             cursor: 'pointer',
             dataLabels: {
             enabled: true,
+            size:'100%',
             format: '<span>{point.percentage:.1f} %</span><br /> {point.name}',
             style: {
               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
@@ -305,7 +310,7 @@ function Donutchart(container){
     series: [{
         name: 'Brands',
         colorByPoint: true,
-        size: '80%',
+        size: '40%',
         innerSize: '60%',
         allowPointSelect:false,
         states: {

@@ -37,7 +37,8 @@ class Home extends Controller
 
     public function detail_room($building, $floor, $room)
     {
-        return view('pages/detail_room', array('page' => 'detail-room', 'building' => $building, 'floor' => $floor, 'room' => $room));
+        $data = \DB::table('data_room')->where(['id_building'=>$building, 'id_floor'=>$floor, 'id_room'=>$room])->first();
+        return view('pages/detail_room', array('page' => 'detail-room', 'building' => $building, 'floor' => $floor, 'room' => $room, 'data'=>$data));
     }
 
     public function about_us()

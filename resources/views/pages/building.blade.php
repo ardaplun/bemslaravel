@@ -6,8 +6,7 @@
   <div class="container">
     <div class="row mepet">
       <div class="left-build-container">
-        <div id="{{$building}}container_pie" style="width: 100%;display:inline-block;"></div>
-        <script type="text/javascript">Donutchart('{{$building}}container_pie');</script>
+        kiri
       </div>
       <div class="right-build-container">
 
@@ -21,15 +20,15 @@
 
              <li id="show_{{$data_floor->id_floor}}">
                <div class="col-sm-12 mepet">
-                   <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->floor_name}}"><div class="mepet" style="width:53%;display:inline-block;">
+                   <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}"><div class="mepet" style="width:53%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;">
                          <div>
-                           <span id="status-jam-building" class="show-date"></span>
+                           <span id="status-jam-building" class="show-date">{{date("d M Y")}}</span>
                            <span id="faculty-name-building">Faculty of Engineering, Universitas Gadjah Mada</span>
                          </div>
                          <div style="background-color:#F8DAE6;line-height:1em" >
                            <span id="left-clock-building">
-                           <span style="font-size:1.1em;margin-left:4px" class="show-hour"></span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour"></span><span>:59</span>
+                           <span style="font-size:1.1em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour">{{date("H")}}</span><span>:59</span>
                            </span>
                            <span id="floor-name">{{$data_floor->floor_name}} Floor</span>
                          </div>
@@ -67,11 +66,11 @@
              @empty
                 <p>No data for this building</p>
              @endforelse
-
+             <li><div id="{{$building}}_container_pie" style="width: 100%;display:inline-block;"></div></li>
+             <script type="text/javascript">Donutchart('{{$building}}_container_pie');</script>
              </ul>
             <hr style="background-color: #44ACD1;height:2px;">
-            <div id="{{$building}}container_pie" style="width: 100%;display:inline-block;"></div>
-            <script type="text/javascript">Donutchart('{{$building}}container_pie');</script>
+
           </div>
 
       </div>

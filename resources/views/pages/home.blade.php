@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
-
+<script src="{{asset('js/chart.js')}}"></script>
 <!-- title content -->
 <div id="chart-title">
       <div class="upline-title">STATUS</div>
@@ -17,12 +17,12 @@
       <div class="col-sm-6 col-sm-offset-3">
         <div style="background-color:white;">
           <div id="top-status">
-            <span id="status-jam" class="show-date">lol</span>
+            <span id="status-jam" class="show-date">{{date("d M Y")}}</span>
             <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
           </div>
           <div id="middle-status" style="background-color:#F8DAE6;">
             <span id="left-clock">
-              <span style="font-size:1em;margin-left:4px" class="show-hour"></span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour"></span><span>:59</span>
+              <span style="font-size:1em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour">{{date("H")}}</span><span>:59</span>
             </span>
             <a href="{{url('/building/DTETI')}}"><span id="dept-name" >Dept. Electrical Engineering and Information Technology</span></a>
           </div>
@@ -51,6 +51,9 @@
               <span style="margin:0 0 0 4px;"><hr style="background-color:#F5C922;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Warning Level 98 kW</span>
               <span style="float:right;margin-right:4px;"><hr style="background-color:#bc250c;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Alert Level 87 kW</span>
           </div>
+          <div id="Donutchart">
+
+          </div>
         </div>
       </div>
       <!-- <div class="col-sm-2 col-sm-offset-10">
@@ -65,7 +68,10 @@
   </div>
   <!-- <a href="{{url('building/dteti')}}">Go to building details</a> -->
 </body>
-<script src="{{asset('js/chart.js')}}"></script>
+
 <script type="text/javascript"> mainchart('chart_container');
 </script>
+<script type="text/javascript">Donutchart('Donutchart');
+</script>
+
 @endsection
