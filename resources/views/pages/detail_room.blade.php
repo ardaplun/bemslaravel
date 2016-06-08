@@ -1,4 +1,4 @@
-@extends('layouts.2nd-layout')
+@extends('layouts.main-layout')
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>

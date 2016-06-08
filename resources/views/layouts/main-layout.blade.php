@@ -50,7 +50,7 @@
                     <div class="row">
                       <div class="col-sm-3">
                         <div class="row">
-                            <div class="logo center-logo">
+                            <div class="logo center-logo" style="line-height:5em">
                                 <center><a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" /></a></center>
                             </div>
 
@@ -73,7 +73,7 @@
                             <div id="timer" class="mainmenu pull-left" >
                               <span class="show-time">{{date("H:i")}}</span>
                               <span class="show-weekday">{{date("l")}}</span>
-                              <div class="show-date" >{{date("d M Y")}}</div>
+                              <div class="show-date" >{{date(" M Y")}}</div>
 
 
                             </div>
@@ -127,5 +127,6 @@
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
+
     </body>
 </html>

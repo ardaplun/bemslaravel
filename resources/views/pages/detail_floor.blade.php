@@ -1,4 +1,4 @@
-@extends('layouts.2nd-layout')
+@extends('layouts.main-layout')
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
@@ -14,8 +14,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-              <span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;padding-left:1.7em">ELECTRICAL ENGINEERING AND TECHNOLOGY INFORMATION</span> : <span id="floor_lv" class="txt_blue">{{$floor}}<sup style="font-size:15px;">ST</sup> FLOOR</span>
-              <div class="col-sm-7 mepet row">
+              <a href="{{url('/building/')}}/{{$building}}"><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;padding-left:1.7em">ELECTRICAL ENGINEERING AND TECHNOLOGY INFORMATION</span></a> : <span id="floor_lv" class="txt_blue">{{$floor}} FLOOR</span>
+              <div class="col-sm-7 mepet ">
                 <div class="col-sm-6 mepet" style="padding-top:0.3em">
                   <div class="btn-group" style="border: 1px solid #B2B2B3;border-radius: 5px;width:100%">
                       <div class="btn-group " data-toggle="buttons" id="area_button" style="border: 1px solid #B2B2B3;border-radius: 3px;width:100%">
@@ -54,7 +54,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="col-sm-6 "  style="padding-top:0.3em">
+                <div class="col-sm-6 pull-right "  style="padding-top:0.3em">
                   <div class="btn-group" style="border: 1px solid #B2B2B3;border-radius: 5px;">
                       <div class="btn-group " data-toggle="buttons" style="border: 1px solid #B2B2B3;border-radius: 3px;" >
                         <label class="btn" disabled>
@@ -81,25 +81,25 @@
                   <table id="map" style="width:100%;height:100%;table-layout:fixed;">
                     <tr >
                       <td></td>
-                      <td class="map-data-0"></td>
-                      <td class="map-data-1"></td>
+                      <td class="map-data-0"><img src="{{asset('images/icon/meeting_room_ss.png')}}"/>&emsp; Meeting Room</td>
+                      <td class="map-data-1"><img src="{{asset('images/icon/study_hall_ss.png')}}"/>&emsp; Other Room</td>
                       <td></td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td class="map-data-2"></td>
-                      <td class="map-data-3"></td>
+                      <td class="map-data-2"><img src="{{asset('images/icon/research_lab_ss.png')}}"/>&emsp; Laboratory</td>
+                      <td class="map-data-3"><img src="{{asset('images/icon/individual_office_ss.png')}}"/>&emsp; Room</td>
                       <td></td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td class="map-data-4"></td>
-                      <td class="map-data-5"></td>
+                      <td class="map-data-4"><img src="{{asset('images/icon/other_ss.png')}}"/>&emsp; Corridor Area</td>
+                      <td class="map-data-5"><img src="{{asset('images/icon/share_office_ss.png')}}"/>&emsp; Student Room</td>
                       <td></td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td class="map-data-6"></td>
+                      <td class="map-data-6"><img src="{{asset('images/icon/class_room_ss.png')}}"/>&emsp; Lecture Room</td>
                       <td class="map-data-7"></td>
                       <td></td>
                     </tr>
@@ -107,7 +107,7 @@
                 </div>
 
               </div>
-              <div class="col-sm-5" >
+              <center><div class="col-sm-5 mepet pull-right" >
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
                   <div id="container_pie0" class="container_donut_style" style="width:100%;height:24em"></div>
                   <script type="text/javascript">Donutchart('container_pie0','Area Usage');</script>
@@ -116,12 +116,13 @@
                   <div id="container_pie1" class="container_donut_style" style="width:100%;height:24em"></div>
                   <script type="text/javascript">Donutchart('container_pie1', 'Load Usage');</script>
                 </div>
-              </div>
+              </div></center>
             </div>
             <div class="col-sm-12">
-            <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68);">
-              <div id="container_sum" class="container_bar_style" style="width:100%;border:1px solid #B2B2B3;" ></div>
+            <div style="background-color:rgba(255, 255, 255, 0.68);padding:1em 0 0 1em">
+              <div id="container_sum" class="container_bar_style" style="width:100%;border:1px solid #B2B2B3;height: 25em" ></div>
               <script type="text/javascript">buildingchart('container_sum');</script>
+              <br><br><br>
             </div>
           </div>
         </div>

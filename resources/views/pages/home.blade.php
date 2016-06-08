@@ -4,7 +4,7 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <!-- title content -->
 <div id="chart-title">
-      <div class="upline-title">STATUS</div>
+      <div class="upline-title">EEIT STATUS</div>
           <div class="line-title">
             <div class="cycle-title"></div>
           </div>
@@ -17,7 +17,7 @@
       <div class="col-sm-6 col-sm-offset-3">
         <div style="background-color:white;">
           <div id="top-status">
-            <span id="status-jam" class="show-date">{{date("d M Y")}}</span>
+            <span id="status-jam" class="show-date">{{date(" M Y")}}</span>
             <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
           </div>
           <div id="middle-status" style="background-color:#F8DAE6;">

@@ -1,4 +1,4 @@
-@extends('layouts.2nd-layout')
+@extends('layouts.main-layout')
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
@@ -14,7 +14,7 @@
           <div style="font-size:1em;color:#028EC1;">{{$building}} Bld.</div>
           <div style="font-size:12px;color:red;float:right;background-color:transparent">Tip: Click on each floor area to go to floor level page</div>
             <hr style="background-color: #44ACD1;height:2px;">
-          <div style="overflow:scroll;padding:0;height:25em;">
+          <div style="overflow:scroll;padding:0;height:30em;">
             <ul class="mepet">
             @forelse ($data_floors as $data_floor)
 
