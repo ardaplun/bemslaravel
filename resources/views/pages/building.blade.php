@@ -14,14 +14,14 @@
           <div style="font-size:1em;color:#028EC1;">{{$building}} Bld.</div>
           <div style="font-size:12px;color:red;float:right;background-color:transparent">Tip: Click on each floor area to go to floor level page</div>
             <hr style="background-color: #44ACD1;height:2px;">
-          <div style="overflow:scroll;padding:0;height:30em;margin-right:-1.2em;">
+          <div style="overflow:scroll;padding:0;height:30em;margin-right:-1.5em;">
 
             <ul class="mepet" >
             @forelse ($data_floors as $data_floor)
 
              <li id="show_{{$data_floor->id_floor}}">
                <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}"><div class="col-sm-12 mepet">
-                   <div class="mepet" style="width:53%;display:inline-block;">
+                   <div class="mepet" style="width:56.7%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;width:100%">
                          <div>
                            <span id="status-jam-building" class="show-date">{{date("d M Y")}}</span>
@@ -50,7 +50,7 @@
                          </div>
                          </div>
                    </div>
-                        <div class="status__chart" style="display:inline-block;min-width:46%;height:230px;float:right;">
+                        <div class="status__chart" style="display:inline-block;min-width:43%;height:230px;float:right;">
                             <div style="line-height:20px;font-size:0.7em;color:#707070;background-color:#FFF">
                                     <span style="margin:0 0 0 4px;">Current Demand <span id="'+bld_pnt_name+'_show_power'+show_data+'"></span> kW</span>
                                     <span style="float:right;margin-right:4px;">Peak Demand kW</span>
