@@ -22,14 +22,14 @@
           </div>
           <div id="middle-status" style="background-color:#F8DAE6;">
             <span id="left-clock">
-              <span style="font-size:1.4em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour">{{date("H")}}</span><span>:59</span>
+              <span style="font-size:1.7em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.3em;display:inline-block;">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:59</span>
             </span>
             <a href="{{url('/building/DTETI')}}"><span id="dept-name" >Dept. Electrical Engineering and Information Technology</span></a>
           </div>
           <!-- generate status overview -->
           <div id="status-big">
             <div style="height:8em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
-                <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.3em">1<sup>st</sup> - Today</div>
+                <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.4em">1<sup>st</sup> - Today</div>
                 <div style="font-size:3.2em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy" >12.345,67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
                 <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
             </div>
