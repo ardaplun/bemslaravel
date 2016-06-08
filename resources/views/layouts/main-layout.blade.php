@@ -18,6 +18,7 @@
         <script src="{{asset('js/respond.min.js')}}"></script>
         <![endif]-->
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>

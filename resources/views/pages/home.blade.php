@@ -4,7 +4,7 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <!-- title content -->
 <div id="chart-title">
-      <div class="upline-title">EEIT STATUS</div>
+      <div class="upline-title">EE&IT STATUS</div>
           <div class="line-title">
             <div class="cycle-title"></div>
           </div>
@@ -14,7 +14,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-6 col-sm-offset-3 mepet">
         <div style="background-color:white;">
           <div id="top-status">
             <span id="status-jam" class="show-date">{{date(" M Y")}}</span>
@@ -28,16 +28,16 @@
           </div>
           <!-- generate status overview -->
           <div id="status-big">
-            <div style="height:6.5em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
-                <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1em">1<sup>st</sup> - Today</div>
-                <div style="font-size:2.5em;text-align:right;width:50%;display:inline-block;margin-top:20px;color:#707070;font-weight:bold;"><span id="show-energy" >12.345,67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
+            <div style="height:8em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
+                <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.3em">1<sup>st</sup> - Today</div>
+                <div style="font-size:3.2em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy" >12.345,67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
                 <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
             </div>
           </div>
           <div id="status-chart-acc">
             <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
               <span id="daily-consumed">Daily Consumed Energy Accumulation 123.45  kWh</span>
-              <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:6.6em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
+              <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
             </div>
             <div style="height:40px;line-height:40px;font-size:1em;color:#707070;">
               <span style="margin:0 0 0 4px;">Current Demand <span id="show_power">123</span> kW</span>
@@ -71,7 +71,7 @@
 
 <script type="text/javascript"> mainchart('chart_container');
 </script>
-<script type="text/javascript">Donutchart('Donutchart');
+<script type="text/javascript">Donutchart('Donutchart','EE&IT');
 </script>
 
 @endsection

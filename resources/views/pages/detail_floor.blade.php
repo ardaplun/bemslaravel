@@ -81,8 +81,8 @@
                   <table id="map" style="width:100%;height:100%;table-layout:fixed;">
                     <tr >
                       <td></td>
-                      <td class="map-data-0"><img src="{{asset('images/icon/meeting_room_ss.png')}}"/>&emsp; Meeting Room</td>
-                      <td class="map-data-1"><img src="{{asset('images/icon/study_hall_ss.png')}}"/>&emsp; Other Room</td>
+                      <td class="map-data-0" style="width: 15em;"><img src="{{asset('images/icon/meeting_room_ss.png')}}"/>&emsp; Meeting Room</td>
+                      <td class="map-data-1" style="width: 15em;"><img src="{{asset('images/icon/study_hall_ss.png')}}"/>&emsp; Other Room</td>
                       <td></td>
                     </tr>
                     <tr>

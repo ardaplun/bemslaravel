@@ -16,7 +16,17 @@
             <div class="col-sm-12">
 
               <div class="col-sm-5" >
-                  <h2>{{$data->room_category}}</h2>
+
+                  @if ($data->room_category === 'Laboratory')
+                    <h2><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>{{$data->room_category}}</div></h2>
+                  @elseif($data->room_category === 'Lecture')
+                    <h2><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>{{$data->room_category}}</div></h2>
+                  @elseif($data->room_category === 'Student')
+                    <h2><div><img src="{{asset('images/icon/share_office_ss.png')}}"/>{{$data->room_category}}</div></h2>
+                  @endif
+
+
+
               </div>
               <div class="col-sm-7" >
                 <div class="location-room-stay">
@@ -43,11 +53,12 @@
                           </div>
                         </div>
                         <div class="col-md-3" id="medal_show">
-
+                          <span>excelent</span>
+                          <img src="{{asset('images/medal.png')}}" style="position:absolute;right:5em;top:2em"/>
                         </div>
                     </div><!--End row-->
                     <div class="row">
-                      <div class="col-sm-8" id="show_floor" style="display:inline-block;">
+                      <!-- <div class="col-sm-8" id="show_floor" style="display:inline-block;">
                       <div style="padding-left: 10px;padding-top:1em;font-size:1.2em" class="txt_blue"><strong>Room : {{$data->room_name}}</strong></div>
                         <div style="line-height:1.4em;">
                         <div style="width:24%;display:inline-block">Energy: '+energy_percent+'%</div>
@@ -56,7 +67,46 @@
                             <div class="progress-bar '+energy_class_lv+'"style="width:'+energy_percent +'%;background-image:none;float:right;"></div>
                             </div>
                         </div>
+                      </div> -->
+                      <div id="floor'+show_data+'" style="display:inline-block;padding-left:25px;padding-top: 15px"></div>
+
+                      <div style="width:420px;padding-left:2em">
+                        <div style="color:#008ec3"><b>Room : {{$data->room_name}}</b></div>
+                          <!-- <div style="margin-bottom:1px">';
+                            <div style="line-height:1.4em;"> ';
+                              <div style="width:24%;display:inline-block">Energy: '+energy_percent+'%</div>';
+                              <div id="energy_num" style="width:37%;float:right;display:inline-block;background-image:none;color:'+txtcolor_e+';font-size: 19px;">'+energy_value.toFixed(val_decimal)+' kWh.</div>';
+                              <div class="progress-new" style="width:38%;display:inline-block;">';
+                                <div class="progress-bar '+energy_class_lv+'"style="width:'+energy_percent +'%;background-image:none;float:right;"></div>';
+                              </div>';
+                            </div>';
+                            <div style="line-height:1.4em;"> ';
+                              <div style="width:24%;display:inline-block">Power: '+power_percent+'%</div>';
+                              <div id="power_num" style="width:37%;float:right;display:inline-block;background-image:none;color:'+txtcolor_p+';font-size: 19px;">'+power_value.toFixed(val_decimal)+' kW.</div>';
+                              <div class="progress-new" style="width:38%;display:inline-block;">';
+                                <div class="progress-bar '+power_class_lv+'"  style="width: '+power_percent+'%;background-image:none;float:right;position:relative;"></div>';
+                              </div>';
+                            </div>';
+                             <div style="font-size:80%; "><small>Peak demand '+peak_power.toFixed(val_decimal)+' kW</small></div>';
+                          </div> -->
+                       </div>
+                       <div style="line-height:1em;padding-left:2em">
+                          <div style="width:22%;display:inline-block">Energy : 12%</div>
+                          <div class="progress-new" style="width:45%;display:inline-block;">
+                            <div class="progress-bar slide_lv2"style="width:50%;background-image:none;float:right;">
+                              <div id="energy_num" style="color:black;position:absolute;right:18em;text-shadow:none">12.2 kWh</div>
+                            </div>
+                          </div>
+                       </div>
+                      <div style="line-height:1em;padding-left:2em">
+                        <div style="width:22%;display:inline-block">Power &nbsp;: 12%</div>
+                        <div class="progress-new" style="width:45%;display:inline-block;">
+                          <div class="progress-bar slide_lv1"  style="width: 15%;background-image:none;float:right;">
+                            <div id="power_num" style="color:black;position:absolute;right:18em;text-shadow:none">12.2 KW</div>
+                          </div>
+                        </div>
                       </div>
+                      <div style="font-size:80%;float:left;padding-left:2.5em "><small id="peak_num">Peak demand</small></div>
 
                     </div>
 
@@ -72,6 +122,7 @@
                 <div class="col-md-12">
                  <!--chart area-->
                  <div id="container_pie0" style="width:100%;height:300px;">Pie Chart</div>
+                 <script type="text/javascript">Donutchart('container_pie0', '{{$data->room_name}}');</script>
                 </div>
               </div> <!--End row-->
               <hr />
@@ -81,6 +132,7 @@
                 <div class="col-md-12">
                  <!--chart area-->
                  <div id="container_sum" style="width:100%;height:200px;">Bar Chart</div>
+                 <script type="text/javascript">buildingchart('container_sum');</script>
                 </div>
               </div> <!--End row-->
               </br>

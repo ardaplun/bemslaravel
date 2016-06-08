@@ -275,10 +275,14 @@ function Donutchart(container,title){
         plotShadow: false,
         renderTo: container,
         type: 'pie',
+        style: {
+                fontFamily: "Helvetica"
+            }
         // marginTop:90
     },
     title: {
-        text: title,
+        text: '<div style="font-size:large; font-weight:bold; z-index:0; text-transform:uppercase;">'+title+'</div>',
+
         style: {
           fontWeight: 'lighter',
 
@@ -287,7 +291,9 @@ function Donutchart(container,title){
         floating: true
     },
     tooltip: {
-        enabled:false,
+        enabled:true,
+        headerFormat: '<span style="font-size:larger; font-weight:bold; text-transform:uppercase;">{point.key}</span><br/>',
+        pointFormat: 'energy: <b>{point.y:.1f} kWh. ({point.percentage:.1f}%)</b>',
     },
     credits:{
         enabled:false,
@@ -301,8 +307,10 @@ function Donutchart(container,title){
             cursor: 'pointer',
             dataLabels: {
             enabled: true,
+            connectorColor: this.color,
+            connectorWidth: 2,
             size:'100%',
-            format: '<span>{point.percentage:.1f} %</span><br /> {point.name}',
+            format: '<span style="color:{point.color};font-size:2em">{point.percentage:.1f} %</span><br /> {point.name}',
             style: {
               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                 }
