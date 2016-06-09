@@ -105,7 +105,9 @@
                     </tr>
                   </table>
                 </div>
-
+                  <div class="display:inline-block">
+                    <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/LABSE"><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>LAB SE</div></a></h2>
+                  </div>
               </div>
               <center><div class="col-sm-5 mepet pull-right" >
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
