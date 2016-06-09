@@ -24,14 +24,14 @@
             <span id="left-clock">
               <span style="font-size:1.7em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.3em;display:inline-block;">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:59</span>
             </span>
-            <a href="{{url('/building/DTETI')}}"><span id="dept-name" >Dept. Electrical Engineering and Information Technology</span></a>
+            <a href="{{url('/building/DTETI')}}"><span id="dept-name" >Dept. of Electrical Engineering and Information Technology</span></a>
           </div>
           <!-- generate status overview -->
           <div id="status-big">
-            <div style="height:8em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
+            <div style="height:8.3em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
                 <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.4em">1<sup>st</sup> - Today</div>
-                <div style="font-size:3.2em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy" >12.345,67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
-                <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
+                <div style="font-size:3.4em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy" >12,345.67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
+                <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span style="font-size:1.4em; id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
             </div>
           </div>
           <div id="status-chart-acc">
@@ -39,7 +39,7 @@
               <span id="daily-consumed">Daily Consumed Energy Accumulation 123.45  kWh</span>
               <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
             </div>
-            <div style="height:40px;line-height:40px;font-size:1em;color:#707070;">
+            <div style="height:40px;line-height:40px;font-size:1.2em;color:#707070;">
               <span style="margin:0 0 0 4px;">Current Demand <span id="show_power">123</span> kW</span>
               <span style="float:right;margin-right:4px;">Peak Demand 234 kW</span>
             </div>
