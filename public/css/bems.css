@@ -5,7 +5,7 @@
 
 .show-weekday {
 	color:#008ec3;
-	font-size:2em;
+	font-size:1.5em;
 }
 
 .show-date {
@@ -21,6 +21,7 @@
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	padding-left: 2em;
+	margin-top: 1.2em
 }
 
 .center-logo{
@@ -129,7 +130,7 @@
 
 #floor-name{
 	display:inline-block;
-	font-size:1.2em;
+	font-size:1.6em;
 	color:#707070;
 	width: 65%;
 	line-height: 0.5em;
@@ -152,13 +153,10 @@
 #daily-consumed{
 	display:inline-block;
 	font-size:1.3em;
-<<<<<<< HEAD
-=======
-	//font-weight:bold;
->>>>>>> 123bc46148b26b4d46cd48aaf36af2ed43772c07
 	line-height:2em;
 	color:#666;
 	margin:0 0 0 4px;
+	line-height: 2em;
 }
 
 #show-energy{
@@ -232,7 +230,7 @@
 .location-room{
 	display: block;
 	background: #008ec3;
-	width: 70%;
+	width: 67%;
 	height: 65px;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -337,3 +335,11 @@
 .slide_lv3{background-color:#bc250c;color: #5d160b;}
 .slide_lv3_sub{background-color:#e51c0d;}
 .slide_lv3_txt{color: #bc250c;}
+
+
+.site-manager-header{
+	background-color: #acaaab;
+	padding: 3px;
+	border-radius:3px;
+	margin: 4px 0;
+}

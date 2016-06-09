@@ -15,12 +15,12 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3 mepet">
-        <div style="background-color:white;">
+        <div style="background-color:white;width:105%">
           <div id="top-status">
             <span id="status-jam" class="show-date">{{date(" M Y")}}</span>
             <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
           </div>
-          <div id="middle-status" style="background-color:#F8DAE6;">
+          <div id="middle-status" style="background-color:#F8DAE6;line-height:1.3em;">
             <span id="left-clock">
               <span style="font-size:1.7em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.3em;display:inline-block;">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:59</span>
             </span>

@@ -4,7 +4,7 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <body>
   <div class="container">
-    <div class="row mepet">
+    <div class="row mepet" style="width:105%">
       <div class="left-build-container">
         kiri
       </div>
@@ -21,15 +21,15 @@
 
              <li id="show_{{$data_floor->id_floor}}">
                <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}"><div class="col-sm-12 mepet">
-                   <div class="mepet" style="width:56.7%;display:inline-block;">
+                   <div class="mepet" style="width:56.5%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;width:100%">
                          <div>
                            <span id="status-jam-building" class="show-date">{{date("d M Y")}}</span>
                            <span id="faculty-name-building">Faculty of Engineering, Universitas Gadjah Mada</span>
                          </div>
-                         <div style="background-color:#F8DAE6;line-height:1em" >
+                         <div style="background-color:#F8DAE6;line-height:1.6em" >
                            <span id="left-clock-building">
-                           <span style="font-size:1.1em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1em;display:inline-block;">:00-</span><span class="show-hour">{{date("H")}}</span><span>:59</span>
+                           <span style="font-size:1.6em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.2em;display:inline-block;">:00-</span><span class="show-hour">{{date("H")}}</span><span>:59</span>
                            </span>
                            <span id="floor-name">{{$data_floor->floor_name}} Floor</span>
                          </div>
@@ -45,7 +45,7 @@
                            </div>
                          </div>
                          <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
-                           <span id="daily-consumed">Daily Consumed Energy Accumulation 123.45  kWh</span>
+                           <span id="daily-consumed" style="font-size:1.1em;line-height:2.5em">Daily Consumed Energy Accumulation 123.45  kWh</span>
                            <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:6.6em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
                          </div>
                          </div>

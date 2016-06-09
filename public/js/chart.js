@@ -307,9 +307,11 @@ function Donutchart(container,title){
             cursor: 'pointer',
             dataLabels: {
             enabled: true,
+            distance: 20,
             connectorColor: this.color,
+            connectorPadding: 2,
             connectorWidth: 2,
-            size:'100%',
+            size:"100%",
             format: '<span style="color:{point.color};font-size:2em">{point.percentage:.1f} %</span><br /> {point.name}',
             style: {
               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
@@ -320,7 +322,7 @@ function Donutchart(container,title){
     series: [{
         name: 'Brands',
         colorByPoint: true,
-        size: '70%',
+        size: '60%',
         innerSize: '70%',
         allowPointSelect:false,
         states: {

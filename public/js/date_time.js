@@ -8,7 +8,7 @@ function date_time(id)
 
         d = date.getDate();
         day = date.getDay();
-        days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        days = new Array('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY');
         h = date.getHours();
         if(h<10)
         {

@@ -13,9 +13,9 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" style="padding: 0em 3em 0em 4em;">
 
-              <div class="col-sm-5" >
+              <div class="col-sm-5 mepet" >
 
                   @if ($data->room_category === 'Laboratory')
                     <h2><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>{{$data->room_category}}</div></h2>
@@ -25,6 +25,51 @@
                     <h2><div><img src="{{asset('images/icon/share_office_ss.png')}}"/>{{$data->room_category}}</div></h2>
                   @endif
 
+                  <div class="box-transparent-redius" style="background-color: #fff;">
+                    <div id="show_room_img">
+                      <img src="{{asset('images/plans/EE_LAB_examples.png')}}" style="max-height:250px;width:400px;">
+                    </div>
+                    <div id="show_table">
+
+                    </div>
+                    <br />
+                    <div id="show_ref_img">
+
+                    </div>
+                    <div class="box-gray-redius" style="">
+                    <!--Map meaning-->
+                        <span><img src="{{asset('images/icon/light_ss.png')}}"> <small>Light</small></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span><img src="{{asset('images/icon/multi_ss.png')}}"> <small>Multi Sensor</small></span>
+                        &nbsp;&nbsp;&nbsp;
+                        <span><img src="{{asset('images/icon/outlet_ss.png')}}"> <small>Outlet</small></span></br>
+                        <span><img src="{{asset('images/icon/air_cond.png')}}"> <small>Air Cond</small></span>
+                        &nbsp;&nbsp;
+                        <span><img src="{{asset('images/icon/air_3ph.png')}}"> <small>Air Cond 3 phase</small></span>&nbsp;&nbsp;&nbsp;
+                    </div>
+                  </div>
+                  <div class="box-gray-redius">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!--site manager-->
+                        <div class="site-manager-header txt_white">Site Manager</div>
+                        <div id="slimscroll" class="tree" style="display:inline-block;">
+                          <ul>
+                            <li class="parent_li">
+                              <span class="badge badge-home">Electrical Engineering & Information Technology</span>
+                              <ul>
+                                <li class="parent_li">
+                                  <span class="badge badge-success">3rd Floor</span>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                        <script type="text/javascript" src="js/tree.js"></script>
+                      </div>
+                    </div> <!--End row-->
+                    <br />
+                  </div>
 
 
               </div>
@@ -32,16 +77,34 @@
                 <div class="location-room-stay">
                   <div class="location-floor">
                     <div class="location-bar-title">LOCATION: </div>
-                    <div id="floor_lv" class="location-floor-number txt_large txt_blue">1</div>
-                    <div class="location-floor-suffix"><div class="txt_blue">th<small id="floor_suffix"></small></div><div>FLOOR</div></div>
+                    <div id="floor_lv" class="location-floor-number txt_large txt_blue">{{$data->id_floor}}</div>
+                    @if($data->id_floor == 1)
+                    <div class="location-floor-suffix">
+                      <div class="txt_blue">st<small id="floor_suffix"></small></div>
+                    @elseif($data->id_floor == 2)
+                    <div class="location-floor-suffix">
+                      <div class="txt_blue">nd<small id="floor_suffix"></small></div>
+                    @elseif($data->id_floor == 3)
+                    <div class="location-floor-suffix">
+                      <div class="txt_blue">rd<small id="floor_suffix"></small></div>
+                    @elseif($data->id_floor == UG)
+                    <div class="location-floor-suffix">
+                      <div class="txt_blue"><small id="floor_suffix"></small></div>
+                    @else
+                    <div class="location-floor-suffix">
+                      <div class="txt_blue">th<small id="floor_suffix"></small></div>
+                    @endif
+                      <div>FLOOR</div>
+                    </div>
                   </div>
+
                   <div class="location-room" style="margin-right: -15px;">
                     <div class="location-bar-title">ROOM: </div>
                     <span id="room_name" style="position: absolute; font-size: 1.5em; padding-top: 17px;overflow:hidden;text-overflow:ellipsis;width:350px;color:white">{{$data->room_name}}</span>
                   </div>
                 </div>
 
-                  <div class="box-gray-redius">
+                  <div class="box-gray-redius" style="margin-top:1em">
                     <div class="row">
                         <div class="col-md-3"><div style="padding-left: 10px">GROUP :</div></div>
                         <div class="col-md-6">
@@ -53,8 +116,8 @@
                           </div>
                         </div>
                         <div class="col-md-3" id="medal_show">
-                          <span>excelent</span>
-                          <img src="{{asset('images/medal.png')}}" style="position:absolute;right:5em;top:2em"/>
+                          <span>Excelent</span>
+                          <img src="{{asset('images/medal.png')}}" style="position:absolute;right:4em;top:2em"/>
                         </div>
                     </div><!--End row-->
                     <div class="row">
@@ -163,16 +226,5 @@
 
 
 
-<!-- <section id="slider">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-              <center><p>
-                this buildiiiiing is {{$building}} floor {{$floor}} and room {{$room}}
-              </p><center>
-
-            </div>
-        </div>
-    </div>
-</section> -->
+<!-- <script src="{{asset('js/tree.js')}}"></script> -->
 @endsection

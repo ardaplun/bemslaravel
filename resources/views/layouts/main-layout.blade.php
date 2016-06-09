@@ -13,6 +13,7 @@
         <link href="{{asset('css/main.css')}}" rel="stylesheet">
         <link href="{{asset('css/bems.css')}}" rel="stylesheet">
         <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+        <link href="{{asset('css/tree.css')}}" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="{{asset('js/html5shiv.js')}}"></script>
         <script src="{{asset('js/respond.min.js')}}"></script>
@@ -80,10 +81,10 @@
                             </div>
                             <div class="mainmenu pull-right center-nav">
                                 <ul class="nav navbar-nav collapse navbar-collapse vertical">
-                                    <li><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>Home</a></li>
-                                    <li><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>Menu</a></li>
-                                    <li><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>About Us</a></li>
-                                    <li><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>Login</a></li>
+                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>HOME</a></li>
+                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>MENU</a></li>
+                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>ABOUT US</a></li>
+                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>LOGIN</a></li>
                                 </ul>
                             </div>
                         </div>

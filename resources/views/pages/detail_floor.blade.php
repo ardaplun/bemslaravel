@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-              <a href="{{url('/building/')}}/{{$building}}"><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;padding-left:1.7em">ELECTRICAL ENGINEERING AND TECHNOLOGY INFORMATION</span></a> : <span id="floor_lv" class="txt_blue">{{$floor}} FLOOR</span>
+              <a href="{{url('/building/')}}/{{$building}}"><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;">ELECTRICAL ENGINEERING AND TECHNOLOGY INFORMATION</span></a> : <span id="floor_lv" class="txt_blue">{{$data->floor_name}} FLOOR</span>
               <div class="col-sm-7 mepet ">
                 <div class="col-sm-6 mepet" style="padding-top:0.3em">
                   <div class="btn-group" style="border: 1px solid #B2B2B3;border-radius: 5px;width:100%">
@@ -73,7 +73,7 @@
                       </div>
 
                     </div>
-                    <div id="show_map_meaning" class="mode_black pointer-mouse" style="width:86%">
+                    <div id="show_map_meaning" class="mode_black pointer-mouse" style="width:89%">
                         &emsp;<img src="{{asset('images/list.png')}}"/>&nbsp;&nbsp; Map Meaning
                     </div>
                 </div>

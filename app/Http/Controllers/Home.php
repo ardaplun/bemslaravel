@@ -31,8 +31,8 @@ class Home extends Controller
 
     public function detail_floor($building, $floor)
     {
-
-      return view('pages/detail_floor', array('page' => 'detail-floor', 'building' => $building, 'floor' => $floor));
+      $data = \DB::table('data_floor')->where(['id_building'=>$building, 'id_floor'=>$floor])->first();
+      return view('pages/detail_floor', array('page' => 'detail-floor', 'building' => $building, 'floor' => $floor, 'data'=>$data));
     }
 
     public function detail_room($building, $floor, $room)
