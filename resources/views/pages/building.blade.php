@@ -41,7 +41,7 @@
                              12.345,67<span id="'+bld_pnt_name+'_show_energy'+show_data+'"></span><span style="font-size:50%;"> kWh</span>
                            </div>
                            <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em;font-size:2em;">
-                             <span id="show_percent_energy">100</span><span style="font-size:40%;">%</span>
+                             <span id="show_percent_energy" style="font-size:1.4em">100</span><span style="font-size:40%;">%</span>
                            </div>
                          </div>
                          <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
