@@ -83,7 +83,8 @@
                                 <ul class="nav navbar-nav collapse navbar-collapse vertical">
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>HOME</a></li>
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>MENU</a></li>
-                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>ABOUT US</a></li>
+                                    <!-- <li style="padding: 0em 2em  0em 2em;"><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>ABOUT US</a></li> -->
+                                    <li style="padding: 0em 2em  0em 2em;"><a href="#" data-toggle="modal" data-target="#aboutus">ABOUT US</a></li>
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>LOGIN</a></li>
                                 </ul>
                             </div>
@@ -130,5 +131,30 @@
         <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
 
+        <!-- about us modal -->
+        <div class="modal fade" id="aboutus"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">ABOUT US</h4>
+              </div>
+              <div class="modal-body">
+                <div style="text-align:center;">
+                  <img src="{{asset('images/logo100year_eng.png')}}" style="max-height:120px;">&emsp;&emsp;
+                  <img src="{{asset('images/eppo_vrs.jpg')}}" style="max-height:120px;">
+                </div>
+                <br/><br/>
+                <strong>BEMS </strong> <br />
+                <span id="version-detail"></span>
+                Copyright 2016, Dept. Electrical Engineering and Information Technology.
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </body>
 </html>

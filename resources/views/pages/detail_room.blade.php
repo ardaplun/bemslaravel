@@ -2,6 +2,8 @@
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
+<script src="{{asset('js/jquery.slimscroll.js')}}"></script>
+<script src="{{asset('js/tree.js')}}"></script>
 <div id="chart-title">
       <div class="upline-title">ROOM</div>
           <div class="line-title">
@@ -56,10 +58,22 @@
                         <div id="slimscroll" class="tree" style="display:inline-block;">
                           <ul>
                             <li class="parent_li">
-                              <span class="badge badge-home">Electrical Engineering & Information Technology</span>
+                              <span class="badge badge-home"><i class="icon-home"></i> Electrical Engineering & Information Technology</span>
                               <ul>
-                                <li class="parent_li">
-                                  <span class="badge badge-success">3rd Floor</span>
+                                <li style="display:list-style" class="parent_li">
+                                  <span class="badge badge-success"><i class="icon-minus-sign"></i>3rd Floor</span>
+                                  <ul>
+                                    <li style="display:list-style" class="parent_li">
+                                      <span class="badge badge-success hidden-node"><i class="icon-plus-sign"></i>South</span>
+                                      <ul>
+                                        <li><a class="hidden-node" href="#"><span><i class="icon-leaf"></i>Lab. E-System</span></a>
+                                        </li>
+                                        <li><a class="hidden-node" href="#"><span><i class="icon-leaf"></i>E6 Room</span></a>
+                                        </li>
+                                      </ul>
+                                    </li>
+
+                                  </ul>
                                 </li>
                               </ul>
                             </li>
@@ -220,7 +234,17 @@
 
 
 
+<script type="text/javascript">
+// $('#slimscroll').append(html_string);
 
+$('#slimscroll').slimscroll({
+    height: '360px',
+    width: '100%'
+});
+
+$('.hidden-node').parent().hide('fast');
+$('.hidden-node').attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+</script>
 
 
 

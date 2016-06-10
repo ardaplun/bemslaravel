@@ -31,7 +31,7 @@
             <div style="height:8.3em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
                 <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.4em">1<sup>st</sup> - Today</div>
                 <div style="font-size:3.4em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy" >12,345.67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
-                <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span style="font-size:1.4em; id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
+                <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span style="font-size:1.4em;" id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
             </div>
           </div>
           <div id="status-chart-acc">
@@ -56,11 +56,11 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-sm-2 col-sm-offset-10">
+      <div class="col-sm-2">
         <div id="show-main-map" style="width:50%">
-            <img src="{{asset('images/home/map-btn.png')}}" class="pointer-mouse">
+            <img src="{{asset('images/home/map-btn.png')}}" class="pointer-mouse" style="position:absolute;right:0em;top:25em">
         </div>
-      </div> -->
+      </div>
 
 
     </div>

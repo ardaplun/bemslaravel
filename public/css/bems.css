@@ -109,7 +109,7 @@
 	background-color:#EFA9C5;
 	color:white;
 	font-weight:bold;
-	padding: 0.25em;
+	padding: 0.3em 0.25em 0.28em 0.25em;
 }
 #left-clock-building{
 	display:inline-block;
@@ -117,7 +117,7 @@
 	background-color:#EFA9C5;
 	color:white;
 	font-weight:bold;
-	padding: 0.25em;
+	padding: 0.25em 0.25em 0.1em 0.25em;
 }
 
 #dept-name{
@@ -169,13 +169,13 @@
 }
 
 .right-build-container{
-	 width:69%;
+	 width:71.5%;
 	 display:inline-block;
 	 overflow:hidden;
 }
 
 .left-build-container{
-	width:30%;
+	width:28%;
 	display:inline-block;
 }
 

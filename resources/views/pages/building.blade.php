@@ -27,9 +27,9 @@
                            <span id="status-jam-building" class="show-date">{{date("d M Y")}}</span>
                            <span id="faculty-name-building">Faculty of Engineering, Universitas Gadjah Mada</span>
                          </div>
-                         <div style="background-color:#F8DAE6;line-height:1.6em" >
+                         <div style="background-color:#F8DAE6;line-height:1.3em" >
                            <span id="left-clock-building">
-                           <span style="font-size:1.6em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.2em;display:inline-block;">:00-</span><span class="show-hour">{{date("H")}}</span><span>:59</span>
+                           <span style="font-size:1.6em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.2em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.2em">{{date("H")}}</span><span style="font-size:1.2em">:59</span>
                            </span>
                            <span id="floor-name">{{$data_floor->floor_name}} Floor</span>
                          </div>
