@@ -116,8 +116,8 @@
                 <div class="container">
                   <div class="col-sm-12">
 
-                    <p class="pull-left"style="color:white;font-size:9px">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
-                    <p class="pull-right"style="color:white;font-size:9px"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
+                    <p class="pull-left"style="color:#22334d;font-size:9px">Copyright © {{date('Y')}} Dept. of Electrical Engineering and Information Technology | All rights reserved.</p>
+                    <p class="pull-right"style="color:#22334d;font-size:9px"><span>Designed by Smart System Research Group and <a target="_blank" href="http://www.sensativ.com">Sensativ</a></span></p>
 
                   </div>
                 </div>
@@ -141,13 +141,18 @@
               </div>
               <div class="modal-body">
                 <div style="text-align:center;">
-                  <img src="{{asset('images/logo100year_eng.png')}}" style="max-height:120px;">&emsp;&emsp;
-                  <img src="{{asset('images/eppo_vrs.jpg')}}" style="max-height:120px;">
+                  <img src="{{asset('images/UGM_3D_NEW_resize.jpg')}}" style="max-height:80px;">&emsp;&emsp;
+                  <img src="{{asset('images/logo esystem lab_small.jpg')}}" style="max-height:80px;">&emsp;&emsp;
+		  <img src="{{asset('images/Logo_Kemenristekdikti_small.png')}}" style="max-height:80px;">&emsp;&emsp;
+		  <img src="{{asset('images/multikom.png')}}" style="max-height:80px;">
+		  <img src="{{asset('images/logo sensativ_small.jpg')}}" style="max-height:80px;">		
                 </div>
                 <br/><br/>
-                <strong>BEMS </strong> <br />
+                <strong>UGM BEMS</strong> <br />
                 <span id="version-detail"></span>
-                Copyright 2016, Dept. Electrical Engineering and Information Technology.
+		Version  : 1.0.0 (01-06-2016) <br>
+                Copyright 2016, Smart System Research Group <br>
+		Dept. of Electrical Engineering and Information Technology.
 
               </div>
               <div class="modal-footer">

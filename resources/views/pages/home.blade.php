@@ -20,7 +20,7 @@
             <span id="status-jam" class="show-date">{{date(" M Y")}}</span>
             <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
           </div>
-          <div id="middle-status" style="background-color:#F8DAE6;line-height:1.3em;">
+          <div id="middle-status" style="background-color:#DCEBFF;line-height:1.3em;"> 
             <span id="left-clock">
               <span style="font-size:1.7em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.3em;display:inline-block;">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:59</span>
             </span>
@@ -37,7 +37,7 @@
           <div id="status-chart-acc">
             <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
               <span id="daily-consumed">Daily Consumed Energy Accumulation 123.45  kWh</span>
-              <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
+              <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Level 2</span>
             </div>
             <div style="height:40px;line-height:40px;font-size:1.2em;color:#707070;">
               <span style="margin:0 0 0 4px;">Current Demand <span id="show_power">123</span> kW</span>

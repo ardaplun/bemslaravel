@@ -106,7 +106,7 @@
 #left-clock{
 	display:inline-block;
 	width:22%;
-	background-color:#EFA9C5;
+	background-color:#8CBDFF;
 	color:white;
 	font-weight:bold;
 	padding: 0.3em 0.25em 0.28em 0.25em;
@@ -124,6 +124,7 @@
 	display:inline-block;
 	font-size:1.24em;
 	color:#707070;
+
 	padding: 5px;
 	width: 77%;
 }
