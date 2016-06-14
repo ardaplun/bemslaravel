@@ -199,7 +199,7 @@
                 <div class="col-md-12">
                  <!--chart area-->
                  <div id="container_pie0" style="width:100%;height:300px;">Pie Chart</div>
-                 <script type="text/javascript">Donutchart('container_pie0', '{{$data->room_name}}');</script>
+                 <script type="text/javascript">Donutchart('container_pie0', '{{$room}}');</script>
                 </div>
               </div> <!--End row-->
               <hr />
