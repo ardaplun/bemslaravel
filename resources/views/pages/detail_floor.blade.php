@@ -106,7 +106,10 @@
                   </table>
                 </div>
                   <div class="display:inline-block">
+                    <h2><br><br></h2>
                     <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/LABSE"><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>LAB SE</div></a></h2>
+                    <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/LABSFT"><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>LAB SFT</div></a></h2>
+                    <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/E6"><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>E6 Room</div></a></h2>
                   </div>
               </div>
               <center><div class="col-sm-5 mepet pull-right" >

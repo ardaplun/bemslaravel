@@ -21,9 +21,9 @@
 
                   @if ($data->room_category === 'Laboratory')
                     <h2><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>{{$data->room_category}}</div></h2>
-                  @elseif($data->room_category === 'Lecture')
+                  @elseif($data->room_category === 'Classroom')
                     <h2><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>{{$data->room_category}}</div></h2>
-                  @elseif($data->room_category === 'Student')
+                  @elseif($data->room_category === 'Studentroom')
                     <h2><div><img src="{{asset('images/icon/share_office_ss.png')}}"/>{{$data->room_category}}</div></h2>
                   @endif
 

@@ -22,12 +22,14 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
         <script type="text/javascript">
         $(document).ready(function () {
           date_time('date_time');
         });</script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
 
 
 
@@ -76,6 +78,7 @@
                               <span class="show-time">{{date("H:i")}}</span>
                               <span class="show-weekday">{{date("l")}}</span>
                               <div class="show-date" >{{date(" M Y")}}</div>
+                              <script type="text/javascript">date_time('date_time');</script>
 
 
                             </div>
@@ -116,8 +119,8 @@
                 <div class="container">
                   <div class="col-sm-12">
 
-                    <p class="pull-left"style="color:#22334d;font-size:9px">Copyright © {{date('Y')}} Dept. of Electrical Engineering and Information Technology | All rights reserved.</p>
-                    <p class="pull-right"style="color:#22334d;font-size:9px"><span>Designed by Smart System Research Group and <a target="_blank" href="http://www.sensativ.com">Sensativ</a></span></p>
+                    <p class="pull-left"style="color:white;font-size:9px">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
+                    <p class="pull-right"style="color:white;font-size:9px"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
 
                   </div>
                 </div>
@@ -141,18 +144,13 @@
               </div>
               <div class="modal-body">
                 <div style="text-align:center;">
-                  <img src="{{asset('images/UGM_3D_NEW_resize.jpg')}}" style="max-height:80px;">&emsp;&emsp;
-                  <img src="{{asset('images/logo esystem lab_small.jpg')}}" style="max-height:80px;">&emsp;&emsp;
-		  <img src="{{asset('images/Logo_Kemenristekdikti_small.png')}}" style="max-height:80px;">&emsp;&emsp;
-		  <img src="{{asset('images/multikom.png')}}" style="max-height:80px;">
-		  <img src="{{asset('images/logo sensativ_small.jpg')}}" style="max-height:80px;">		
+                  <img src="images/logo100year_eng.png" style="max-height:120px;">&emsp;&emsp;
+                  <img src="images/eppo_vrs.jpg" style="max-height:120px;">
                 </div>
                 <br/><br/>
-                <strong>UGM BEMS</strong> <br />
+                <strong>BEMS </strong> <br />
                 <span id="version-detail"></span>
-		Version  : 1.0.0 (01-06-2016) <br>
-                Copyright 2016, Smart System Research Group <br>
-		Dept. of Electrical Engineering and Information Technology.
+                Copyright 2016, Dept. Electrical Engineering and Information Technology.
 
               </div>
               <div class="modal-footer">

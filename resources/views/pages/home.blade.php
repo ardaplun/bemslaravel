@@ -20,6 +20,7 @@
           <div id="top-status">
             <span id="status-jam" class="show-date">{{date(" M Y")}}</span>
             <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
+            <script type="text/javascript">date_time('date_time');</script>
           </div>
           <div id="middle-status" style="background-color:#DCEBFF;line-height:1.3em;">
             <span id="left-clock">
