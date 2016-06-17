@@ -6,7 +6,14 @@
   <div class="container">
     <div class="row mepet" style="width:105%">
       <div class="left-build-container">
-        kiri
+
+          <div id="building_line" style="position: absolute;top:12.4em;left:30em;width: 193px;height:120px">
+            <div style="width: 20px;height: 20px;/* border: 2px solid #fff; */radius: 25px;border-radius: 25px;background-color: #184D7F;position: absolute;left: 45px;top: -10px;"></div>
+            <div style="border-left: 1px solid #184D7F;border-top: 1px solid #184D7F;width: 55px;height: 321px;background-color: transparent;"></div>
+            <div style="width: 7px;height: 7px;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #184D7F;position: absolute;left: -3px;top: 317px;"></div>
+          </div>
+        <a href="{{url('.')}}"><img src="{{asset('images/map/teknik_ss.png')}}" style="max-width:370px;margin-top:-9em;" class="close_pageslide pointer-mouse" title="Back to Main page."></a>
+
       </div>
       <div class="right-build-container">
 
