@@ -66,9 +66,9 @@
                                     <li style="display:list-style" class="parent_li">
                                       <span class="badge badge-success hidden-node"><i class="icon-plus-sign"></i>South</span>
                                       <ul>
-                                        <li><a class="hidden-node" href="#"><span><i class="icon-leaf"></i>Lab. E-System</span></a>
+                                        <li><a class="hidden-node" href="LABSE"><span><i class="icon-leaf"></i>Lab. E-System</span></a>
                                         </li>
-                                        <li><a class="hidden-node" href="#"><span><i class="icon-leaf"></i>E6 Room</span></a>
+                                        <li><a class="hidden-node" href="E6"><span><i class="icon-leaf"></i>E6 Room</span></a>
                                         </li>
                                       </ul>
                                     </li>

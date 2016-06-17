@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', 'Home@index');
-Route::get('/menu', 'Home@menu');
+// Route::get('/menu', 'Home@menu');
 Route::get('/about-us', 'Home@about_us');
 Route::get('/login', 'Home@login');
 Route::get('/maps', 'Home@maps');
