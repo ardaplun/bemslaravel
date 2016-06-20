@@ -347,7 +347,7 @@
 
 #highlight_image {
 	background-color: transparent;
-	background-image: url("{{asset('images/12Floor_4th_Building.png')}}");
+	background-image: url("../images/gif/loader.gif");
 	background-position: 50% 33%;
 	background-repeat: no-repeat;
 	width: 670px;

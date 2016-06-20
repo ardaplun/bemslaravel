@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="map_meaning" style="z-index:99999;display:none" >
-                  <table id="map" style="width:100%;height:100%;table-layout:fixed;">
+                  <table id="map" style="width:100%;height:100%;table-layout:fixed;z-index:99999;">
                     <tr >
                       <td></td>
                       <td class="map-data-0" style="width: 15em;"><img src="{{asset('images/icon/meeting_room_ss.png')}}"/>&emsp; Meeting Room</td>
@@ -105,9 +105,8 @@
                     </tr>
                   </table>
                 </div>
-                <div style="position: relative;height: 582px;">
-                    <div id="highlight_image" style="margin-top:50px;">
-
+                <div style="position: relative;height: 582px;top:2em">
+                    <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/12Floor_4th_Building.png')}}');background-position: 1px 3em;">
                     </div>
                     <script src="js/kinetic-v4.6.0.min.js"></script>
                     <script defer="defer" src="js/highlight.js"></script>

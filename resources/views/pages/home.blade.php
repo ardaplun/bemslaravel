@@ -170,7 +170,7 @@
 
       <div id="DTNF_enegy_show" style="position: absolute;top: 25em;left: 7em;width:15em;height:120px;z-index:200">
         <div id="DTNF_line">
-          <div style="width: 10px;height: 10px;border: 2px solid #fff;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 3.7em;top:-0.3em;"></div>
+          <div style="width: 10px;height: 10px;border: 2px solid #fff;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:4.6em;"></div>
           <div style="border-right: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 11em;height: 5em;background-color: transparent;"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.28em;top: -1em;"></div>
         </div>
