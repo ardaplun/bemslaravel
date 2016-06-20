@@ -6,12 +6,12 @@
   <div class="container">
     <div class="row mepet" style="width:105%">
       <div class="left-build-container">
+        <div id="building_line" style="position: relative;top:-22.3em;left:17em;width: 193px;height:120px">
+          <div style="width: 20px;height: 20px;/* border: 2px solid #fff; */radius: 25px;border-radius: 25px;background-color: #184D7F;position: absolute;left: 45px;top: -10px;"></div>
+          <div style="border-left: 1px solid #184D7F;border-top: 1px solid #184D7F;width: 55px;height: 321px;background-color: transparent;"></div>
+          <div style="width: 7px;height: 7px;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #184D7F;position: absolute;left: -3px;top: 317px;"></div>
+        </div>
 
-          <div id="building_line" style="position: absolute;top:12.4em;left:30em;width: 193px;height:120px">
-            <div style="width: 20px;height: 20px;/* border: 2px solid #fff; */radius: 25px;border-radius: 25px;background-color: #184D7F;position: absolute;left: 45px;top: -10px;"></div>
-            <div style="border-left: 1px solid #184D7F;border-top: 1px solid #184D7F;width: 55px;height: 321px;background-color: transparent;"></div>
-            <div style="width: 7px;height: 7px;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #184D7F;position: absolute;left: -3px;top: 317px;"></div>
-          </div>
         <a href="{{url('.')}}"><img src="{{asset('images/map/teknik_ss.png')}}" style="max-width:370px;margin-top:-9em;" class="close_pageslide pointer-mouse" title="Back to Main page."></a>
 
       </div>
@@ -28,13 +28,13 @@
 
              <li id="show_{{$data_floor->id_floor}}">
                <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}"><div class="col-sm-12 mepet">
-                   <div class="mepet" style="width:56.5%;display:inline-block;">
+                   <div class="mepet" style="width:55%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;width:100%">
                          <div>
                            <span id="status-jam-building" class="show-date">{{date("d M Y")}}</span>
                            <span id="faculty-name-building">Faculty of Engineering, Universitas Gadjah Mada</span>
                          </div>
-                         <div style="background-color:#DCEBFF;line-height:1.3em" >
+                         <div style="background-color:#a0f958;line-height:1.3em" >
                            <span id="left-clock-building">
                            <span style="font-size:1.6em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.2em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.2em">{{date("H")}}</span><span style="font-size:1.2em">:59</span>
                            </span>
@@ -57,7 +57,7 @@
                          </div>
                          </div>
                    </div>
-                        <div class="status__chart" style="display:inline-block;min-width:43%;height:230px;float:right;">
+                        <div class="status__chart" style="display:inline-block;min-width:45%;height:230px;float:right;">
                             <div style="line-height:20px;font-size:0.7em;color:#707070;background-color:#FFF">
                                     <span style="margin:0 0 0 4px;">Current Demand <span id="'+bld_pnt_name+'_show_power'+show_data+'"></span> kW</span>
                                     <span style="float:right;margin-right:4px;">Peak Demand kW</span>

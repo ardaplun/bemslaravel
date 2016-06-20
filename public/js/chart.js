@@ -275,6 +275,10 @@ function Donutchart(container,title){
         plotShadow: false,
         renderTo: container,
         type: 'pie',
+        options3d: {
+                enabled: true,
+                alpha: 45
+        },
         style: {
                 fontFamily: "Helvetica"
             }
@@ -303,13 +307,13 @@ function Donutchart(container,title){
     },
     plotOptions: {
         pie: {
+            innerSize: 200,
+            depth: 45,
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
             enabled: true,
             distance: 20,
-            connectorColor: this.color,
-            connectorPadding: 2,
             connectorWidth: 2,
             size:"100%",
             format: '<span style="color:{point.color};font-size:2em">{point.percentage:.1f} %</span><br /> {point.name}',
@@ -320,7 +324,7 @@ function Donutchart(container,title){
         }
     },
     series: [{
-        name: 'Brands',
+        name: 'Floor',
         colorByPoint: true,
         size: '60%',
         innerSize: '70%',

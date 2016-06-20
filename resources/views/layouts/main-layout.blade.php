@@ -21,6 +21,7 @@
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
@@ -55,15 +56,12 @@
                       <div class="col-sm-3">
                         <div class="row">
                             <div class="logo center-logo" style="line-height:5em">
-                                <center><a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" /></a></center>
+                                <center><a href="{{url('')}}"><img src="{{asset('images/home/ugmbems-logo.png')}}" alt="" /></a></center>
                             </div>
 
-                      </div>
+                        </div>
 
                       </div>
-
-
-
                         <div class="col-sm-9">
 
                             <div class="navbar-header">
@@ -91,6 +89,7 @@
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>LOGIN</a></li>
                                 </ul>
                             </div>
+                            
                         </div>
 
                     </div>
@@ -144,8 +143,11 @@
               </div>
               <div class="modal-body">
                 <div style="text-align:center;">
-                  <img src="images/logo100year_eng.png" style="max-height:120px;">&emsp;&emsp;
-                  <img src="images/eppo_vrs.jpg" style="max-height:120px;">
+                  <img src="{{asset('images/UGM_3D_NEW_resize.jpg')}}" style="max-height:50px;">&emsp;&emsp;
+                  <img src="{{('images/logo esystem lab_small.jpg')}}" style="max-height:50px;">
+                  <img src="{{('images/Logo_Kemenristekdikti_small.png')}}" style="max-height:50px;">
+                  <img src="{{('images/multikom.png')}}" style="max-height:50px;">
+                  <img src="{{asse('images/logo sensativ_small.jpg')}}" style="max-height:50px;">
                 </div>
                 <br/><br/>
                 <strong>BEMS </strong> <br />

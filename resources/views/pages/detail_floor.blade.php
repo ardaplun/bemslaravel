@@ -105,12 +105,18 @@
                     </tr>
                   </table>
                 </div>
-                  <div class="display:inline-block">
-                    <h2><br><br></h2>
-                    <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/LABSE"><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>LAB SE</div></a></h2>
-                    <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/LABSFT"><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>LAB SFT</div></a></h2>
-                    <h2><a href="{{url('/building/')}}/{{$building}}/floor/{{$floor}}/room/E6"><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>E6 Room</div></a></h2>
-                  </div>
+                <div style="position: relative;height: 582px;">
+                    <div id="highlight_image" style="margin-top:50px;">
+
+                    </div>
+                    <script src="js/kinetic-v4.6.0.min.js"></script>
+                    <script defer="defer" src="js/highlight.js"></script>
+                    <div id="highlights"></div>
+                    <pin id="pin" style="display:none;"></pin>
+                    <pin id="pin_name" style="display:none;"></pin>
+                    <div id="test_show_data" style="display:none;"></div>
+                    <div style="font-size:12px;color:red;margin-top:-50px;">Tip: Change to icon display at View Mode, then click room icon to go to room level page.</div>
+                </div>
               </div>
               <center><div class="col-sm-5 mepet pull-right" >
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
