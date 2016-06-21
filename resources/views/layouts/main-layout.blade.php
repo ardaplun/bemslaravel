@@ -89,7 +89,7 @@
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>LOGIN</a></li>
                                 </ul>
                             </div>
-                            
+
                         </div>
 
                     </div>
@@ -100,8 +100,9 @@
         @yield('content')
 
         <footer id="footer" style="background-color:#22334d;"><!--Footer-->
-            <div class="footer-top">
-                <div class="container">
+            <div class="footer-top mepet">
+                <div class="container" style="padding-bottom:0em">
+                  <div id="scale-limit"></div>
                   <div class="pull-right">
                     <img class="footer-image"src="{{asset('images/home/footer-image.png')}}" alt="" />
                   </div>
@@ -118,8 +119,8 @@
                 <div class="container">
                   <div class="col-sm-12">
 
-                    <p class="pull-left"style="color:white;font-size:9px">Copyright © {{date('Y')}} Dept. Electrical Engineering and Information Technology | All rights reserved.</p>
-                    <p class="pull-right"style="color:white;font-size:9px"><span>Designed and Builded by <a target="_blank" href="http://www.sensativ.com">www.sensativ.com</a></span></p>
+                    <p class="pull-left"style="color:#22334d;font-size:1em">Copyright © {{date('Y')}} Dept. of Electrical Engineering and Information Technology | All rights reserved.</p>
+                     <p class="pull-right"style="color:#22334d;font-size:1em"><span>Designed by Smart System Research Group and <a target="_blank" href="http://www.sensativ.com">Sensativ</a></span></p>
 
                   </div>
                 </div>
@@ -143,17 +144,18 @@
               </div>
               <div class="modal-body">
                 <div style="text-align:center;">
-                  <img src="{{asset('images/UGM_3D_NEW_resize.jpg')}}" style="max-height:50px;">&emsp;&emsp;
-                  <img src="{{('images/logo esystem lab_small.jpg')}}" style="max-height:50px;">
-                  <img src="{{('images/Logo_Kemenristekdikti_small.png')}}" style="max-height:50px;">
-                  <img src="{{('images/multikom.png')}}" style="max-height:50px;">
-                  <img src="{{asse('images/logo sensativ_small.jpg')}}" style="max-height:50px;">
+                  <img src="{{asset('images/UGM_3D_NEW_resize.jpg')}}" style="max-height:80px;">&emsp;&emsp;
+                  <img src="{{asset('images/logo esystem lab_small.jpg')}}" style="max-height:80px;">&emsp;&emsp;
+             		  <img src="{{asset('images/Logo_Kemenristekdikti_small.png')}}" style="max-height:80px;">&emsp;&emsp;
+             		  <img src="{{asset('images/multikom.png')}}" style="max-height:80px;">
+             		  <img src="{{asset('images/logo sensativ_small.jpg')}}" style="max-height:80px;">
                 </div>
                 <br/><br/>
-                <strong>BEMS </strong> <br />
+                <strong>UGM BEMS</strong> <br />
                 <span id="version-detail"></span>
-                Copyright 2016, Dept. Electrical Engineering and Information Technology.
-
+                  Version  : 1.0.0 (01-06-2016) <br>
+                  Copyright 2016, Smart System Research Group <br>
+ 		              Dept. of Electrical Engineering and Information Technology.
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

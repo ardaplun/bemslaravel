@@ -34,20 +34,21 @@
 }
 
 .footer-image{
-	padding-top: 2em;
+	/*padding-top: 2em;*/
 }
 
 .line-title{
   position:absolute;
   left:0;
-  border-top:3px solid #A6C331;
+	border-top:3px solid #6ED741;
+  /*border-top:3px solid #44C049;*/
   width:35%;
 }
 
 .cycle-title{
   position: relative;
   border-radius: 80px;
-  border: 3px solid #A6C331;
+  border: 3px solid #6ED741;
   width: 32px;
   height: 32px;
   top: -18px;
@@ -58,7 +59,7 @@
 .upline-title{
 	line-height:32px;
 	font-size:2.3em;
-	color:#A6C331;
+	color:#6ED741;
 	padding-left: 4em;
 	margin-top: 0.2em;
 }
@@ -66,7 +67,7 @@
 .bottomline-title{
 	line-height:38px;
 	font-size:1.6em;
-	color:#A6C331;
+	color:#6ED741;
 	padding-left: 5.9em;
 	padding-bottom: 0.2em
 }
@@ -106,7 +107,7 @@
 #left-clock{
 	display:inline-block;
 	width:22%;
-	background-color:#44c049;
+	background-color:#8CBDFF;
 	color:white;
 	font-weight:bold;
 	padding: 0.3em 0.25em 0.28em 0.25em;
@@ -114,7 +115,7 @@
 #left-clock-building{
 	display:inline-block;
 	width:25%;
-	background-color:#44c049;
+	background-color:#8CBDFF;
 	color:white;
 	font-weight:bold;
 	padding: 0.25em 0.25em 0.1em 0.25em;
@@ -256,13 +257,15 @@
 }
 .map_meaning{
   background-color:#4A4A4A;
-  /*position:absolute;*/
+  position:absolute;
   height: 300px;
   width:91.5%;
   z-index:5;
   opacity:0.95;
   color: white;
   padding:5px;
+	top: 5.5em;
+	right:3.5em;
 	display: inline-block;
 }
 .map-meaning{
@@ -352,4 +355,38 @@
 	background-repeat: no-repeat;
 	width: 670px;
 	height: 550px;
+}
+/*#map-meaning-logo{
+	background: url("../images/map-meaning-logo.png") top right no-repeat;
+	width: 103px;
+	height: 104px;
+	position: absolute;
+	display: inline-block;
+	bottom: 5.5em;
+	left: 15em;
+}
+#map-meaning-logo-main{
+	background: url("../images/map-meaning-logo.png") top right no-repeat;
+	width: 103px;
+	height: 104px;
+	top: 4px;
+	display: inline-block;
+}*/
+#scale-limit-img {
+	background: url("../images/limit-scale-ss.png") top right no-repeat;
+	width: 400px;
+	height:120px;
+	position: relative;
+	display: inline-block;
+	margin-top: -4em;
+	margin-left: 0em;
+}
+#scale-limit {
+	background: url("../images/limit-scale.png") top right no-repeat;
+	width: 400px;
+	height:120px;
+	position: relative;
+	display: inline-block;
+	margin-top: 0em;
+	margin-left: 0em;
 }

@@ -22,7 +22,7 @@
             <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
             <script type="text/javascript">date_time('date_time');</script>
           </div>
-          <div id="middle-status" style="background-color:#a0f958;line-height:1.3em;">
+          <div id="middle-status" style="background-color:#DCEBFF;line-height:1.3em;">
             <span id="left-clock">
               <span style="font-size:1.7em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.3em;display:inline-block;">{{date("H")}}</span><span style="font-size:1.3em;display:inline-block;">:59</span>
             </span>

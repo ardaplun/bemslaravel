@@ -1,4 +1,4 @@
-@extends('layouts.main-layout')
+@extends('layouts.2nd-layout')
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
@@ -20,11 +20,11 @@
               <div class="col-sm-5 mepet" >
 
                   @if ($data->room_category === 'Laboratory')
-                    <h2><div><img src="{{asset('images/icon/research_lab_ss.png')}}"/>{{$data->room_category}}</div></h2>
+                    <h2><img src="{{asset('images/icon/research_lab_ss.png')}}"/>{{$data->room_category}}</h2>
                   @elseif($data->room_category === 'Classroom')
-                    <h2><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>{{$data->room_category}}</div></h2>
+                    <h2><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>{{$data->room_category}}</h2>
                   @elseif($data->room_category === 'Studentroom')
-                    <h2><div><img src="{{asset('images/icon/share_office_ss.png')}}"/>{{$data->room_category}}</div></h2>
+                    <h2><img src="{{asset('images/icon/share_office_ss.png')}}"/>{{$data->room_category}}</h2>
                   @endif
 
                   <div class="box-transparent-redius" style="background-color: #fff;">
@@ -40,13 +40,10 @@
                     </div>
                     <div class="box-gray-redius" style="">
                     <!--Map meaning-->
-                        <span><img src="{{asset('images/icon/light_ss.png')}}"> <small>Light</small></span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span><img src="{{asset('images/icon/multi_ss.png')}}"> <small>Multi Sensor</small></span>
-                        &nbsp;&nbsp;&nbsp;
+                        <span><img src="{{asset('images/icon/light_ss.png')}}"> <small>Light</small></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span><img src="{{asset('images/icon/multi_ss.png')}}"> <small>Multi Sensor</small></span>&nbsp;&nbsp;&nbsp;
                         <span><img src="{{asset('images/icon/outlet_ss.png')}}"> <small>Outlet</small></span></br>
-                        <span><img src="{{asset('images/icon/air_cond.png')}}"> <small>Air Cond</small></span>
-                        &nbsp;&nbsp;
+                        <span><img src="{{asset('images/icon/air_cond.png')}}"> <small>Air Cond</small></span>&nbsp;&nbsp;
                         <span><img src="{{asset('images/icon/air_3ph.png')}}"> <small>Air Cond 3 phase</small></span>&nbsp;&nbsp;&nbsp;
                     </div>
                   </div>
@@ -55,11 +52,34 @@
                       <div class="col-md-12">
                         <!--site manager-->
                         <div class="site-manager-header txt_white">Site Manager</div>
+                        <!-- <ul id="test">
+                          <script type="text/javascript">
+                            var temp=[];
+                            var data=<?php echo json_encode($data_site); ?>;
+
+                            console.log(data);
+                            data.forEach(function(data){
+                            console.log(data.floor_name,data.room_area);
+                              if(temp.indexOf(data.floor_name,data.room_area)===-1){
+                                temp.push(data.floor_name,data.room_area);
+                                $("#test").append('<li>'+data.floor_name+'<br>'+data.room_area+'<br>'+data.room_name+'</li>');
+                              }else{
+                                $("#test").append('<li><br>'+data.room_name+'</li>');
+
+                               }
+                              console.log(temp);
+
+                            });
+                          </script>
+                        </ul>
+                        <br><br> -->
+
                         <div id="slimscroll" class="tree" style="display:inline-block;">
                           <ul>
                             <li class="parent_li">
                               <span class="badge badge-home"><i class="icon-home"></i> Electrical Engineering & Information Technology</span>
                               <ul>
+
                                 <li style="display:list-style" class="parent_li">
                                   <span class="badge badge-success"><i class="icon-minus-sign"></i>3rd Floor</span>
                                   <ul>
@@ -131,7 +151,7 @@
                         </div>
                         <div class="col-md-3" id="medal_show">
                           <span>Excelent</span>
-                          <img src="{{asset('images/medal.png')}}" style="position:absolute;right:4em;top:2em"/>
+                          <img src="{{asset('images/medal.png')}}" style="position:absolute;right:4.4em;top:1.5em"/>
                         </div>
                     </div><!--End row-->
                     <div class="row">

@@ -1,4 +1,4 @@
-@extends('layouts.main-layout')
+@extends('layouts.2nd-layout')
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
@@ -37,7 +37,7 @@
                       </div>
 
                   </div>
-                  <div class="dropdown mode_black">
+                  <div class="dropdown mode_black" style="cursor:pointer">
                     <div class="dropdown-toggle-black pointer-mouse" data-toggle="dropdown" onclick="javascript:$('.map_meaning').hide();" >
                       &emsp;<img src="{{asset('images/sort.png')}}"/>&nbsp;&nbsp; View Mode
                     </div>
@@ -73,7 +73,7 @@
                       </div>
 
                     </div>
-                    <div id="show_map_meaning" class="mode_black pointer-mouse" style="width:89%">
+                    <div id="show_map_meaning" class="mode_black pointer-mouse" style="width:89%;cursor:pointer">
                         &emsp;<img src="{{asset('images/list.png')}}"/>&nbsp;&nbsp; Map Meaning
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     </tr>
                   </table>
                 </div>
-                <div style="position: relative;height: 582px;top:2em">
+                <div style="position: relative;height: 582px;top:2em;z-index:20">
                     <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/12Floor_4th_Building.png')}}');background-position: 1px 3em;">
                     </div>
                     <script src="js/kinetic-v4.6.0.min.js"></script>

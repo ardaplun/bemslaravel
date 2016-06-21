@@ -43,10 +43,12 @@ class Home extends Controller
     public function detail_room($building, $floor, $room)
     {
         $data = \DB::table('data_room')->where(['id_building'=>$building, 'id_floor'=>$floor, 'id_room'=>$room])->first();
+        $data_site = \DB::table('data_floor')->leftJoin('data_room', 'data_floor.id_floor', '=', 'data_room.id_floor')->get();
+
         if ($data==NULL) {
           return view('errors/404');
         }else{
-          return view('pages/detail_room', array('page' => 'detail-room', 'building' => $building, 'floor' => $floor, 'room' => $room, 'data'=>$data));
+          return view('pages/detail_room', array('page' => 'detail-room', 'building' => $building, 'floor' => $floor, 'room' => $room, 'data'=>$data, 'data_site'=>$data_site));
         }
 
     }
