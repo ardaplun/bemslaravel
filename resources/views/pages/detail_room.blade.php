@@ -5,6 +5,18 @@
 <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('js/tree.js')}}"></script>
 <script type="text/javascript">
+var sensorchart;
+function SensorPick() {
+  $('#container_sensor').css('height',200);
+  $('#close_chart').show(400);
+  sensorchart = Sensorchart('container_sensor');
+}
+function RemoveMultiGraph() {
+  $('#container_sensor').css('height',0);
+  $('#close_chart').hide(400);
+  sensorchart.destroy();
+}
+
 $(document).ready(function() {
 
 
@@ -30,9 +42,10 @@ $(document).ready(function() {
   data_sensor.forEach(function(data_sensor){
       var devices=document.getElementById("myTable").rows[data_sensor.row].cells[data_sensor.col];
       console.log(devices.img);
-      devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
-                          "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onclick='SensorPick(this)' class='device_icon' src ='"+data_sensor.img+"' style='opacity: 1;'>"+
-                          "</a>";
+      devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" onClick='SensorPick()'>"+
+                          "<div style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick()'>"+
+                          "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onClick='SensorPick()' class='device_icon' src ='"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
+                          "</div>"+"</a>";
       // devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
       //                       "<div style='background: light-grey;display:inline-block;position:relative'>"+
       //
@@ -40,6 +53,12 @@ $(document).ready(function() {
       //                       "</div>"+
       //                     "</a>";
   });
+
+
+
+
+
+
 });
 </script>
 <div id="chart-title">
@@ -54,9 +73,10 @@ $(document).ready(function() {
     <div class="container">
         <div class="row">
             <div class="col-sm-12" style="padding: 0em 3em 0em 4em;">
-              <div class="row" id="compare_graph">
-                  <div style="display:none;height: 35px;" id="close_chart" ><button type="button" style="float:right;" class="btn btn-default" onClick="RemoveMultiGraph()" >Close</button></div>
-                  <div id="container_sensor" style="height:0px;"></div>
+              <div class="row" id="compare_graph" style="">
+                  <div style="height: 35px;display:none" id="close_chart" ><button type="button" style="float:right;" class="btn btn-default" onClick="RemoveMultiGraph()" >Close</button></div>
+                  <div id="container_sensor" style="height:0px"></div>
+                  <script type="text/javascript"></script>
                   <div id="sensor_box" ></div>
               </div>
               <div class="col-sm-5 mepet" >

@@ -1,3 +1,6 @@
+var now = new Date;
+var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate(),0,0,0,0);
+
 function mainchart(container){
 
             var chart = new Highcharts.Chart({
@@ -352,6 +355,98 @@ function Donutchart(container,title){
             y: 8.91
         }]
     }]
+          });
+        return chart;
+
+}
+
+function Sensorchart(container){
+
+      var chart = new Highcharts.Chart({
+        chart: {
+              type: 'spline',
+              renderTo: container,
+                  alignTicks: false,
+              backgroundColor:'transparent',
+          },
+          title: {
+               text: ''
+          },
+          navigator : {
+              enabled : false
+          },     rangeSelector: {
+              enabled: false
+          },
+          exporting: {
+              enabled: false
+          },
+          credits: {
+              enabled: false
+          },
+          legend:{
+                  enabled:false
+          },
+          xAxis: {
+              type: 'datetime',
+              labels: {
+                  overflow: 'justify'
+              },
+               tickInterval: 3600 * 2000
+          },
+          yAxis: {
+            title: {
+              text: 'Power (kW)',
+              style: {
+                  color:"#FF9800"
+              }
+          },
+                  lineWidth: 1,
+                  lineColor:"#FF9800",
+                  plotLines: [{
+                      value: 0,
+                      width: 1,
+
+                      color: '#FF9800'
+                  }],labels: {
+
+                      style: {
+                          color: "#FF9800"
+                  },
+                  minorGridLineWidth: 0,
+                  gridLineWidth: 0,
+                  alternateGridColor: null,
+              },
+              },
+
+
+
+          tooltip: {
+              valueSuffix: ' kW'
+          },
+          plotOptions: {
+              spline: {
+                  lineWidth: 1.5,
+                  states: {
+                      hover: {
+                          lineWidth: 1.5
+                      }
+                  },
+                  marker: {
+                      enabled: false
+                  },
+                  pointInterval: 900000, // one hour
+                  pointStart: utc_timestamp
+              }
+          },
+          series: [{
+               name: 'Light1 ',color:'#FF9800',
+              data: [0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.035,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,]
+          }],
+          navigation: {
+              menuItemStyle: {
+                  fontSize: '10px'
+              }
+          }
           });
         return chart;
 

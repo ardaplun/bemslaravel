@@ -60,7 +60,7 @@
 	line-height:32px;
 	font-size:2.3em;
 	color:#44C049;
-	padding-left: 4em;
+	padding-left: 6em;
 	margin-top: 0.2em;
 }
 
@@ -68,7 +68,7 @@
 	line-height:38px;
 	font-size:1.6em;
 	color:#44C049;
-	padding-left: 5.9em;
+	padding-left: 8.6em;
 	padding-bottom: 0.2em
 }
 
@@ -379,7 +379,7 @@
 	position: relative;
 	display: inline-block;
 	margin-top: -4em;
-	margin-left: 0em;
+	margin-left: -4em;
 }
 #scale-limit {
 	background: url("../images/limit-scale.png") top right no-repeat;
@@ -388,7 +388,7 @@
 	position: relative;
 	display: inline-block;
 	margin-top: 0em;
-	margin-left: 0em;
+	margin-left: -8em;
 }
 table#myTable td
     {
