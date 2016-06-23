@@ -4,6 +4,44 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('js/tree.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+  function create_table(){
+      var row_number = 9 ;
+      var column_number= 15;
+      $('#show_table').append('<table id=\'myTable\'  style="table-layout:fixed; z-index :2; Position: relative; display:inline-block;width:400px;"></table>');
+        //loop for row
+      for (j=1;j<=row_number;j++)
+      {
+        $('table#myTable').append('<tr></tr>');
+      }
+        //loop for columns
+      for (i=1;i<=column_number;i++)
+      {
+        $('table#myTable tr').append('<td></td>');
+      }
+  }
+  create_table();
+  var data_sensor=<?php echo json_encode($data_sensor); ?>;
+  console.log(data_sensor);
+
+  data_sensor.forEach(function(data_sensor){
+      var devices=document.getElementById("myTable").rows[data_sensor.row].cells[data_sensor.col];
+      console.log(devices.img);
+      devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
+                          "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onclick='SensorPick(this)' class='device_icon' src ='"+data_sensor.img+"' style='opacity: 1;'>"+
+                          "</a>";
+      // devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
+      //                       "<div style='background: light-grey;display:inline-block;position:relative'>"+
+      //
+      //                           "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onclick='SensorPick(this)' class='device_icon' src ='{{asset('images/icon/"+data_sensor.img+"')}}' style='opacity: 1;'>"+
+      //                       "</div>"+
+      //                     "</a>";
+  });
+});
+</script>
 <div id="chart-title">
       <div class="upline-title">ROOM</div>
           <div class="line-title">
@@ -16,7 +54,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12" style="padding: 0em 3em 0em 4em;">
-
+              <div class="row" id="compare_graph">
+                  <div style="display:none;height: 35px;" id="close_chart" ><button type="button" style="float:right;" class="btn btn-default" onClick="RemoveMultiGraph()" >Close</button></div>
+                  <div id="container_sensor" style="height:0px;"></div>
+                  <div id="sensor_box" ></div>
+              </div>
               <div class="col-sm-5 mepet" >
 
                   @if ($data->room_category === 'Laboratory')
@@ -28,7 +70,7 @@
                   @endif
 
                   <div class="box-transparent-redius" style="background-color: #fff;">
-                    <div id="show_room_img">
+                    <div id="show_room_img" style="z-index:1;position:absolute">
                       <img src="{{asset('images/plans/EE_LAB_examples.png')}}" style="max-height:250px;width:400px;">
                     </div>
                     <div id="show_table">
@@ -84,6 +126,13 @@
                                   <span class="badge badge-success"><i class="icon-minus-sign"></i>3rd Floor</span>
                                   <ul>
                                     <li style="display:list-style" class="parent_li">
+                                      <span class="badge badge-success hidden-node"><i class="icon-plus-sign"></i>North</span>
+                                      <ul>
+                                        <li><a class="hidden-node" href="LABSFT"><span><i class="icon-leaf"></i>Lab. High Frequency System</span></a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                    <li style="display:list-style" class="parent_li">
                                       <span class="badge badge-success hidden-node"><i class="icon-plus-sign"></i>South</span>
                                       <ul>
                                         <li><a class="hidden-node" href="LABSE"><span><i class="icon-leaf"></i>Lab. E-System</span></a>
@@ -99,7 +148,7 @@
                             </li>
                           </ul>
                         </div>
-                        <script type="text/javascript" src="js/tree.js"></script>
+                        <!-- <script type="text/javascript" src="js/tree.js"></script> -->
                       </div>
                     </div> <!--End row-->
                     <br />
@@ -142,7 +191,7 @@
                     <div class="row">
                         <div class="col-md-3"><div style="padding-left: 10px">GROUP :</div></div>
                         <div class="col-md-6">
-                          <!--Grouping button-->
+
                           <div class="btn-group">
                             <button type="button" class="range_pick btn btn-default" onclick="blockUI();" value="day">Day</button>
                             <button type="button" class="range_pick btn btn-default" onclick="blockUI();" value="month">Month</button>
@@ -151,41 +200,16 @@
                         </div>
                         <div class="col-md-3" id="medal_show">
                           <span>Excelent</span>
-                          <img src="{{asset('images/medal.png')}}" style="position:absolute;right:4.4em;top:1.5em"/>
+                          <img src="{{asset('images/medal_good.png')}}" style="position:absolute;right:4.4em;top:1.5em"/>
                         </div>
-                    </div><!--End row-->
+                    </div>
                     <div class="row">
-                      <!-- <div class="col-sm-8" id="show_floor" style="display:inline-block;">
-                      <div style="padding-left: 10px;padding-top:1em;font-size:1.2em" class="txt_blue"><strong>Room : {{$data->room_name}}</strong></div>
-                        <div style="line-height:1.4em;">
-                        <div style="width:24%;display:inline-block">Energy: '+energy_percent+'%</div>
-                        <div id="energy_num" style="width:37%;float:right;display:inline-block;background-image:none;color:'+txtcolor_e+';font-size: 19px;">'+energy_value.toFixed(val_decimal)+' kWh.</div>
-                            <div class="progress-new" style="width:38%;display:inline-block;">
-                            <div class="progress-bar '+energy_class_lv+'"style="width:'+energy_percent +'%;background-image:none;float:right;"></div>
-                            </div>
-                        </div>
-                      </div> -->
+
                       <div id="floor'+show_data+'" style="display:inline-block;padding-left:25px;padding-top: 15px"></div>
 
                       <div style="width:420px;padding-left:2em">
                         <div style="color:#008ec3"><b>Room : {{$data->room_name}}</b></div>
-                          <!-- <div style="margin-bottom:1px">';
-                            <div style="line-height:1.4em;"> ';
-                              <div style="width:24%;display:inline-block">Energy: '+energy_percent+'%</div>';
-                              <div id="energy_num" style="width:37%;float:right;display:inline-block;background-image:none;color:'+txtcolor_e+';font-size: 19px;">'+energy_value.toFixed(val_decimal)+' kWh.</div>';
-                              <div class="progress-new" style="width:38%;display:inline-block;">';
-                                <div class="progress-bar '+energy_class_lv+'"style="width:'+energy_percent +'%;background-image:none;float:right;"></div>';
-                              </div>';
-                            </div>';
-                            <div style="line-height:1.4em;"> ';
-                              <div style="width:24%;display:inline-block">Power: '+power_percent+'%</div>';
-                              <div id="power_num" style="width:37%;float:right;display:inline-block;background-image:none;color:'+txtcolor_p+';font-size: 19px;">'+power_value.toFixed(val_decimal)+' kW.</div>';
-                              <div class="progress-new" style="width:38%;display:inline-block;">';
-                                <div class="progress-bar '+power_class_lv+'"  style="width: '+power_percent+'%;background-image:none;float:right;position:relative;"></div>';
-                              </div>';
-                            </div>';
-                             <div style="font-size:80%; "><small>Peak demand '+peak_power.toFixed(val_decimal)+' kW</small></div>';
-                          </div> -->
+
                        </div>
                        <div style="line-height:1em;padding-left:2em">
                           <div style="width:22%;display:inline-block">Energy : 12%</div>
@@ -219,7 +243,7 @@
                 <div class="col-md-12">
                  <!--chart area-->
                  <div id="container_pie0" style="width:100%;height:300px;">Pie Chart</div>
-                 <script type="text/javascript">Donutchart('container_pie0', '{{$room}}');</script>
+                 <script type="text/javascript">Donutchart('container_pie0', '{{$data->id_room}}');</script>
                 </div>
               </div> <!--End row-->
               <hr />

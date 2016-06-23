@@ -139,11 +139,9 @@
     </div>
 <script type="text/javascript">
   $(".map_meaning").hide();
-$("#show_map_meaning").click( function() {
-
-        $(".map_meaning").toggle();
-
-      });
+  $("#show_map_meaning").click( function() {
+    $(".map_meaning").toggle();
+  });
 </script>
 </body>
 @endsection

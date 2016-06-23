@@ -26,7 +26,6 @@ class Home extends Controller
         }else{
           return view('pages/building', array('page' => 'detail-building', 'building'=> $building, 'data_floors'=>$data_floor ));
         }
-
     }
 
     public function detail_floor($building, $floor)
@@ -37,20 +36,19 @@ class Home extends Controller
       }else{
         return view('pages/detail_floor', array('page' => 'detail-floor', 'building' => $building, 'floor' => $floor, 'data'=>$data));
       }
-
     }
 
     public function detail_room($building, $floor, $room)
     {
         $data = \DB::table('data_room')->where(['id_building'=>$building, 'id_floor'=>$floor, 'id_room'=>$room])->first();
         $data_site = \DB::table('data_floor')->leftJoin('data_room', 'data_floor.id_floor', '=', 'data_room.id_floor')->get();
+        $data_sensor = \DB::table('data_sensor')->where(['id_room'=>$room])->get();
 
         if ($data==NULL) {
           return view('errors/404');
         }else{
-          return view('pages/detail_room', array('page' => 'detail-room', 'building' => $building, 'floor' => $floor, 'room' => $room, 'data'=>$data, 'data_site'=>$data_site));
+          return view('pages/detail_room', array('page' => 'detail-room', 'data'=>$data, 'data_site'=>$data_site, 'data_sensor'=>$data_sensor));
         }
-
     }
 
     public function login()
