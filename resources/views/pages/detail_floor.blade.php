@@ -2,19 +2,20 @@
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
-<div id="chart-title">
-      <div class="upline-title">FLOOR</div>
-          <div class="line-title">
-            <div class="cycle-title"></div>
-          </div>
-      <div class="bottomline-title">SECTION</div>
-</div>
 
 <body>
     <div class="container">
+      <div id="chart-title">
+            <div class="upline-title">FLOOR</div>
+                <div class="line-title">
+                  <div class="cycle-title"></div>
+                </div>
+            <div class="bottomline-title">SECTION</div>
+      </div>
+
         <div class="row">
             <div class="col-sm-12">
-              <a href="{{url('/building/')}}/{{$building}}"><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;">ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY</span></a> : <span id="floor_lv" class="txt_blue">{{$data->floor_name}} FLOOR</span>
+              <a href="{{url('/building/')}}/{{$data->id_building}}"><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;">ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY</span></a> : <span id="floor_lv" class="txt_blue">{{$data->floor_name}} FLOOR</span>
               <div class="col-sm-7 mepet ">
                 <div class="col-sm-6 mepet" style="padding-top:0.3em">
                   <div class="btn-group" style="border: 1px solid #B2B2B3;border-radius: 5px;width:100%">
@@ -99,7 +100,7 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td class="map-data-6"><img src="{{asset('images/icon/class_room_ss.png')}}"/>&emsp; Lecture Room</td>
+                      <td class="map-data-6"><img src="{{asset('images/icon/class_room_ss.png')}}"/>&emsp; Class Room</td>
                       <td class="map-data-7"></td>
                       <td></td>
                     </tr>
@@ -108,13 +109,15 @@
                 <div style="position: relative;height: 582px;top:2em;z-index:20">
                     <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/12Floor_4th_Building.png')}}');background-position: 1px 3em;">
                     </div>
-                    <script src="js/kinetic-v4.6.0.min.js"></script>
-                    <script defer="defer" src="js/highlight.js"></script>
+                    <script src="{{asset('js/kinetic-v4.6.0.min.js')}}"></script>
+                    <!-- <script defer="defer" src="js/highlight.js"></script> -->
                     <div id="highlights"></div>
-                    <pin id="pin" style="display:none;"></pin>
-                    <pin id="pin_name" style="display:none;"></pin>
+                    <pin id="pin"></pin>
+                    <pin id="pin_name"></pin>
                     <div id="test_show_data" style="display:none;"></div>
                     <div style="font-size:12px;color:red;margin-top:-50px;">Tip: Change to icon display at View Mode, then click room icon to go to room level page.</div>
+
+
                 </div>
               </div>
               <center><div class="col-sm-5 mepet pull-right" >
@@ -137,11 +140,31 @@
           </div>
         </div>
     </div>
+
 <script type="text/javascript">
+$(document).ready(function() {
   $(".map_meaning").hide();
   $("#show_map_meaning").click( function() {
     $(".map_meaning").toggle();
   });
+
+var data_pin=<?php echo json_encode($data_pin); ?>;
+// console.log(data_pin);
+data_pin.forEach(function(data_pin){
+  console.log(data_pin.room_name);
+  $('#pin').append("<a href='"+data_pin.id_floor+"/room/"+data_pin.id_room+"'><div id='"+data_pin.id_room+"' rel='popover' style='position:absolute; top:"+data_pin.top_loc+"px;left:"+data_pin.left_loc+"px'><img src ='{{asset('images/icon/')}}/"+data_pin.img+"' style='opacity: 1;cursor:pointer'></div><div id="+data_pin.id_room+" class='room_label' rel='popover' style='position: absolute;  top: "+(data_pin.top_loc+15)+"px; left: "+(data_pin.left_loc+40)+"px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;'>"+data_pin.room_name+"</div></a>");
+  $('#pin').append("");
+
+});
+
+
+  // function plot_pin_on_map(pin_data){
+  //          for(i in pin_obj){
+  //          $('#pin').append('<div id="'+pin_data['names_'+i]+'" rel="popover" style="position: absolute;  bottom: '+pin_data["bottom_"+i]+'px; left: '+pin_data['left_'+i]+'px;  font-weight: bold; color: #fff;"><img id="pin'+i+'" class="room_pick tools pointer-mouse" src="'+pin_data['image_'+i]+'" onclick="location.href=\'room_level.html\';javascript:sessionStorage[\'area\']=JSON.stringify('+'\''+pin_data['area_'+i]+'\''+');javascript:sessionStorage[\'room\']=JSON.stringify('+'\''+pin_data['pnt_set_'+i]+'\''+');javascript:sessionStorage[\'room_type\']=JSON.stringify('+'\''+pin_data['types_'+i]+'\''+');"  title="'+ pin_data['names_'+i]+'" style="display:none;"/></div>');
+  //          $('#pin_name').append('<div id="name_'+pin_data['names_'+i]+'" class="room_label" rel="popover" style="position: absolute;  bottom: '+pin_data["bottom_name_"+i]+'px; left: '+pin_data['left_name_'+i]+'px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;">'+ pin_data['names_'+i]+'</div>');
+  //          }
+  // }
+});
 </script>
 </body>
 @endsection

@@ -31,10 +31,11 @@ class Home extends Controller
     public function detail_floor($building, $floor)
     {
       $data = \DB::table('data_floor')->where(['id_building'=>$building, 'id_floor'=>$floor])->first();
+      $data_pin = \DB::table('data_room')->where(['id_building'=>$building, 'id_floor'=>$floor])->get();
       if ($data==NULL) {
         return view('errors/404');
       }else{
-        return view('pages/detail_floor', array('page' => 'detail-floor', 'building' => $building, 'floor' => $floor, 'data'=>$data));
+        return view('pages/detail_floor', array('page' => 'detail-floor', 'data'=>$data,'data_pin'=>$data_pin));
       }
     }
 

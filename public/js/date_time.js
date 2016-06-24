@@ -39,6 +39,6 @@ function date_time(id)
         //$(".show-month").html(months[month]);
         //$(".show-year").html(year);
         console.log("hello, lol");
-        setTimeout('date_time("'+id+'");','1000');
+        setTimeout('date_time("'+id+'");','5000');
         return true;
 }

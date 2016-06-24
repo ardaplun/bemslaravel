@@ -4,16 +4,17 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <!-- title content -->
 <div id="show-overview">
-<div id="chart-title">
-      <div class="upline-title">EE&IT STATUS</div>
-          <div class="line-title">
-            <div class="cycle-title"></div>
-          </div>
-      <div class="bottomline-title">OVERVIEW</div>
-</div>
+
 
 <body>
   <div class="container">
+    <div id="chart-title">
+          <div class="upline-title">EE&IT STATUS</div>
+              <div class="line-title">
+                <div class="cycle-title"></div>
+              </div>
+          <div class="bottomline-title">OVERVIEW</div>
+    </div>
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3 mepet">
         <div style="background-color:white;width:105%">
@@ -72,17 +73,21 @@
 </div>
 
 <div id="show-maps" style="display:none">
-<div id="maps-title">
-      <div class="upline-title">MAIN MAP</div>
-          <div class="line-title">
-            <div class="cycle-title"></div>
-          </div>
-      <div class="bottomline-title"></div>
-      <br><br>
 
-</div>
+
+
 
 <body>
+  <div class="container">
+
+
+  <div id="maps-title">
+    <div class="upline-title">MAIN MAP</div>
+        <div class="line-title">
+          <div class="cycle-title"></div>
+        </div>
+    <div class="bottomline-title"></div>
+  <br><br>
   <div id="show-map" >
   <!-- <map name="bemsmap">
       <area id="ee" shape="poly" coords="68,175,138,155,212,209,214,215,220,221,226,225,216,229,222,236,219,242,225,252,151,287,166,313,151,321,78,250" alt="<a>EE Building</a>" href="#EEBuilding" title="Show Electrical Engineering Building" class="lightbox_trigger" >
@@ -200,6 +205,8 @@
     <div id="alert-power" style="float:right;position:absolute;bottom: 11px;right: 13px;font-size: xx-large;font-weight: bolder;color: rgb(255, 255, 255);text-align: center;"></div>
 </div>
 <br><br><br>
+</div>
+</div>
 </body>
 </div>
 <script type="text/javascript">

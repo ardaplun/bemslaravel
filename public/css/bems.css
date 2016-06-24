@@ -60,7 +60,7 @@
 	line-height:32px;
 	font-size:2.3em;
 	color:#44C049;
-	padding-left: 6em;
+	padding-left: 1em;
 	margin-top: 0.2em;
 }
 
@@ -68,7 +68,7 @@
 	line-height:38px;
 	font-size:1.6em;
 	color:#44C049;
-	padding-left: 8.6em;
+	padding-left: 1.4em;
 	padding-bottom: 0.2em
 }
 
@@ -379,7 +379,7 @@
 	position: relative;
 	display: inline-block;
 	margin-top: -4em;
-	margin-left: -4em;
+	margin-left: -2em;
 }
 #scale-limit {
 	background: url("../images/limit-scale.png") top right no-repeat;
@@ -388,7 +388,7 @@
 	position: relative;
 	display: inline-block;
 	margin-top: 0em;
-	margin-left: -8em;
+	margin-left: -6em;
 }
 table#myTable td
     {
@@ -396,3 +396,15 @@ table#myTable td
       width: 30px;
       height: 30px;
     }
+.dev_div {
+	display: block;
+	height: 35px;
+	padding-left: 20px;
+	margin-top: auto!important;
+	margin-bottom: 4px!important;
+	margin-left: auto!important;
+	margin-right: auto!important;
+	vertical-align: initial!important;
+	background-color: rgba(13, 131, 177, 0.78);
+	color: white;
+}

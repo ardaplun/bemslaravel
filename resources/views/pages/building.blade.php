@@ -21,14 +21,14 @@
           <div style="font-size:1em;color:#028EC1;">{{$building}} Bld.</div>
           <div style="font-size:12px;color:red;float:right;background-color:transparent">Tip: Click on each floor area to go to floor level page</div>
             <hr style="background-color: #44ACD1;height:2px;">
-          <div style="overflow:scroll;padding:0;height:30em;margin-right:-1.5em;">
+          <div style="overflow-y:scroll;padding:0;height:30em;">
 
             <ul class="mepet" >
             @forelse ($data_floors as $data_floor)
 
              <li id="show_{{$data_floor->id_floor}}">
                <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}"><div class="col-sm-12 mepet">
-                   <div class="mepet" style="width:55%;display:inline-block;">
+                   <div class="mepet" style="width:54%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;width:100%">
                          <div>
                            <span id="status-jam-building" class="show-date">{{date("d M Y")}}</span>

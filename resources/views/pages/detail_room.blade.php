@@ -37,15 +37,21 @@ $(document).ready(function() {
   }
   create_table();
   var data_sensor=<?php echo json_encode($data_sensor); ?>;
-  console.log(data_sensor);
+  var sensor_box='';
+  // console.log(data_sensor);
 
   data_sensor.forEach(function(data_sensor){
       var devices=document.getElementById("myTable").rows[data_sensor.row].cells[data_sensor.col];
-      console.log(devices.img);
+      // console.log(devices.img);
       devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" onClick='SensorPick()'>"+
                           "<div style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick()'>"+
-                          "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onClick='SensorPick()' class='device_icon' src ='"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
+                          "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onClick='SensorPick()' class='device_icon' src ='{{asset('images/icon/')}}/"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
                           "</div>"+"</a>";
+
+      sensor_box +=
+
+
+      $('#sensor_box').append(sensor_box);
       // devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
       //                       "<div style='background: light-grey;display:inline-block;position:relative'>"+
       //
@@ -61,33 +67,35 @@ $(document).ready(function() {
 
 });
 </script>
-<div id="chart-title">
-      <div class="upline-title">ROOM</div>
-          <div class="line-title">
-            <div class="cycle-title"></div>
-          </div>
-      <div class="bottomline-title">SECTION</div>
-</div>
+
 
 <body>
     <div class="container">
+      <div id="chart-title">
+            <div class="upline-title">ROOM</div>
+                <div class="line-title">
+                  <div class="cycle-title"></div>
+                </div>
+            <div class="bottomline-title">SECTION</div>
+      </div>
         <div class="row">
             <div class="col-sm-12" style="padding: 0em 3em 0em 4em;">
               <div class="row" id="compare_graph" style="">
                   <div style="height: 35px;display:none" id="close_chart" ><button type="button" style="float:right;" class="btn btn-default" onClick="RemoveMultiGraph()" >Close</button></div>
                   <div id="container_sensor" style="height:0px"></div>
                   <script type="text/javascript"></script>
-                  <div id="sensor_box" ></div>
+                  <div id="sensor_box">
+                    <!-- <div class="dev_div" row='+row+' cell='+cell+' name="{{$data->id_room}}" style="">
+                      <div style="display:inline-block;min-width: 15%">
+                        <div style="display:inline-block;"><img src ="{{asset('images/icon/')}}/{{$data->img}}" style="height: 35px"></div>
+                        <span style="padding-left:5px;vertical-align: middle;">{{$data->room_name}}</span>
+                      </div>
+                      <div class="checkbox-inline" id="" style="display:inline-block;"></div>
+                    </div> -->
+                  </div>
               </div>
               <div class="col-sm-5 mepet" >
-
-                  @if ($data->room_category === 'Laboratory')
-                    <h2><img src="{{asset('images/icon/research_lab_ss.png')}}"/>{{$data->room_category}}</h2>
-                  @elseif($data->room_category === 'Classroom')
-                    <h2><div><img src="{{asset('images/icon/class_room_ss.png')}}"/>{{$data->room_category}}</h2>
-                  @elseif($data->room_category === 'Studentroom')
-                    <h2><img src="{{asset('images/icon/share_office_ss.png')}}"/>{{$data->room_category}}</h2>
-                  @endif
+                  <h2><img src="{{asset('images/icon/')}}/{{$data->img}}"/>{{$data->room_category}}</h2>
 
                   <div class="box-transparent-redius" style="background-color: #fff;">
                     <div id="show_room_img" style="z-index:1;position:absolute">
