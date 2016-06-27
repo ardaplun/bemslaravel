@@ -6,15 +6,26 @@
 <script src="{{asset('js/tree.js')}}"></script>
 <script type="text/javascript">
 var sensorchart;
-function SensorPick() {
+var sensor_box='';
+function SensorPick(id,name,type,img) {
   $('#container_sensor').css('height',200);
   $('#close_chart').show(400);
   sensorchart = Sensorchart('container_sensor');
+console.log(id,name,img);
+  $('#sensor_box').append('<div class="dev_div" name="'+id+'"><div style="display:inline-block;min-width: 15%"><div style="display:inline-block;"><img src ="{{asset("images/icon/light_ss_s.png")}}" style="height: 35px"></div><span style="padding-left:5px;vertical-align: middle;">'+name+'</span></div><div class="checkbox-inline" id="'+id+'" style="display:inline-block;"><label class="checkbox-inline" ><input type="checkbox" class="device_checkbox" checked onclick="SensorShow(this)" value="'+id+'">'+type+'</label></div></div>');
 }
+//  ''+
+//       ''+
+//   '' +
 function RemoveMultiGraph() {
   $('#container_sensor').css('height',0);
   $('#close_chart').hide(400);
+  $('#sensor_box').hide(400);
   sensorchart.destroy();
+}
+
+function SensorShow(id) {
+  sensorchart.addSeries
 }
 
 $(document).ready(function() {
@@ -37,21 +48,18 @@ $(document).ready(function() {
   }
   create_table();
   var data_sensor=<?php echo json_encode($data_sensor); ?>;
-  var sensor_box='';
+
   // console.log(data_sensor);
 
   data_sensor.forEach(function(data_sensor){
       var devices=document.getElementById("myTable").rows[data_sensor.row].cells[data_sensor.col];
       // console.log(devices.img);
-      devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" onClick='SensorPick()'>"+
-                          "<div style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick()'>"+
-                          "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onClick='SensorPick()' class='device_icon' src ='{{asset('images/icon/')}}/"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
+      devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\">"+
+                          "<div id="+data_sensor.id_sensor+" style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick(this.id,\""+data_sensor.sensor_name+"\",\""+data_sensor.sensor_type+"\",\""+data_sensor.img+"\")'>"+
+                          "<img status='unselect' id="+data_sensor.id_sensor+" cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" class='device_icon' onClick='SensorShow(this.id)' src ='{{asset('images/icon/')}}/"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
                           "</div>"+"</a>";
 
-      sensor_box +=
 
-
-      $('#sensor_box').append(sensor_box);
       // devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
       //                       "<div style='background: light-grey;display:inline-block;position:relative'>"+
       //
@@ -83,15 +91,7 @@ $(document).ready(function() {
               <div class="row" id="compare_graph" style="">
                   <div style="height: 35px;display:none" id="close_chart" ><button type="button" style="float:right;" class="btn btn-default" onClick="RemoveMultiGraph()" >Close</button></div>
                   <div id="container_sensor" style="height:0px"></div>
-                  <script type="text/javascript"></script>
                   <div id="sensor_box">
-                    <!-- <div class="dev_div" row='+row+' cell='+cell+' name="{{$data->id_room}}" style="">
-                      <div style="display:inline-block;min-width: 15%">
-                        <div style="display:inline-block;"><img src ="{{asset('images/icon/')}}/{{$data->img}}" style="height: 35px"></div>
-                        <span style="padding-left:5px;vertical-align: middle;">{{$data->room_name}}</span>
-                      </div>
-                      <div class="checkbox-inline" id="" style="display:inline-block;"></div>
-                    </div> -->
                   </div>
               </div>
               <div class="col-sm-5 mepet" >
@@ -102,11 +102,9 @@ $(document).ready(function() {
                       <img src="{{asset('images/plans/EE_LAB_examples.png')}}" style="max-height:250px;width:400px;">
                     </div>
                     <div id="show_table">
-
                     </div>
                     <br />
                     <div id="show_ref_img">
-
                     </div>
                     <div class="box-gray-redius" style="">
                     <!--Map meaning-->

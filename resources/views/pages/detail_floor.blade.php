@@ -107,7 +107,7 @@
                   </table>
                 </div>
                 <div style="position: relative;height: 582px;top:2em;z-index:20">
-                    <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/12Floor_4th_Building.png')}}');background-position: 1px 3em;">
+                    <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/plans/')}}/{{$data->img}}');background-position: 1px 3em;">
                     </div>
                     <script src="{{asset('js/kinetic-v4.6.0.min.js')}}"></script>
                     <!-- <script defer="defer" src="js/highlight.js"></script> -->

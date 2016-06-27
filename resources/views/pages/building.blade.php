@@ -52,7 +52,7 @@
                            </div>
                          </div>
                          <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
-                           <span id="daily-consumed" style="font-size:1.1em;line-height:2.5em">Daily Consumed Energy Accumulation 123.45  kWh</span>
+                           <span id="daily-consumed" style="font-size:1em;line-height:2.5em">Daily Consumed Energy Accumulation 123.45  kWh</span>
                            <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:6.6em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
                          </div>
                          </div>
