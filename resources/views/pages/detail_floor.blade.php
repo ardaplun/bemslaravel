@@ -2,6 +2,8 @@
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
+<script src="{{asset('js/kinetic-v4.6.0.js')}}"></script>
+<script src="{{asset('js/kinetic-v4.6.0.min.js')}}"></script>
 
 <body>
     <div class="container">
@@ -109,8 +111,40 @@
                 <div style="position: relative;height: 582px;top:2em;z-index:20">
                     <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/plans/')}}/{{$data->img}}');background-position: 1px 3em;">
                     </div>
-                    <script src="{{asset('js/kinetic-v4.6.0.min.js')}}"></script>
-                    <!-- <script defer="defer" src="js/highlight.js"></script> -->
+                    <script defer="defer">
+                    var stage = new Kinetic.Stage({
+                        container: 'highlight_image',
+                        width: 670,
+                        height: 550
+                    });
+                    var shapesLayer = new Kinetic.Layer();
+                    var tooltipLayer = new Kinetic.Layer();
+
+                    var tooltip = new Kinetic.Label({
+                        opacity: 0.75,
+                        visible: false,
+                        listening: false
+                      });
+                    tooltip.add(new Kinetic.Tag({
+                        fill: 'black',
+                        pointerDirection: 'down',
+                        pointerWidth: 10,
+                        pointerHeight: 10,
+                        lineJoin: 'round',
+                        shadowColor: 'black',
+                        shadowBlur: 10,
+                        shadowOffset: 10,
+                        shadowOpacity: 0.5
+                    }));
+
+                    tooltip.add(new Kinetic.Text({
+                        text: '',
+                        fontFamily: 'Calibri',
+                        fontSize: 18,
+                        padding: 5,
+                        fill: 'white'
+                    }));
+                    </script>
                     <div id="highlights"></div>
                     <pin id="pin"></pin>
                     <pin id="pin_name"></pin>
