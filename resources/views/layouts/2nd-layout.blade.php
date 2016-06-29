@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Designed and builded by Sensativ Engineer in the terms of contribution for Dept. Electrical Engineering and Information Technology UGM">
         <meta name="author" content="Sentativ by Yulian Tenta Wardana">
+        <link rel="shortcut icon" href="{{asset('images/home/ugmico.ico')}}" type="image/x-icon" />
         <title>UGM Building Management System </title>
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
@@ -102,7 +103,7 @@
         <footer id="footer" style="background-color:#22334d;"><!--Footer-->
             <div class="footer-top">
                 <div class="container">
-                  
+
                   <div id="scale-limit-img"></div>
                 </div>
             </div>
