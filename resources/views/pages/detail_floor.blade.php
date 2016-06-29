@@ -112,14 +112,43 @@
                     <div id="highlight_image" style="margin-top:50px;background-image:url('{{asset('images/plans/')}}/{{$data->img}}');background-position: 1px 3em;">
                     </div>
                     <script defer="defer">
+                    // var stage = new Kinetic.Stage({
+                    //     container: 'highlight_image',
+                    //     width: 670,
+                    //     height: 550
+                    // });
+                    // var shapesLayer = new Kinetic.Layer();
+                    // var tooltipLayer = new Kinetic.Layer();
+                    //
+                    // var tooltip = new Kinetic.Label({
+                    //     opacity: 0.75,
+                    //     visible: false,
+                    //     listening: false
+                    //   });
+                    // tooltip.add(new Kinetic.Tag({
+                    //     fill: 'black',
+                    //     pointerDirection: 'down',
+                    //     pointerWidth: 10,
+                    //     pointerHeight: 10,
+                    //     lineJoin: 'round',
+                    //     shadowColor: 'black',
+                    //     shadowBlur: 10,
+                    //     shadowOffset: 10,
+                    //     shadowOpacity: 0.5
+                    // }));
+                    //
+                    // tooltip.add(new Kinetic.Text({
+                    //     text: '',
+                    //     fontFamily: 'Calibri',
+                    //     fontSize: 18,
+                    //     padding: 5,
+                    //     fill: 'white'
+                    // }));
                     var stage = new Kinetic.Stage({
                         container: 'highlight_image',
                         width: 670,
                         height: 550
                     });
-                    var shapesLayer = new Kinetic.Layer();
-                    var tooltipLayer = new Kinetic.Layer();
-
                     var tooltip = new Kinetic.Label({
                         opacity: 0.75,
                         visible: false,
@@ -144,6 +173,32 @@
                         padding: 5,
                         fill: 'white'
                     }));
+
+                    var layer = new Kinetic.Layer();
+
+                    var north = new Kinetic.Polygon({
+                        // x: 200,
+                        // y: 20,
+                        points: [197, 341, 5, 203, 139, 128, 326, 232],
+                        fill: '#4CAF50',
+                        draggable: false,
+                        opacity:0.5
+                    });
+                    var south = new Kinetic.Polygon({
+                        // x: 200,
+                        // y: 20,
+                        points: [507, 285, 206, 126, 301, 68, 587, 191],
+                        fill: '#F44336',
+                        draggable: false,
+                        opacity:0.5
+                    });
+
+                    layer.add(north);
+                    layer.add(south);
+                    layer.add(tooltip);
+
+                    // add the layer to the stage
+                    stage.add(layer);
                     </script>
                     <div id="highlights"></div>
                     <pin id="pin"></pin>
@@ -186,11 +241,16 @@ var data_pin=<?php echo json_encode($data_pin); ?>;
 // console.log(data_pin);
 data_pin.forEach(function(data_pin){
   console.log(data_pin.room_name);
-  $('#pin').append("<a href='"+data_pin.id_floor+"/room/"+data_pin.id_room+"'><div id='"+data_pin.id_room+"' rel='popover' style='position:absolute; top:"+data_pin.top_loc+"px;left:"+data_pin.left_loc+"px'><img src ='{{asset('images/icon/')}}/"+data_pin.img+"' style='opacity: 1;cursor:pointer'></div><div id="+data_pin.id_room+" class='room_label' rel='popover' style='position: absolute;  top: "+(data_pin.top_loc+15)+"px; left: "+(data_pin.left_loc+40)+"px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;'>"+data_pin.room_name+"</div></a>");
-  $('#pin').append("");
-
+  $('#pin').append("<a href='"+data_pin.id_floor+"/room/"+data_pin.id_room+"'><div id='"+data_pin.id_room+"' rel='popover' style='position:absolute; top:"+data_pin.top_loc+"px;left:"+data_pin.left_loc+"px'><img src ='{{asset('images/icon/')}}/"+data_pin.img+"' class='room_pick tools pointer-mouse animated myUnZoom' style='opacity: 1;cursor:pointer'></div><div id="+data_pin.id_room+" class='room_label' rel='popover' style='position: absolute;  top: "+(data_pin.top_loc+15)+"px; left: "+(data_pin.left_loc+40)+"px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;'>"+data_pin.room_name+"</div></a>");
 });
-
+$(document).on('mouseover', ".room_pick", function(e) {
+  $(this).removeClass('fadeInDown myUnZoom');
+  $(this).addClass('myZoom');
+});
+$(document).on('mouseout', ".room_pick", function(e) {
+  $(this).removeClass('fadeInDown myZoom');
+  $(this).addClass('myUnZoom');
+});
 
   // function plot_pin_on_map(pin_data){
   //          for(i in pin_obj){

@@ -7,25 +7,48 @@
 <script type="text/javascript">
 var sensorchart;
 var sensor_box='';
+var tmp=0;
 function SensorPick(id,name,type,img) {
-  $('#container_sensor').css('height',200);
-  $('#close_chart').show(400);
-  sensorchart = Sensorchart('container_sensor');
-console.log(id,name,img);
-  $('#sensor_box').append('<div class="dev_div" name="'+id+'"><div style="display:inline-block;min-width: 15%"><div style="display:inline-block;"><img src ="{{asset("images/icon/light_ss_s.png")}}" style="height: 35px"></div><span style="padding-left:5px;vertical-align: middle;">'+name+'</span></div><div class="checkbox-inline" id="'+id+'" style="display:inline-block;"><label class="checkbox-inline" ><input type="checkbox" class="device_checkbox" checked onclick="SensorShow(this)" value="'+id+'">'+type+'</label></div></div>');
+var status = document.getElementById(id).getAttribute('status');
+  if(status=='unselect'){
+    tmp++;
+    $('#container_sensor').css('height',200);
+    $('#close_chart').show(400);
+    $('#'+id).attr('status','selected');
+    $('#'+id+'_img').css('opacity',0.5);
+    sensorchart = Sensorchart('container_sensor');
+    console.log(tmp);
+    $('#sensor_box').show(400);
+    $('#sensor_box').append('<div class="dev_div" name="'+id+'_box" id="'+id+'_box"><div style="display:inline-block;min-width: 15%"><div style="display:inline-block;"><img src ="{{asset("images/icon/light_ss_s.png")}}" style="height: 35px"></div><span style="padding-left:5px;vertical-align: middle;">'+name+'</span></div><div class="checkbox-inline" id="'+id+'" style="display:inline-block;"><label class="checkbox-inline" ><input type="checkbox" id="'+id+'"class="device_checkbox" checked onclick="SensorShow(this.id)" value="'+id+'">'+type+'</label></div></div>');
+  }else{
+    $('#'+id+'_box').remove();
+    $('#'+id).attr('status','unselect');
+    $('#'+id+'_img').css('opacity',1);
+    tmp--;
+    if(tmp==0){
+    RemoveMultiGraph();}
+  }
 }
-//  ''+
-//       ''+
-//   '' +
+function SensorShow(id) {
+  tmp--;
+  if(tmp==0){
+  RemoveMultiGraph();}
+
+}
+
 function RemoveMultiGraph() {
   $('#container_sensor').css('height',0);
   $('#close_chart').hide(400);
-  $('#sensor_box').hide(400);
+  $('.device_icon').attr('status','unselect');
+  $('.device_icon').css('opacity',1);
+  tmp=0;
+  // $('#sensor_box').hide(400);
+  $('#sensor_box').empty(400);
   sensorchart.destroy();
 }
 
 function SensorShow(id) {
-  sensorchart.addSeries
+  // sensorchart.addSeries;
 }
 
 $(document).ready(function() {
@@ -55,8 +78,8 @@ $(document).ready(function() {
       var devices=document.getElementById("myTable").rows[data_sensor.row].cells[data_sensor.col];
       // console.log(devices.img);
       devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\">"+
-                          "<div id="+data_sensor.id_sensor+" style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick(this.id,\""+data_sensor.sensor_name+"\",\""+data_sensor.sensor_type+"\",\""+data_sensor.img+"\")'>"+
-                          "<img status='unselect' id="+data_sensor.id_sensor+" cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" class='device_icon' onClick='SensorShow(this.id)' src ='{{asset('images/icon/')}}/"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
+                          "<div status='unselect' class='device_icon' id="+data_sensor.id_sensor+" style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick(this.id,\""+data_sensor.sensor_name+"\",\""+data_sensor.sensor_type+"\",\""+data_sensor.img+"\")'>"+
+                          "<img status='unselect' id='"+data_sensor.id_sensor+"_img' title=\""+data_sensor.sensor_name+"\" class='device_icon' onClick='SensorShow(this.id)' src ='{{asset('images/icon/')}}/"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
                           "</div>"+"</a>";
 
 
@@ -186,7 +209,7 @@ $(document).ready(function() {
                 <div class="location-room-stay">
                   <div class="location-floor">
                     <div class="location-bar-title">LOCATION: </div>
-                    <div id="floor_lv" class="location-floor-number txt_large txt_blue">{{$data->id_floor}}</div>
+                    <a href="{{url('/building/')}}/{{$data->id_building}}/floor/{{$data->id_floor}}"><div id="floor_lv" class="location-floor-number txt_large txt_blue">{{$data->id_floor}}</div>
                     @if($data->id_floor == 1)
                     <div class="location-floor-suffix">
                       <div class="txt_blue">st<small id="floor_suffix"></small></div>
@@ -203,7 +226,7 @@ $(document).ready(function() {
                     <div class="location-floor-suffix">
                       <div class="txt_blue">th<small id="floor_suffix"></small></div>
                     @endif
-                      <div>FLOOR</div>
+                      </a><div>FLOOR</div>
                     </div>
                   </div>
 

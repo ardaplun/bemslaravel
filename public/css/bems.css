@@ -408,3 +408,79 @@ table#myTable td
 	background-color: rgba(13, 131, 177, 0.78);
 	color: white;
 }
+
+/*animation*/
+@-webkit-keyframes myZoom {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+}
+
+@keyframes myZoom {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+}
+
+.myZoom {
+  -webkit-animation-name: myZoom;
+  animation-name: myZoom;
+}
+
+@-webkit-keyframes myUnZoom {
+  0% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+}
+
+@keyframes myUnZoom {
+  0% {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.myUnZoom {
+  -webkit-animation-name: myUnZoom;
+  animation-name: myUnZoom;
+}

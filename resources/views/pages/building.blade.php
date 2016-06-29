@@ -36,7 +36,7 @@
                          </div>
                          <div style="background-color:#DCEBFF;line-height:1.3em" >
                            <span id="left-clock-building">
-                           <span style="font-size:1.6em;margin-left:4px" class="show-hour">{{date("H")}}</span><span style="font-size:1.2em;display:inline-block;">:00-</span><span class="show-hour" style="font-size:1.2em">{{date("H")}}</span><span style="font-size:1.2em">:59</span>
+                           <span style="font-size:1.6em;margin-left:4px;font-weight: 300;" class="show-hour">{{date("H")}}</span><span style="font-size:1.2em;display:inline-block;font-weight: 300;">:00-</span><span class="show-hour" style="font-size:1.2em;font-weight: 300;">{{date("H")}}</span><span style="font-size:1.2em;font-weight: 300;">:59</span>
                            </span>
                            <span id="floor-name">{{$data_floor->floor_name}} Floor</span>
                          </div>
