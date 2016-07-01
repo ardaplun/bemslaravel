@@ -188,7 +188,7 @@
                         // x: 200,
                         // y: 20,
                         points: [507, 285, 206, 126, 301, 68, 587, 191],
-                        fill: '#F44336',
+                        fill: '#C62828',
                         draggable: false,
                         opacity:0.5
                     });
@@ -241,7 +241,12 @@ var data_pin=<?php echo json_encode($data_pin); ?>;
 // console.log(data_pin);
 data_pin.forEach(function(data_pin){
   console.log(data_pin.room_name);
-  $('#pin').append("<a href='"+data_pin.id_floor+"/room/"+data_pin.id_room+"'><div id='"+data_pin.id_room+"' rel='popover' style='position:absolute; top:"+data_pin.top_loc+"px;left:"+data_pin.left_loc+"px'><img src ='{{asset('images/icon/')}}/"+data_pin.img+"' class='room_pick tools pointer-mouse animated myUnZoom' style='opacity: 1;cursor:pointer'></div><div id="+data_pin.id_room+" class='room_label' rel='popover' style='position: absolute;  top: "+(data_pin.top_loc+15)+"px; left: "+(data_pin.left_loc+40)+"px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;'>"+data_pin.room_name+"</div></a>");
+
+  var text_top_loc = (data_pin.top_loc+15);
+  var text_left_loc = (data_pin.left_loc+40);
+  console.log(text_left_loc, text_top_loc);
+
+  $('#pin').append("<a href='"+data_pin.id_floor+"/room/"+data_pin.id_room+"'><div id='"+data_pin.id_room+"' rel='popover' style='position:absolute; top:"+data_pin.top_loc+"px;left:"+data_pin.left_loc+"px'><img src ='{{asset('images/icon/')}}/"+data_pin.img+"' class='room_pick tools pointer-mouse animated myUnZoom' style='opacity: 1;cursor:pointer'></div><div id="+data_pin.id_room+" class='room_label' rel='popover' style='position: absolute;  top: "+text_top_loc+"px; left: "+text_left_loc+"px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;'>"+data_pin.room_name+"</div></a>");
 });
 $(document).on('mouseover', ".room_pick", function(e) {
   $(this).removeClass('fadeInDown myUnZoom');
