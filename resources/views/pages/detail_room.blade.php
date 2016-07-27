@@ -70,23 +70,23 @@ $(document).ready(function() {
       }
   }
   create_table();
-  var data_sensor=<?php echo json_encode($data_sensor); ?>;
+  var data_device=<?php echo json_encode($data_device); ?>;
 
-  // console.log(data_sensor);
+  // console.log(data_device);
 
-  data_sensor.forEach(function(data_sensor){
-      var devices=document.getElementById("myTable").rows[data_sensor.row].cells[data_sensor.col];
+  data_device.forEach(function(data_device){
+      var devices=document.getElementById("myTable").rows[data_device.row].cells[data_device.col];
       // console.log(devices.img);
-      devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\">"+
-                          "<div status='unselect' class='device_icon' id="+data_sensor.id_sensor+" style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick(this.id,\""+data_sensor.sensor_name+"\",\""+data_sensor.sensor_type+"\",\""+data_sensor.img+"\")'>"+
-                          "<img status='unselect' id='"+data_sensor.id_sensor+"_img' title=\""+data_sensor.sensor_name+"\" class='device_icon' onClick='SensorShow(this.id)' src ='{{asset('images/icon/')}}/"+data_sensor.img+"' style='opacity: 1;cursor:pointer'>"+
+      devices.innerHTML= "<a title=\""+data_device.sensor_name+" Group\">"+
+                          "<div status='unselect' class='device_icon' id="+data_device.id_sensor+" style='background: light-grey;display:inline-block;position:relative' onClick='SensorPick(this.id,\""+data_device.sensor_name+"\",\""+data_device.sensor_type+"\",\""+data_device.img+"\")'>"+
+                          "<img status='unselect' id='"+data_device.id_sensor+"_img' title=\""+data_device.sensor_name+"\" class='device_icon' onClick='SensorShow(this.id)' src ='{{asset('images/icon/')}}/"+data_device.img+"' style='opacity: 1;cursor:pointer'>"+
                           "</div>"+"</a>";
 
 
-      // devices.innerHTML= "<a title=\""+data_sensor.sensor_name+" Group\" >"+
+      // devices.innerHTML= "<a title=\""+data_device.sensor_name+" Group\" >"+
       //                       "<div style='background: light-grey;display:inline-block;position:relative'>"+
       //
-      //                           "<img status='unselect' cell="+data_sensor.col+" row="+data_sensor.row+" title=\""+data_sensor.sensor_name+"\" onclick='SensorPick(this)' class='device_icon' src ='{{asset('images/icon/"+data_sensor.img+"')}}' style='opacity: 1;'>"+
+      //                           "<img status='unselect' cell="+data_device.col+" row="+data_device.row+" title=\""+data_device.sensor_name+"\" onclick='SensorPick(this)' class='device_icon' src ='{{asset('images/icon/"+data_device.img+"')}}' style='opacity: 1;'>"+
       //                       "</div>"+
       //                     "</a>";
   });
