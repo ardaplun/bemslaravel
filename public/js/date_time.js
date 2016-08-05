@@ -38,7 +38,7 @@ function date_time(id)
         // $(".show-hour").html({{date("H")}});
         //$(".show-month").html(months[month]);
         //$(".show-year").html(year);
-        console.log("hello, lol");
+        // console.log("hello, lol");
         setTimeout('date_time("'+id+'");','5000');
         return true;
 }

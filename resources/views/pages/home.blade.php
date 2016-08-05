@@ -2,10 +2,34 @@
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
+<script src="{{asset('js/getdata.js')}}"></script>
+<script type="text/javascript">
+
+// var urlget = 'api/v1/view/';
+// $(document).ready(function(){
+//     $.ajax({
+//       url: urlget+'home',
+//       type: "post",
+//       data: {'building':'lol'},
+//       dataType:'json',
+//       success: function(data){
+//         console.log(data);
+//         console.log(data['e_total']);
+//         $("#show-energy").html(data['e_total']);
+//         $("#show-energy-map").html(data['e_total']);
+//         $("#daily-energy").html(data['e_today']);
+//         $("#show_power").html(data['p_current']);
+//         $("#show_max_power").html(data['p_max']);
+//
+//       },
+//       error: function(e) {
+//         console.log(e.responseText);
+//       }
+//     });
+// });
+</script>
 <!-- title content -->
 <div id="show-overview">
-
-
 <body>
   <div class="container">
     <div id="chart-title">
@@ -33,18 +57,18 @@
           <div id="status-big">
             <div style="height:8.3em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
                 <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.4em">1<sup>st</sup> - Today</div>
-                <div style="font-size:3.4em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy" >12,345.67&nbsp</span><span style="font-size:50%;font-weight:lighter;">kWh</span></div>
+                <div style="font-size:3.4em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy"> ... </span><span style="font-size:50%;font-weight:lighter;">&nbsp kWh</span></div>
                 <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span style="font-size:1.4em;" id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
             </div>
           </div>
           <div id="status-chart-acc">
             <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
-              <span id="daily-consumed">Daily Consumed Energy Accumulation 123.45  kWh</span>
+              <span id="daily-consumed">Daily Consumed Energy Accumulation <span id="daily-energy"> ... </span> kWh</span>
               <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Level 2</span>
             </div>
             <div style="height:40px;line-height:40px;font-size:1.2em;color:#707070;">
-              <span style="margin:0 0 0 4px;">Current Demand <span id="show_power">123</span> kW</span>
-              <span style="float:right;margin-right:4px;">Peak Demand 234 kW</span>
+              <span style="margin:0 0 0 4px;">Current Demand <span id="show_power"> ... </span> kW</span>
+              <span style="float:right;margin-right:4px;">Peak Demand <span id="show_max_power"> ... </span> kW</span>
             </div>
           </div>
           <div id="status-chart-line">
@@ -66,6 +90,7 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript"> homepage();</script>
   <script type="text/javascript"> mainchart('chart_container');</script>
   <script type="text/javascript">Donutchart('Donutchart','EE&IT');</script>
 
@@ -101,25 +126,25 @@
       </div>
 
 
-      <div id="DTETI_enegy_show" style="position: absolute;top: 230px;left: 20px;width:210px;height:120px;z-index:200">
+      <div id="DTETI_enegy_show" style="position: absolute;top: 230px;left:-10em;width:210px;height:120px;z-index:200">
         <div id="DTETI_line">
-          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;right: 16.6em;top:3.5em;"></div>
-          <div style="border-left: 1px solid #bc250c;border-top: 1px solid #bc250c;width: 140px;height: 58px;background-color: transparent;position: absolute;left: -2em"></div>
-          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;left:7em;top: -0.75em;"></div>
+          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;right: 6.6em;top:3.5em;"></div>
+          <div style="border-left: 1px solid #bc250c;border-top: 1px solid #bc250c;width: 140px;height: 58px;background-color: transparent;position: absolute;left: 8em"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;left:18em;top: -0.75em;"></div>
         </div>
-        <div style="position: absolute;left: -5em;top: 5em;color:#707070">
+        <div style="position: absolute;left: 5em;top: 5em;color:#707070">
           <span style="font-size: 20px;">DTETI Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Energy <span id="show-energy-map"></span> kWh</span>
         </div>
       </div>
 
-      <div id="DTMI_enegy_show" style="position: absolute;top: 8em;left: -5em;width:15em;height:120px;z-index:200">
+      <div id="DTMI_enegy_show" style="position: absolute;top: 8em;left: -10em;width:15em;height:120px;z-index:200">
         <div id="DTMI_line">
-          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:-0.3em;"></div>
-          <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;"></div>
-          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.28em;top: 3em;"></div>
+          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 9.7em;top:-0.3em;"></div>
+          <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;position: absolute;left: 5em"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:15.28em;top: 3em;"></div>
         </div>
-        <div style="position: absolute;left: -7em;top: -0.7em;color:#707070">
+        <div style="position: absolute;left: -2em;top: -0.7em;color:#707070">
           <span style="font-size: 15px;">DTMI Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
         </div>

@@ -25,7 +25,7 @@
                         <label class="btn" disabled>
                           AREA :
                         </label>
-                        <label class="btn area_pick" value="all" style="border-right: 1px solid #DAD8D8;">
+                        <label class="btn area_pick active" value="all" style="border-right: 1px solid #DAD8D8;">
                           <input type="radio" >All
                         </label>
                         <label class="btn area_pick" value="all" style="border-left: 1px solid #DAD8D8;">
@@ -63,7 +63,7 @@
                         <label class="btn" disabled>
                           GROUP :
                         </label>
-                        <label class="btn range_pick" onclick="blockUI();" value="day" style="border-right: 1px solid #DAD8D8;">
+                        <label class="btn range_pick active" onclick="blockUI();" value="day" style="border-right: 1px solid #DAD8D8;">
                           <input type="radio" >Day
                         </label>
                         <label class="btn range_pick" onclick="blockUI();" value="month" style="border-right: 1px solid #DAD8D8;">
@@ -210,13 +210,15 @@
                 </div>
               </div>
               <center><div class="col-sm-5 mepet pull-right" >
-                <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
-                  <div id="container_pie0" class="container_donut_style" style="width:100%;height:24em"></div>
-                  <script type="text/javascript">Donutchart('container_pie0','Area Usage');</script>
+                <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68);height:28em">
+                  <h3>Area Usage</h3>
+                  <div id="container_pie0" class="container_donut_style" style="width:100%;height:23em"></div>
+                  <script type="text/javascript">Donutchart('container_pie0','');</script>
                 </div>
-                <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68)">
-                  <div id="container_pie1" class="container_donut_style" style="width:100%;height:24em"></div>
-                  <script type="text/javascript">Donutchart('container_pie1', 'Load Usage');</script>
+                <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68);height:28em">
+                  <h3>Load Usage</h3>
+                  <div id="container_pie1" class="container_donut_style" style="width:100%;height:23em"></div>
+                  <script type="text/javascript">Donutchart('container_pie1', '');</script>
                 </div>
               </div></center>
             </div>
