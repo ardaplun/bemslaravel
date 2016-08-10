@@ -90,9 +90,7 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript"> homepage();</script>
-  <script type="text/javascript"> mainchart('chart_container');</script>
-  <script type="text/javascript">Donutchart('Donutchart','EE&IT');</script>
+
 
 </body>
 </div>
@@ -250,6 +248,13 @@
     });
 
 </script>
-
+<!-- get data -->
+<script type="text/javascript">
+    homepage();
+    setInterval(function(){homepage();}, 1000);
+</script>
+<!-- chart  -->
+<script type="text/javascript"> mainchart('chart_container');</script>
+<script type="text/javascript">Donutchart('Donutchart','EE&IT');</script>
 
 @endsection

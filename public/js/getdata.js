@@ -6,11 +6,10 @@ function homepage(){
       $.ajax({
         url: urlget+'home',
         type: "post",
-        data: {'building':'lol'},
+        data: {'key':'bems'},
         dataType:'json',
         success: function(data){
-          console.log(data);
-          console.log(data['e_total']);
+          // parse data from api and put in html page
           $("#show-energy").html(data['e_total']);
           $("#show-energy-map").html(data['e_total']);
           $("#daily-energy").html(data['e_today']);
@@ -25,7 +24,7 @@ function homepage(){
   });
 }
 
-function buildingpage(container){
+function buildingpage(building){
     $(document).ready(function(){
         $.ajax({
           url: urlget+'index',
@@ -59,19 +58,22 @@ function floorpage(container){
     });
 }
 
-function roompage(container){
+function roompage(device){
     $(document).ready(function(){
+      var result;
         $.ajax({
-          url: urlget+'index',
+          url: '../../../../../'+urlget+'device',
           type: "post",
-          data: {'building':'lol'},
+          data: {'id':device},
           dataType:'json',
           success: function(data){
-            console.log(data);
+            // console.log(data);
+            result=data;
           },
           error: function(e) {
             console.log(e.responseText);
           }
         });
+        return result;
     });
 }

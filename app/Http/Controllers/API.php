@@ -25,14 +25,23 @@ class API extends Controller
       $query_pwr = \DB::table('get_energy')->select('power')->whereRaw('date(time) = ?', [$today])->get();
       $i = count($query_pwr);
       // $query_pwr = \DB::table('get_energy')->select('power')->orderBy('time', 'desc')->whereRaw('date(time) = ?', [$today])->get();
-      $p_now = $query_pwr[$i-1]->power;
-      $p_max = collect($query_pwr)->max('power');
+      if($i != 0)
+      {
+        $p_now = $query_pwr[$i-1]->power;
+        $p_max = collect($query_pwr)->max('power');
+
+        $data['p_current'] = $p_now;
+        $data['p_max'] = $p_max;
+      }else {
+        $data['p_current'] = 0;
+        $data['p_max'] = 0;
+      }
+
       //query data for energy
       $data['e_total'] = collect(\DB::table('get_energy')->select('energy')->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy');
       $data['e_today'] = collect(\DB::table('get_energy')->select('energy')->whereRaw('date(time) = ?', [$today])->get())->sum('energy');
 
-      $data['p_current'] = $p_now;
-      $data['p_max'] = $p_max;
+
 
       if(!empty($input))
       {
@@ -108,6 +117,37 @@ class API extends Controller
       }
       return \Response::json($return);
     }
+
+    public function device()
+    {
+      $input = \Request::all();
+      $today = \Carbon\Carbon::today()->toDateString();
+      $thsmonth = \Carbon\Carbon::now()->month;
+
+      //query data for power
+      $device_name = \DB::table('data_device')->select('sensor_name')->where('id_device','=',$input['id'])->first();
+      $query = \DB::table('get_energy')->select('time', 'power')->whereRaw('date(time) = :today and id_device = :id',['today'=>$today, 'id'=>$input['id']])->get();
+
+      foreach ($query as $tmp) {
+        $data['name']=$device_name->sensor_name;
+        $data['data'][]=[(intval(date(strtotime($tmp->time)+ 7*60*60)))*1000,$tmp->power];        
+      }
+
+      if(!empty($input))
+      {
+        // $return = array(
+        //   'error' => false,
+        //   'data' => $data,
+        //   'type' => $input,
+        //   'status_code' => 200);
+        $return = $data;
+      }else{
+        $return = array(
+        'error' => true);
+      }
+      return \Response::json($return);
+    }
+
 
 // API get data from sensor
 
