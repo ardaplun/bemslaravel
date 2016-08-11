@@ -368,6 +368,7 @@ function Sensorchart(container){
               renderTo: container,
                   alignTicks: false,
               backgroundColor:'transparent',
+               useUTC: false
           },
           title: {
                text: ''

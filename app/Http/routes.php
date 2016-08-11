@@ -25,7 +25,6 @@ Route::group(['prefix' => 'api/v1/view/'], function()
     Route::post('building', 'API@building');
     Route::post('floor', 'API@floor');
     Route::post('room', 'API@room');
-    Route::post('device', 'API@device');
 });
 
 //API insert data from device

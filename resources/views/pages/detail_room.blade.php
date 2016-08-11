@@ -217,7 +217,7 @@ $(document).ready(function() {
                 <div class="location-room-stay">
                   <div class="location-floor">
                     <div class="location-bar-title">LOCATION: </div>
-                    <a href="{{url('/building/')}}/{{$data->id_building}}/floor/{{$data->id_floor}}"><div id="floor_lv" class="location-floor-number txt_large txt_blue">{{$data->id_floor}}</div>
+                    <a href="{{url('/building/')}}/{{$data->id_building}}/floor/{{$data->id_floor}}" title="Go back to floor detail page."><div id="floor_lv" class="location-floor-number txt_large txt_blue">{{$data->id_floor}}</div>
                     @if($data->id_floor == 1)
                     <div class="location-floor-suffix">
                       <div class="txt_blue">st<small id="floor_suffix"></small></div>

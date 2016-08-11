@@ -2,7 +2,6 @@
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
-<script src="{{asset('js/getdata.js')}}"></script>
 <script type="text/javascript">
 
 // var urlget = 'api/v1/view/';
@@ -251,7 +250,7 @@
 <!-- get data -->
 <script type="text/javascript">
     homepage();
-    setInterval(function(){homepage();}, 1000);
+    setInterval(function(){homepage();}, 60000);
 </script>
 <!-- chart  -->
 <script type="text/javascript"> mainchart('chart_container');</script>

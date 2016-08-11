@@ -27,7 +27,7 @@
             @forelse ($data_floors as $data_floor)
 
              <li id="show_{{$data_floor->id_floor}}">
-               <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}"><div class="col-sm-12 mepet">
+               <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}" title="Go to {{$data_floor->floor_name}} floor detail page."><div class="col-sm-12 mepet">
                    <div class="mepet" style="width:54%;display:inline-block;">
                          <div class="status_floor_detail" style="background-color:white;display:inline-block;width:100%">
                          <div>
@@ -45,22 +45,22 @@
                              1<sup>st</sup> - Today
                            </div>
                            <div style="font-size:2.7em;text-align:right;width:55%;;display:inline-block;margin-top:20px;color:#707070;">
-                             <span id="{{$building}}_show_energy_{{$data_floor->id_floor}}">12.345,67</span><span style="font-size:50%;"> kWh</span>
+                             <span id="{{$building}}_show_energy_{{$data_floor->id_floor}}">...</span><span style="font-size:50%;"> kWh</span>
                            </div>
                            <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em;font-size:2em;">
                              <span id="show_percent_energy" style="font-size:1.4em">100</span><span style="font-size:40%;">%</span>
                            </div>
                          </div>
                          <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
-                           <span id="daily-consumed" style="font-size:1em;line-height:2.5em">Daily Consumed Energy Accumulation <span id="{{$building}}_daily-consumed_{{$data_floor->id_floor}}">123</span> kWh</span>
+                           <span id="daily-consumed" style="font-size:1em;line-height:2.5em">Daily Consumed Energy Accumulation <span id="{{$building}}_daily-consumed_{{$data_floor->id_floor}}">0</span> kWh</span>
                            <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:6.6em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Warning oi</span>
                          </div>
                          </div>
                    </div>
                         <div class="status__chart" style="display:inline-block;min-width:45%;height:230px;float:right;">
                             <div style="line-height:20px;font-size:0.7em;color:#707070;background-color:#FFF">
-                                    <span style="margin:0 0 0 4px;">Current Demand <span id="{{$building}}_show_power_{{$data_floor->id_floor}}">123</span> kW</span>
-                                    <span style="float:right;margin-right:4px;">Peak Demand <span id="{{$building}}_show_max_power_{{$data_floor->id_floor}}">123</span> kW</span>
+                                    <span style="margin:0 0 0 4px;">Current Demand <span id="{{$building}}_show_power_{{$data_floor->id_floor}}">...</span> kW</span>
+                                    <span style="float:right;margin-right:4px;">Peak Demand <span id="{{$building}}_show_max_power_{{$data_floor->id_floor}}">...</span> kW</span>
                                 <div id="{{$data_floor->id_floor}}_chart" class="floor-chart"></div>
                                 <script type="text/javascript">buildingchart('{{$data_floor->id_floor}}_chart');</script>
                                 <div style="background-color:#F9FAFC;margin-top:-5px"><span style="margin:0 0 0 4px;"><hr style="background-color:#F5C922;height:2px;float:left;width:15px;margin-top:8px;">&nbsp;Warning Level 123 kW</span>
@@ -71,6 +71,11 @@
                         <hr style="width:100%;height:2px;background-color:#eee;margin-top:-10px">
                 </div></a>
              </li>
+
+             <script type="text/javascript">
+                 floorlist('{{$building}}','{{$data_floor->id_floor}}');
+                 setInterval(function(){floorlist('{{$building}}','{{$data_floor->id_floor}}');}, 60000);
+             </script>
              @empty
                 <p>No data for this building</p>
              @endforelse

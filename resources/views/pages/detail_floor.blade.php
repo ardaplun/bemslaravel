@@ -17,7 +17,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-              <a href="{{url('/building/')}}/{{$data->id_building}}"><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;">ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY</span></a> : <span id="floor_lv" class="txt_blue">{{$data->floor_name}} FLOOR</span>
+              <a href="{{url('/building/')}}/{{$data->id_building}}" title="Go back to building page."><span id="bld_lv" class="txt_pink" style="font-size:1.3em;font-weight:400;">ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY</span></a> : <span id="floor_lv" class="txt_blue">{{$data->floor_name}} FLOOR</span>
               <div class="col-sm-7 mepet ">
                 <div class="col-sm-6 mepet" style="padding-top:0.3em">
                   <div class="btn-group" style="border: 1px solid #B2B2B3;border-radius: 5px;width:100%">
