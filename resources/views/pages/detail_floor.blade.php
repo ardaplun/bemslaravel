@@ -4,7 +4,27 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <script src="{{asset('js/kinetic-v4.6.0.js')}}"></script>
 <script src="{{asset('js/kinetic-v4.6.0.min.js')}}"></script>
-
+<script type="text/javascript">
+// $(document).ready(function() {
+function show_icon_name(){
+    $("#pin").show();
+    $(".room_label").removeClass('animated flipInY');
+    $("#pin_name").show();
+    $(".room_label").show();
+    $(".room_label").addClass('animated flipInY');
+    $("#test_show_data").hide();
+}
+  function show_icon(){
+    $(".room_pick").removeClass('animated fadeInDown');
+    $("#pin").show();
+    $(".room_pick").show();
+    $(".room_pick").addClass('animated fadeInDown');
+    $("#pin_name").hide();
+    $("#test_show_data").hide();
+    $(".room_label").hide();
+  }
+// });
+</script>
 <body>
     <div class="container">
       <div id="chart-title">
@@ -213,19 +233,19 @@
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68);height:28em">
                   <h3>Area Usage</h3>
                   <div id="container_pie0" class="container_donut_style" style="width:100%;height:23em"></div>
-                  <script type="text/javascript">Donutchart('container_pie0','');</script>
+                  <script type="text/javascript"></script>
                 </div>
                 <div class="chart_style" style="background-color:rgba(255, 255, 255, 0.68);height:28em">
                   <h3>Load Usage</h3>
                   <div id="container_pie1" class="container_donut_style" style="width:100%;height:23em"></div>
-                  <script type="text/javascript">Donutchart('container_pie1', '');</script>
+                  <script type="text/javascript"></script>
                 </div>
               </div></center>
             </div>
             <div class="col-sm-12">
             <div style="background-color:rgba(255, 255, 255, 0.68);padding:1em 0 0 1em">
               <div id="container_sum" class="container_bar_style" style="width:100%;border:1px solid #B2B2B3;height: 25em" ></div>
-              <script type="text/javascript">buildingchart('container_sum');</script>
+              
               <br><br><br>
             </div>
           </div>
@@ -234,13 +254,16 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+
+
   $(".map_meaning").hide();
-  $("#show_map_meaning").click( function() {
+  $("#show_map_meaning").click( function()
+  {
     $(".map_meaning").toggle();
   });
 
 var data_pin=<?php echo json_encode($data_pin); ?>;
-// console.log(data_pin);
+
 data_pin.forEach(function(data_pin){
   console.log(data_pin.room_name);
 
@@ -265,7 +288,26 @@ $(document).on('mouseout', ".room_pick", function(e) {
   //          $('#pin_name').append('<div id="name_'+pin_data['names_'+i]+'" class="room_label" rel="popover" style="position: absolute;  bottom: '+pin_data["bottom_name_"+i]+'px; left: '+pin_data['left_name_'+i]+'px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;">'+ pin_data['names_'+i]+'</div>');
   //          }
   // }
+
+  var datapage=[];
+  var time='today';
+  floorpage('{{$data->id_building}}','{{$data->id_floor}}',time).done(function(data){
+    datapage=data;
+  });
+
+  //render page chart
+  setTimeout(function(){
+    buildingchart('container_sum',datapage['powerChart']);
+    Donutchart('container_pie0','',datapage['donutChart']['donutArea']);
+    Donutchart('container_pie1', '',datapage['donutChart']['donutLoad']);
+  },1000);
+
+
+
 });
+
+
+
 </script>
 </body>
 @endsection

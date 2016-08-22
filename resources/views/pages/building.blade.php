@@ -1,7 +1,9 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<script src="{{asset('js/chart.js')}}"></script>
+<script type="text/javascript">
+  var datadonut=[];
+</script>
 <body>
   <div class="container">
     <div class="row mepet" style="width:105%">
@@ -17,7 +19,7 @@
       </div>
       <div class="right-build-container">
 
-          <div style="font-size:1.9em;color:#44c049;">ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY</div>
+          <div id="buildingname"style="font-size:1.9em;color:#44c049;">ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY</div>
           <div style="font-size:1em;color:#028EC1;">{{$building}} Bld.</div>
           <div style="font-size:12px;color:red;float:right;background-color:transparent">Tip: Click on each floor area to go to floor level page</div>
             <hr style="background-color: #44ACD1;height:2px;">
@@ -73,14 +75,42 @@
              </li>
 
              <script type="text/javascript">
-                 floorlist('{{$building}}','{{$data_floor->id_floor}}');
-                 setInterval(function(){floorlist('{{$building}}','{{$data_floor->id_floor}}');}, 60000);
+                floorlist('{{$building}}','{{$data_floor->id_floor}}').done(function(data){
+                  $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total']);
+                  $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today']);
+                  $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current']);
+                  $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max']);
+                  buildingchart('{{$data_floor->id_floor}}_chart',data['powerChart']);
+                  datadonut.push({
+                    'name':'{{$data_floor->floor_name}} Floor<br>'+data['energy']['total']+' kWh',
+                    'y' : data['energy']['total']});
+                });
+
+                 setInterval(function(){floorlist('{{$building}}','{{$data_floor->id_floor}}').done(function(data){
+                   $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total']);
+                   $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today']);
+                   $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current']);
+                   $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max']);
+                   buildingchart('{{$data_floor->id_floor}}_chart',data['powerChart']);
+                   datadonut.push({
+                     'name':'{{$data_floor->floor_name}} Floor<br>'+data['energy']['total']+' kWh',
+                     'y' : data['energy']['total']});
+                 });}, 5*60000);
              </script>
              @empty
                 <p>No data for this building</p>
              @endforelse
+
              <li><div id="{{$building}}_container_pie" style="width: 100%;display:inline-block;"></div></li>
-             <script type="text/javascript">Donutchart('{{$building}}_container_pie','{{$building}}');</script>
+             <script type="text/javascript">
+
+                setTimeout(function(){
+                  console.log(datadonut);
+                  Donutchart('{{$building}}_container_pie','{{$building}}', datadonut);
+                },750);
+
+
+             </script>
              </ul>
             <hr style="background-color: #44ACD1;height:2px;">
 

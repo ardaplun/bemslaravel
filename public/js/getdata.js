@@ -24,12 +24,12 @@ function homepage(){
   });
 }
 
-function buildingpage(building){
+function buildingpage(building,data){
     $(document).ready(function(){
         $.ajax({
-          url: urlget+'building',
+          url: '../'+urlget+'building',
           type: "post",
-          data: {'building':building, 'floor':floor},
+          data: {'building':building, 'data':data,'type':'buildingpage'},
           dataType:'json',
           success: function(data){
             console.log(data);
@@ -40,47 +40,85 @@ function buildingpage(building){
         });
     });
 }
+//
+// function floorlist(building,floor){
+//     $(document).ready(function(){
+//       var result;
+//         $.ajax({
+//           url: '../'+urlget+'building',
+//           type: "post",
+//           data: {'building':building, 'floor':floor ,'type':'floorlist'},
+//           dataType:'json',
+//           success: function(data){
+//             // parse data from api and put in html page
+//             result=data;
+//             $('#'+building+"_show_energy_"+floor).html(data['energy']['total']);
+//             $('#'+building+"_daily-consumed_"+floor).html(data['energy']['today']);
+//             $('#'+building+"_show_power_"+floor).html(data['power']['current']);
+//             $('#'+building+"_show_max_power_"+floor).html(data['power']['max']);
+//           },
+//           error: function(e) {
+//             console.log(e.responseText);
+//           }
+//         });
+//         return result;
+//     });
+// }
 
 function floorlist(building,floor){
-    $(document).ready(function(){
-      var result;
-        $.ajax({
+
+      return $.ajax({
           url: '../'+urlget+'building',
           type: "post",
           data: {'building':building, 'floor':floor ,'type':'floorlist'},
           dataType:'json',
-          success: function(data){
-            console.log(data);
-            $('#'+building+"_show_energy_"+floor).html(data['energy']['total']);
-            $('#'+building+"_daily-consumed_"+floor).html(data['energy']['today']);
-            $('#'+building+"_show_power_"+floor).html(data['power']['current']);
-            $('#'+building+"_show_max_power_"+floor).html(data['power']['max']);
-          },
+          // success: function(data){
+          //   // parse data from api and put in html page
+          //
+          //   $('#'+building+"_show_energy_"+floor).html(data['energy']['total']);
+          //   $('#'+building+"_daily-consumed_"+floor).html(data['energy']['today']);
+          //   $('#'+building+"_show_power_"+floor).html(data['power']['current']);
+          //   $('#'+building+"_show_max_power_"+floor).html(data['power']['max']);
+          // },
           error: function(e) {
             console.log(e.responseText);
           }
         });
-    });
 }
 
-function floorpage(building,floor){
-    $(document).ready(function(){
-        $.ajax({
-          url: urlget+'index',
+function floorpage(building,floor,time){
+        return $.ajax({
+                url: '../../../'+urlget+'floor',
+                type: "post",
+                data: {'building':building, 'floor':floor ,'type':'floorpage','time':time},
+                dataType:'json',
+
+                error: function(e) {
+                  console.log(e.responseText);
+                }
+          });
+
+}
+function roompage(room,time){
+      // var result;
+        return $.ajax({
+          url: '../../../../../'+urlget+'room',
           type: "post",
-          data: {'building':'lol'},
+          data: {'room':room,'type':'roompage','time':time},
           dataType:'json',
-          success: function(data){
-            console.log(data);
-          },
+          // success: function(data){
+          //   // console.log(data);
+          //   result=data;
+          // },
           error: function(e) {
             console.log(e.responseText);
           }
         });
-    });
+        // return result;
+
 }
 
-function roompage(device){
+function roomdetail(device){
     $(document).ready(function(){
       var result;
         $.ajax({

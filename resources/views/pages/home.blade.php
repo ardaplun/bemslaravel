@@ -254,6 +254,6 @@
 </script>
 <!-- chart  -->
 <script type="text/javascript"> mainchart('chart_container');</script>
-<script type="text/javascript">Donutchart('Donutchart','EE&IT');</script>
+<script type="text/javascript">Donutchart('Donutchart','EE&IT',[{'name':'2nd Floor','y':123},{'name':'3rd Floor','y':456}]);</script>
 
 @endsection

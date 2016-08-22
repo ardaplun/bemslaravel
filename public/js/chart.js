@@ -47,7 +47,7 @@ function mainchart(container){
               },
               tooltip: {
                 formatter: function() {
-                  var dateToday = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+                  var dateToday = moment().utc().startOf('day').format("dddd, MMMM Do YYYY, h:mm:ss a");
                   var dateYesterday = moment().subtract(1, 'day').format("dddd, MMMM Do YYYY, h:mm:ss a");
 
                   if (this.series.name == 'today') {
@@ -159,7 +159,7 @@ function mainchart(container){
 
 }
 
-function buildingchart(container){
+function buildingchart(container,data){
 
       var chart = new Highcharts.Chart({
         chart: {
@@ -202,16 +202,17 @@ function buildingchart(container){
           }
         },
         tooltip: {
-          formatter: function() {
-            var dateToday = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-            var dateYesterday = moment().subtract(1, 'day').format("dddd, MMMM Do YYYY, h:mm:ss a");
-
-            if (this.series.name == 'today') {
-                return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(150, 150, 150, 1);">'+this.series.name+': </span><b>'+this.y +' kW</b></span>';
-            } else {
-                return '<span>'+dateYesterday+'</span><br>'+this.series.name+': </span><b>'+this.y+' kW</b></span>';
-            }
-          }
+          // formatter: function() {
+          //   var dateToday = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+          //   var dateYesterday = moment().subtract(1, 'day').format("dddd, MMMM Do YYYY, h:mm:ss a");
+          //
+          //   if (this.series.name == 'today') {
+          //       return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(150, 150, 150, 1);">'+this.series.name+': </span><b>'+this.y +' kW</b></span>';
+          //   } else {
+          //       return '<span>'+dateYesterday+'</span><br>'+this.series.name+': </span><b>'+this.y+' kW</b></span>';
+          //   }
+          // }
+          enabled:false
         },
         xAxis: [{
           ordinal: false,
@@ -263,14 +264,19 @@ function buildingchart(container){
           dataGrouping: {enabled: false},
           color: "rgba(112, 220, 26, 1)", //green
 
-          data: [15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8, 20.8,	20.1, 20.2,	19.3,	19,	19.4,	21.5,	19.3, 18.8,	18,	17.7,	19.2,	17.1,	17.2,	17.3,	18.2, 19.1,	21.8,	20.7,	23.9,	39,	43.4,	46.2,	53.3, 57.2,	70.2,	74.2,	79.2, 94,	102.1,	109.5,	109.5, 114.6,	116.7,	126.2,	130.9,	135.8,	130.3,	130.8,	135.7, 137.1,	143.8,	88.2,	90,	98.5,	97.2,	81.9,83.1, 81,	89.8,	73.9,	78,	72.1,	85.2,	84.3,	89, 96.3, 94.5,	91.7,	92.9,	96,	99.2,	95.7,	91.4, 91.7,	78.9,	76.3,	70.3,	77.2,	77,	76.3,	71.8, 68.3,	59.9,	52.6,	54.2,	49.9,	49.4,	52.4, 49.1,0,0,0,0,0,0,0,0],
+          // data: [15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8, 20.8,	20.1, 20.2,	19.3,	19,	19.4,	21.5,	19.3, 18.8,	18,	17.7,	19.2,	17.1,	17.2,	17.3,	18.2, 19.1,	21.8,	20.7,	23.9,	39,	43.4,	46.2,	53.3, 57.2,	70.2,	74.2,	79.2, 94,	102.1,	109.5,	109.5, 114.6,	116.7,	126.2,	130.9,	135.8,	130.3,	130.8,	135.7, 137.1,	143.8,	88.2,	90,	98.5,	97.2,	81.9,83.1, 81,	89.8,	73.9,	78,	72.1,	85.2,	84.3,	89, 96.3, 94.5,	91.7,	92.9,	96,	99.2,	95.7,	91.4, 91.7,	78.9,	76.3,	70.3,	77.2,	77,	76.3,	71.8, 68.3,	59.9,	52.6,	54.2,	49.9,	49.4,	52.4, 49.1,0,0,0,0,0,0,0,0],
+          data: data,
         }]
           });
         return chart;
 
 }
-function Donutchart(container,title){
-
+function Donutchart(container,title,datadonut){
+      Highcharts.setOptions({
+      //  colors: ['#64E572', '#24CBE5','#50B432','#ED561B', '#DDDF00',   '#FF9655', '#FFF263','#6AF9C4',]
+       colors :['#40A4E2','#E87F00','#9B5BB9','#F4C400','#2BCB6B','#EA4E35','#334960','#95A5A5','#06BB9C','#ECF0F1',
+                        '#1A81BC','#D65501','#8D48B2','#F4C400','#24AC5A','#C23B25','#2C3E52','#BEC3C7','#07A084','#7E8C8D']
+      });
       var chart = new Highcharts.Chart({
         chart: {
         plotBackgroundColor: null,
@@ -337,23 +343,7 @@ function Donutchart(container,title){
                 enabled: false
             }
         },
-        data: [{
-
-            name: 'Underground',
-            y: 6.33
-        }, {
-            name: '1st Floor',
-            y: 24.03,
-        }, {
-            name: '2nd  Floor',
-            y: 20.38
-        }, {
-            name: '3rd Floor',
-            y: 34.77
-        }, {
-            name: '4th floor',
-            y: 8.91
-        }]
+        data: datadonut
     }]
           });
         return chart;

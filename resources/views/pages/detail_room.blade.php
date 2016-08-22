@@ -25,8 +25,8 @@ var status = document.getElementById(id).getAttribute('status');
     $('#sensor_box').append('<div class="dev_div" name="'+id+'_box" id="'+id+'_box"><div style="display:inline-block;min-width: 15%"><div style="display:inline-block;"><img src ="{{asset("images/icon/light_ss_s.png")}}" style="height: 35px"></div><span style="padding-left:5px;vertical-align: middle;">'+name+'</span></div><div class="checkbox-inline" id="'+id+'" style="display:inline-block;"><label class="checkbox-inline" ><input type="checkbox" id="'+id+'"class="device_checkbox" checked onclick="SensorShow(this.id)" value="'+id+'">'+type+'</label></div></div>');
 
     // getdata
-    var data_device = roompage(id);
-
+    var data_device = roomdetail(id);
+    console.log(data_device);
 
   }else{
     $('#'+id+'_box').remove();
@@ -299,8 +299,8 @@ $(document).ready(function() {
                 <div class="col-md-12">Energy Usage:</div>
                 <div class="col-md-12">
                  <!--chart area-->
-                 <div id="container_pie0" style="width:100%;height:300px;">Pie Chart</div>
-                 <script type="text/javascript">Donutchart('container_pie0', '{{$data->id_room}}');</script>
+                 <div id="container_pie0" style="width:100%;height:300px;"></div>
+                 <script type="text/javascript"></script>
                 </div>
               </div> <!--End row-->
               <hr />
@@ -310,7 +310,6 @@ $(document).ready(function() {
                 <div class="col-md-12">
                  <!--chart area-->
                  <div id="container_sum" style="width:100%;height:200px;">Bar Chart</div>
-                 <script type="text/javascript">buildingchart('container_sum');</script>
                 </div>
               </div> <!--End row-->
               </br>
@@ -345,6 +344,21 @@ $('#slimscroll').slimscroll({
 
 $('.hidden-node').parent().hide('fast');
 $('.hidden-node').attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+
+//get data for page all value
+var datapage=[];
+var time='today';
+roompage('{{$data->id_room}}',time).done(function(data){
+  datapage=data;
+});
+
+//render page chart
+setTimeout(function(){
+  $('#energy_num').html(datapage['energy']+' kWh');
+  Donutchart('container_pie0', '{{$data->id_room}}',datapage['donutLoad']);
+  buildingchart('container_sum',datapage['powerChart']);
+},1000);
+
 </script>
 
 
