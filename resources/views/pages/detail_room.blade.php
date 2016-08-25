@@ -10,6 +10,8 @@
 var sensorchart;
 var sensor_box='';
 var tmp=0;
+var datadetail=[];
+
 function SensorPick(id,name,type,img) {
 var status = document.getElementById(id).getAttribute('status');
   if(status=='unselect'){
@@ -18,15 +20,25 @@ var status = document.getElementById(id).getAttribute('status');
     $('#close_chart').show(400);
     $('#'+id).attr('status','selected');
     $('#'+id+'_img').css('opacity',0.5);
-    sensorchart = Sensorchart('container_sensor');
+    // sensorchart = Sensorchart('container_sensor');
 
     // console.log(tmp);
     $('#sensor_box').show(400);
     $('#sensor_box').append('<div class="dev_div" name="'+id+'_box" id="'+id+'_box"><div style="display:inline-block;min-width: 15%"><div style="display:inline-block;"><img src ="{{asset("images/icon/light_ss_s.png")}}" style="height: 35px"></div><span style="padding-left:5px;vertical-align: middle;">'+name+'</span></div><div class="checkbox-inline" id="'+id+'" style="display:inline-block;"><label class="checkbox-inline" ><input type="checkbox" id="'+id+'"class="device_checkbox" checked onclick="SensorShow(this.id)" value="'+id+'">'+type+'</label></div></div>');
 
     // getdata
-    var data_device = roomdetail(id);
-    console.log(data_device);
+    roomdetail(id).done(function(data){
+      datadetail=data;
+    });
+
+    //render page chart
+    setTimeout(function(){
+      console.log(datadetail);
+      var chart = Sensorchart('container_sensor');
+      chart.addSeries({color:'#FF9800','name':datadetail.name,'data':datadetail.data});
+      // chart.redraw();
+    },1000);
+
 
   }else{
     $('#'+id+'_box').remove();

@@ -249,11 +249,25 @@
 </script>
 <!-- get data -->
 <script type="text/javascript">
-    homepage();
-    setInterval(function(){homepage();}, 60000);
+setTimeout(function(){
+  homepage().done(function(data){
+    // parse data from api and put in html page
+    $("#show-energy").html(data['energy']['total']);
+    $("#show-energy-map").html(data['energy']['total']);
+    $("#daily-energy").html(data['energy']['today']);
+    $("#show_power").html(data['power']['current']);
+    $("#show_max_power").html(data['power']['max']);
+    // console.log(data);
+    mainchart('chart_container',data);
+    Donutchart('Donutchart','EE&IT',data['donutData']);
+  });
+},750);
+
+    setInterval(function(){homepage();
+    }, 60000);
 </script>
 <!-- chart  -->
-<script type="text/javascript"> mainchart('chart_container');</script>
-<script type="text/javascript">Donutchart('Donutchart','EE&IT',[{'name':'2nd Floor','y':123},{'name':'3rd Floor','y':456}]);</script>
+<!-- <script type="text/javascript"> mainchart('chart_container');</script>
+<script type="text/javascript">Donutchart('Donutchart','EE&IT',[{'name':'2nd Floor','y':123},{'name':'3rd Floor','y':456}]);</script> -->
 
 @endsection

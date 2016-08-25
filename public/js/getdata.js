@@ -2,26 +2,26 @@ var urlget = 'api/v1/view/';
 
 
 function homepage(){
-  $(document).ready(function(){
-      $.ajax({
+
+    return $.ajax({
         url: urlget+'home',
         type: "post",
-        data: {'key':'bems'},
+        data: {'building':'DTETI'},
         dataType:'json',
-        success: function(data){
-          // parse data from api and put in html page
-          $("#show-energy").html(data['energy']['total']);
-          $("#show-energy-map").html(data['energy']['total']);
-          $("#daily-energy").html(data['energy']['today']);
-          $("#show_power").html(data['power']['current']);
-          $("#show_max_power").html(data['power']['max']);
-
-        },
+        // success: function(data){
+        //   // parse data from api and put in html page
+        //   $("#show-energy").html(data['energy']['total']);
+        //   $("#show-energy-map").html(data['energy']['total']);
+        //   $("#daily-energy").html(data['energy']['today']);
+        //   $("#show_power").html(data['power']['current']);
+        //   $("#show_max_power").html(data['power']['max']);
+        //
+        // },
         error: function(e) {
           console.log(e.responseText);
         }
       });
-  });
+
 }
 
 function buildingpage(building,data){
@@ -119,21 +119,20 @@ function roompage(room,time){
 }
 
 function roomdetail(device){
-    $(document).ready(function(){
-      var result;
-        $.ajax({
+
+      return $.ajax({
           url: '../../../../../'+urlget+'room',
           type: "post",
           data: {'id':device,'type':'device'},
           dataType:'json',
-          success: function(data){
-            // console.log(data);
-            result=data;
-          },
+          // success: function(data){
+          //   // console.log(data);
+          //   result=data;
+          // },
           error: function(e) {
             console.log(e.responseText);
           }
         });
-        return result;
-    });
+        // return result;
+
 }
