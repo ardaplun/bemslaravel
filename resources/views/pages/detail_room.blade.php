@@ -7,7 +7,7 @@
 <script src="{{asset('js/getdata.js')}}"></script>
 <script type="text/javascript">
 
-var sensorchart;
+var chart;
 var sensor_box='';
 var tmp=0;
 var datadetail=[];
@@ -28,14 +28,15 @@ var status = document.getElementById(id).getAttribute('status');
 
     // getdata
     roomdetail(id).done(function(data){
-      datadetail=data;
+      datadetail.push(data);
     });
 
     //render page chart
     setTimeout(function(){
-      console.log(datadetail);
-      var chart = Sensorchart('container_sensor');
-      chart.addSeries({color:'#FF9800','name':datadetail.name,'data':datadetail.data});
+      chart = Sensorchart('container_sensor');
+      datadetail.forEach(function(data){
+        chart.addSeries({color:'#FF9800','name':data.name,'data':data.data});
+      });
       // chart.redraw();
     },1000);
 
@@ -64,7 +65,8 @@ function RemoveMultiGraph() {
   tmp=0;
   // $('#sensor_box').hide(400);
   $('#sensor_box').empty(400);
-  sensorchart.destroy();
+  chart.destroy();
+  datadetail=[];
 }
 
 function SensorShow(id) {
