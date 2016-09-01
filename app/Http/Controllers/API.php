@@ -22,7 +22,7 @@ class API extends Controller
          $tdy = \Carbon\Carbon::now()->startOfDay();
         //  $yst = \Carbon\Carbon::now()->startOfDay()->subDay();
          for ($i=0; $i < 96; $i++) {
-           $data[] = collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power');
+           $data[] = (collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000;
           //  $data['yesterday'][] = collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power');
          }
        }else if ($time=='month') {
@@ -31,7 +31,7 @@ class API extends Controller
           $day->startOfMonth();
           for ($i=0; $i < $count; $i++) {
 
-            $data[] = collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereRaw('date(time) = ?', [$day->toDateString()])->get())->avg('power');
+            $data[] = (collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereRaw('date(time) = ?', [$day->toDateString()])->get())->avg('power'))/1000;
             $day->addDay()->toDateString();
 
           }
@@ -40,7 +40,7 @@ class API extends Controller
           $month->startOfYear();
           for ($i=0; $i < 12; $i++) {
 
-            $data[$month->month] = collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereRaw('month(time) = ?', [$month->month])->get())->avg('power');
+            $data[$month->month] = (collect(\DB::table('get_energy')->select('power')->whereIn('id_device',collect($devices)->lists('id_device'))->whereRaw('month(time) = ?', [$month->month])->get())->avg('power'))/1000;
             $month->addMonth()->toDateString();
           }
        }
@@ -94,8 +94,8 @@ class API extends Controller
       // $query_pwr = \DB::table('get_energy')->select('power')->orderBy('time', 'desc')->whereRaw('date(time) = ?', [$today])->get();
       if($i != 0)
       {
-        $data['power']['current'] = $query_pwr[$i-1]->power;
-        $data['power']['max'] = collect($query_pwr)->max('power');
+        $data['power']['current'] = round(($query_pwr[$i-1]->power)/1000,2);
+        $data['power']['max'] = round((collect($query_pwr)->max('power'))/1000,2);
       }else {
         $data['power']['current'] = 0;
         $data['power']['max'] = 0;
@@ -105,8 +105,8 @@ class API extends Controller
       $yst = \Carbon\Carbon::now()->startOfDay()->subDay();
       for ($i=0; $i < 96; $i++) {
         if($tdy->toDateTimeString() < $now=\Carbon\Carbon::now()){
-            $data['today'][] = round(collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power'), 2);
-            $data_yst = round(collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'),2);
+            $data['today'][] = round((collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000, 2);
+            $data_yst = round((collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000,2);
             if($data_yst!=null){
               $data['yst_line'][] = $data_yst;
               $data['yst_bar'][] = 0;
@@ -115,7 +115,7 @@ class API extends Controller
               $data['yst_bar'][] = 0;
             }
         }else{
-          $data_yst = round(collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'),2);
+          $data_yst = round((collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000,2);
           if($data_yst!=null){
             $data['yst_line'][] = $data_yst;
             $data['yst_bar'][] = $data_yst;
@@ -126,15 +126,15 @@ class API extends Controller
         }
       }
       //query data for energy
-      $data['energy']['total'] = collect(\DB::table('get_energy')->select('energy')->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy');
-      $data['energy']['today'] = collect(\DB::table('get_energy')->select('energy')->whereRaw('date(time) = ?', [$today])->get())->sum('energy');
+      $data['energy']['total'] = round((collect(\DB::table('get_energy')->select('energy')->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy'))/1000,2);
+      $data['energy']['today'] = round((collect(\DB::table('get_energy')->select('energy')->whereRaw('date(time) = ?', [$today])->get())->sum('energy'))/1000,2);
       $floors=\DB::table('data_floor')->where('id_building','=',$input['building'])->get();
       foreach ($floors as $floor) {
         $rooms = \DB::table('data_room')->where(['id_building'=>$floor->id_building,'id_floor'=>$floor->id_floor])->lists('id_room');
         // foreach ($rooms as $room) {
         $devices = \DB::table('data_device')->whereIn('id_room',$rooms)->lists('id_device');
           $tmp['name']=$floor->floor_name;
-          $tmp['y']=collect(\DB::table('get_energy')->select('energy')->whereIn('id_device',$devices)->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy');
+          $tmp['y']=(collect(\DB::table('get_energy')->select('energy')->whereIn('id_device',$devices)->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy'))/1000;
           $data['donutData'][] = $tmp;
         // }
       }
@@ -188,8 +188,8 @@ class API extends Controller
           $devices = \DB::table('data_device')->whereIn('id_room',$room)->lists('id_device');
 
           //query data for energy
-          $data['energy']['total'] = collect(\DB::table('get_energy')->select('energy')->whereIn('id_device',$devices)->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy');
-          $data['energy']['today'] = collect(\DB::table('get_energy')->select('energy')->whereIn('id_device',$devices)->whereRaw('date(time) = ?', [$today])->get())->sum('energy');
+          $data['energy']['total'] = round((collect(\DB::table('get_energy')->select('energy')->whereIn('id_device',$devices)->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy'))/1000,2);
+          $data['energy']['today'] = round((collect(\DB::table('get_energy')->select('energy')->whereIn('id_device',$devices)->whereRaw('date(time) = ?', [$today])->get())->sum('energy'))/1000,2);
 
           //query data for power
           $query_pwr = \DB::table('get_energy')->select('power')->whereIn('id_device',$devices)->whereRaw('date(time) = ?', [$today])->get();
@@ -197,8 +197,8 @@ class API extends Controller
           // $query_pwr = \DB::table('get_energy')->select('power')->orderBy('time', 'desc')->whereRaw('date(time) = ?', [$today])->get();
           if($i != 0)
           {
-            $p_now = $query_pwr[$i-1]->power;
-            $p_max = collect($query_pwr)->max('power');
+            $p_now = round(($query_pwr[$i-1]->power)/1000,2);
+            $p_max = round((collect($query_pwr)->max('power')/1000),2);
 
             $data['power']['current'] = $p_now;
             $data['power']['max'] = $p_max;
@@ -210,7 +210,7 @@ class API extends Controller
 
           $tdy = \Carbon\Carbon::now()->startOfDay();
           for ($i=0; $i < 96; $i++) {
-            $data['powerChart'][] = collect(\DB::table('get_energy')->select('power')->whereIn('id_device',$devices)->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power');
+            $data['powerChart'][] = (collect(\DB::table('get_energy')->select('power')->whereIn('id_device',$devices)->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000;
           }
 
           $return = $data;
@@ -241,7 +241,7 @@ class API extends Controller
               foreach ($devices as $device) {
                   $query = \DB::table('get_energy')->select('energy')->where('id_device','=',$device->id_device)->whereRaw('month(time) = ?', [$time->month])->get();
 
-                  $energy = collect($query)->sum('energy');
+                  $energy = round((collect($query)->sum('energy'))/1000,2);
                   $tmp_id[$device->sensor_type][] = $energy;
                   $tmp_id[$room->room_area][] = $energy;
                 }
@@ -276,7 +276,7 @@ class API extends Controller
         {
           foreach ($devices as $device) {
 
-            $query= collect(\DB::table('get_energy')->select('energy')->where('id_device','=',$device->id_device)->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy');
+            $query= round((collect(\DB::table('get_energy')->select('energy')->where('id_device','=',$device->id_device)->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy'))/1000,2);
             $tmp_id[$device->sensor_type][] = $query;
             $tmp_id['energy'][] = $query;
 
@@ -315,7 +315,7 @@ class API extends Controller
           $tdy = \Carbon\Carbon::now()->startOfDay();
           for ($i=0; $i < 96; $i++) {
             $data['name']=$device_name->sensor_name;
-            $tmp = collect(\DB::table('get_energy')->select('power')->where('id_device',$input['id'])->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power');
+            $tmp = (collect(\DB::table('get_energy')->select('power')->where('id_device',$input['id'])->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000;
             if($tmp!=null){
               $data['data'][] = $tmp;
             }else{
