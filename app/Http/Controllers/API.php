@@ -105,8 +105,8 @@ class API extends Controller
       $yst = \Carbon\Carbon::now()->startOfDay()->subDay();
       for ($i=0; $i < 96; $i++) {
         if($tdy->toDateTimeString() < $now=\Carbon\Carbon::now()){
-            $data['today'][] = collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power');
-            $data_yst = collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power');
+            $data['today'][] = round(collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()])->get())->avg('power'), 2);
+            $data_yst = round(collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'),2);
             if($data_yst!=null){
               $data['yst_line'][] = $data_yst;
               $data['yst_bar'][] = 0;
@@ -115,7 +115,7 @@ class API extends Controller
               $data['yst_bar'][] = 0;
             }
         }else{
-          $data_yst = collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power');
+          $data_yst = round(collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'),2);
           if($data_yst!=null){
             $data['yst_line'][] = $data_yst;
             $data['yst_bar'][] = $data_yst;
