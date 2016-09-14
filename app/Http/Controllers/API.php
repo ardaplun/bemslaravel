@@ -347,7 +347,7 @@ class API extends Controller
       {
         $time = \Carbon\Carbon::now();
         $datetime = $time->toDateTimeString();
-        $data = \DB::table('get_energy')->insert(array('id_device'=>$input['id'],'time'=>$datetime,'power'=>$input['pwr'],'energy'=>$input['energy']));
+        $data = \DB::table('get_energy')->insert(array('id_device'=>$input['id'],'time'=>$datetime,'power'=>$input['pwr'],'energy'=>$input['energy'],'etotal'=>$input['total']));
         $return = array(
           'error' => false,
           'inserted_at' => $datetime,
