@@ -109,7 +109,7 @@ class API extends Controller
             $data_yst = round((collect(\DB::table('get_energy')->select('power')->whereBetween('time', [$yst->toDateTimeString(),$yst->addMinutes(15)->toDateTimeString()])->get())->avg('power'))/1000,2);
             if($data_yst!=null){
               $data['yst_line'][] = $data_yst;
-              $data['yst_bar'][] = 0;
+              $data['yst_bar'][] = $data_yst;
             }else{
               $data['yst_line'][] = 0;
               $data['yst_bar'][] = 0;

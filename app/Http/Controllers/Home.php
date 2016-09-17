@@ -20,7 +20,7 @@ class Home extends Controller
 
     public function detail_building($building)
     {
-        $data_floor = \DB::table('data_floor')->where('id_building',$building)->get();
+        $data_floor = \DB::table('data_floor')>orderBy('id_floor', 'asc')->where('id_building',$building)->get();
         if ($data_floor==NULL) {
           return view('errors/404');
         }else{
