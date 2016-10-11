@@ -5,9 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Designed and builded by Sensativ Engineer in the terms of contribution for Dept. Electrical Engineering and Information Technology UGM">
         <meta name="author" content="Sentativ by Yulian Tenta Wardana">
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <link rel="shortcut icon" href="{{asset('images/home/ugmico.ico')}}" type="image/x-icon" />
         <title>UGM Building Management System </title>
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
         <link href="{{asset('css/animate.css')}}" rel="stylesheet">
@@ -15,6 +16,7 @@
         <link href="{{asset('css/bems.css')}}" rel="stylesheet">
         <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
         <link href="{{asset('css/tree.css')}}" rel="stylesheet">
+
         <!--[if lt IE 9]>
         <script src="{{asset('js/html5shiv.js')}}"></script>
         <script src="{{asset('js/respond.min.js')}}"></script>
@@ -26,19 +28,45 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-        <script src="{{asset('js/chart.js')}}"></script>        
+        <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="{{asset('js/chart.js')}}"></script>
         <script src="{{asset('js/getdata.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
         <script type="text/javascript">
+        function startProcess(){
+        	$.blockUI({
+        		message: $('#progress-bar-box'),
+        		css : {
+        			padding:0,
+        			margin:0,
+        			border: 'none',
+        			backgroundColor: 'none',
+        		}
+        	});
+        }
+
+        function endProcess(){
+        	setTimeout(function(){
+            $.unblockUI;
+            $('.blockUI').css('display', 'none');
+          }, 100);
+        }
         $(document).ready(function () {
           date_time('date_time');
-        });</script>
 
-
+        });
+        </script>
 
 
     </head><!--/head-->
-
+    <div id="progress-bar-box" class="progress-bar-box">
+        <div class="progress active">
+            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span class="sr-only"></span>
+            </div>
+        </div>
+    </div>
     <body>
         <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->

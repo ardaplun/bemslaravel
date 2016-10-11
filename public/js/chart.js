@@ -39,8 +39,9 @@ function mainchart(container,data){
                   pointPadding: 1,
                   groupPadding: 1,
                   borderWidth: 1,
-                  stacking: 'normal',
+		  grouping:false
                 },
+
                 line: {
                   stacking: 'normal',
                 }
@@ -50,13 +51,27 @@ function mainchart(container,data){
                   var dateToday = moment().utc().startOf('day').format("dddd, MMMM Do YYYY");
                   var dateYesterday = moment().subtract(1, 'day').startOf('day').format("dddd, MMMM Do YYYY,");
                   // var dateYesterday = moment().subtract(1, 'day').startOf('day').format("dddd, MMMM Do YYYY, h:mm:ss a");
+			//var s=[];
+			//console.log(this);
+			//$.each(this.points, function(i,point){
+			//console.log(s);
+			//if (point.series.name == 'today') {
+                	//s.push( '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(150, 150, 150, 1);">'+point.series.name+': </span><b>'+point.y +' kW</b></span>');
+                  	//} else {
+                   	//   	s.push('<span>'+dateYesterday+'</span><br>'+point.series.name+': </span><b>'+point.y+' kW</b></span>');
+                  	//}
+			//return s.join(' <br> ');
 
-                  if (this.series.name == 'today') {
-                      return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(150, 150, 150, 1);">'+this.series.name+': </span><b>'+this.y +' kW</b></span>';
+		  	//});
+
+                  if (this.points[2]) {
+                      return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+this.points[2].series.name+': </span><b>'+this.points[2].y +' kW</b></span>'+
+				'<br>'+this.points[1].series.name+': </span><b>'+this.points[1].y+' kW</b></span>';
                   } else {
-                      return '<span>'+dateYesterday+'</span><br>'+this.series.name+': </span><b>'+this.y+' kW</b></span>';
+                      return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+
+				'<br>'+this.points[1].series.name+': </span><b>'+this.points[1].y+' kW</b></span>';
                   }
-                }
+                },shared:true
               },
               xAxis: [{
                 ordinal: false,
@@ -156,6 +171,7 @@ function mainchart(container,data){
                 color: "rgba(112, 220, 26, 1)", //green
                 // data: [15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8, 20.8,	20.1, 20.2,	19.3,	19,	19.4,	21.5,	19.3, 18.8,	18,	17.7,	19.2,	17.1,	17.2,	17.3,	18.2, 19.1,	21.8,	20.7,	23.9,	39,	43.4,	46.2,	53.3, 57.2,	70.2,	74.2,	79.2, 94,	102.1,	109.5,	109.5, 114.6,	116.7,	126.2,	130.9,	135.8,	130.3,	130.8,	135.7, 137.1,	143.8,	148.2,	150,	148.5,	147.2,	161.9,173.1, 191,	199.8,	183.9,	178,	172.1,	165.2,	164.3,	159, 156.3, 154.5,	141.7,	142.9,	126,	119.2,	115.7,	107.4, 101.7,	98.9,	86.3,	80.3,	77.2,	77,	76.3,	71.8, 68.3,	59.9,	52.6,	54.2,	49.9,	49.4,	52.4, 49.1],
                 data: data.today,
+		zIndex:3
               }]
             });
           return chart;

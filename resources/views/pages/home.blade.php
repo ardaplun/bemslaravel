@@ -131,7 +131,8 @@
         </div>
         <div style="position: absolute;left: 5em;top: 5em;color:#707070">
           <span style="font-size: 20px;">DTETI Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy <span id="show-energy-map"></span> kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-energy-map"></span> kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dteti"></span> kWh</span>
         </div>
       </div>
 
@@ -141,9 +142,10 @@
           <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;position: absolute;left: 5em"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:15.28em;top: 3em;"></div>
         </div>
-        <div style="position: absolute;left: -2em;top: -0.7em;color:#707070">
+        <div style="position: absolute;left: -2em;top: -1.7em;color:#707070">
           <span style="font-size: 15px;">DTMI Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
@@ -153,9 +155,10 @@
           <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 5em;background-color: transparent;"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.28em;top: 5em;"></div>
         </div>
-        <div style="position: absolute;left: -7em;top: -0.7em;color:#707070">
+        <div style="position: absolute;left: -7em;top: -1.7em;color:#707070">
           <span style="font-size: 15px;">DTK Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
@@ -165,9 +168,10 @@
           <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.3em;top: 3em;"></div>
         </div>
-        <div style="position: absolute;left: -7em;top: -0.7em;color:#707070">
+        <div style="position: absolute;left: -7em;top: -1.7em;color:#707070">
           <span style="font-size: 15px;">DTAP Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
@@ -179,7 +183,8 @@
         </div>
         <div style="position: absolute;left: 13em;top: -1.7em;color:#707070">
           <span style="font-size: 15px;">DTG Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
@@ -191,7 +196,8 @@
         </div>
         <div style="position: absolute;left: 15em;top: 1.3em;color:#707070">
           <span style="font-size: 15px;">DTSL Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
@@ -202,8 +208,35 @@
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.28em;top: -1em;"></div>
         </div>
         <div style="position: absolute;left: -7em;top:4em;color:#707070">
-          <span style="font-size: 15px;">DTF Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Energy 0.0 kWh</span>
+          <span style="font-size: 15px;">DNTF Bld.</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
+        </div>
+      </div>
+
+      <div id="KPFT_enegy_show" style="position: absolute;top: 25em;left: 25em;width:26em;height:120px;z-index:200">
+        <div id="KPFT_line">
+          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 12.7em;top:2.6em;"></div>
+          <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 13em;height: 13.4em;background-color: transparent;position: absolute;left: 0em;top:-10.4em;"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-0.68em;top: -11em;"></div>
+        </div>
+        <div style="position: absolute;left: 15em;top: 1.3em;color:#707070">
+          <span style="font-size: 15px;">KPFT Bld.</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
+        </div>
+      </div>
+
+      <div id="DTGL_enegy_show" style="position: absolute;top: 30em;left: 27em;width:23em;height:120px;z-index:200">
+        <div id="DTGL_line">
+          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 6.7em;top:2.6em;"></div>
+          <div style="border-left: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 7em;height: 8.4em;background-color: transparent;position: absolute;left: 0em;top:-5.4em;"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-0.68em;top: -6em;"></div>
+        </div>
+        <div style="position: absolute;left: 9em;top: 1.3em;color:#707070">
+          <span style="font-size: 15px;">DTGL Bld.</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
+          <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
@@ -249,28 +282,34 @@
 </script>
 <!-- get data -->
 <script type="text/javascript">
+startProcess();
 setTimeout(function(){
   homepage().done(function(data){
+    console.log(data);
+    // endProcess();
+    $('#progress-bar-box').hide();
+    $('#aboutus').modal('toggle');
+
     // parse data from api and put in html page
-    $("#show-energy").html(data['energy']['total']);
-    $("#show-energy-map").html(data['energy']['total']);
-    $("#daily-energy").html(data['energy']['today']);
-    $("#show_power").html(data['power']['current']);
-    $("#show_max_power").html(data['power']['max']);
+    $("#show-energy").html(data['energy']['total'].toLocaleString());
+    $("#show-energy-map").html(data['energy']['total'].toLocaleString());
+    $("#daily-energy").html(data['energy']['today'].toLocaleString());
+    $("#show_power").html(data['power']['current'].toLocaleString());
+    $("#show_max_power").html(data['power']['max'].toLocaleString());
     // console.log(data);
     mainchart('chart_container',data);
     Donutchart('Donutchart','EE&IT',data['donutData']);
-  });
+    }).complete(function(){endProcess();});
 },750);
 
     setInterval(function(){
       homepage().done(function(data){
         // parse data from api and put in html page
-        $("#show-energy").html(data['energy']['total']);
-        $("#show-energy-map").html(data['energy']['total']);
-        $("#daily-energy").html(data['energy']['today']);
-        $("#show_power").html(data['power']['current']);
-        $("#show_max_power").html(data['power']['max']);
+        $("#show-energy").html(data['energy']['total'].toLocaleString());
+        $("#show-energy-map").html(data['energy']['total'].toLocaleString());
+        $("#daily-energy").html(data['energy']['today'].toLocaleString());
+        $("#show_power").html(data['power']['current'].toLocaleString());
+        $("#show_max_power").html(data['power']['max'].toLocaleString());
         // console.log(data);
         mainchart('chart_container',data);
         Donutchart('Donutchart','EE&IT',data['donutData']);

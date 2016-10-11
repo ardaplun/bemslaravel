@@ -75,42 +75,44 @@
              </li>
 
              <script type="text/javascript">
+             function statDonut() {
+                 if(datadonut.length > 0){
+                 Donutchart('{{$building}}_container_pie','{{$building}}', datadonut);
+               }
+             }
+
+             startProcess();
                 floorlist('{{$building}}','{{$data_floor->id_floor}}').done(function(data){
-                  $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total']);
-                  $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today']);
-                  $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current']);
-                  $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max']);
+                  endProcess();
+                  $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total'].toLocaleString());
+                  $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today'].toLocaleString());
+                  $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current'].toLocaleString());
+                  $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max'].toLocaleString());
                   buildingchart('{{$data_floor->id_floor}}_chart',data['powerChart']);
                   datadonut.push({
                     'name':'{{$data_floor->floor_name}} Floor<br>'+data['energy']['total']+' kWh',
                     'y' : data['energy']['total']});
+                    statDonut();
                 });
 
                  setInterval(function(){floorlist('{{$building}}','{{$data_floor->id_floor}}').done(function(data){
-                   $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total']);
-                   $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today']);
-                   $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current']);
-                   $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max']);
+                   $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total'].toLocaleString());
+                   $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today'].toLocaleString());
+                   $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current'].toLocaleString());
+                   $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max'].toLocaleString());
                    buildingchart('{{$data_floor->id_floor}}_chart',data['powerChart']);
                    datadonut.push({
                      'name':'{{$data_floor->floor_name}} Floor<br>'+data['energy']['total']+' kWh',
                      'y' : data['energy']['total']});
+                    statDonut();
+
                  });}, 5*60000);
              </script>
              @empty
                 <p>No data for this building</p>
              @endforelse
 
-             <li><div id="{{$building}}_container_pie" style="width: 100%;display:inline-block;"></div></li>
-             <script type="text/javascript">
-
-                setTimeout(function(){
-                  console.log(datadonut);
-                  Donutchart('{{$building}}_container_pie','{{$building}}', datadonut);
-                },750);
-
-
-             </script>
+             <li><div id="{{$building}}_container_pie" style="width: 100%;display:inline-block;"></div></li>            
              </ul>
             <hr style="background-color: #44ACD1;height:2px;">
 

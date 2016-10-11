@@ -245,7 +245,7 @@ function show_icon_name(){
             <div class="col-sm-12">
             <div style="background-color:rgba(255, 255, 255, 0.68);padding:1em 0 0 1em">
               <div id="container_sum" class="container_bar_style" style="width:100%;border:1px solid #B2B2B3;height: 25em" ></div>
-              
+
               <br><br><br>
             </div>
           </div>
@@ -253,6 +253,8 @@ function show_icon_name(){
     </div>
 
 <script type="text/javascript">
+startProcess();
+
 $(document).ready(function() {
 
 
@@ -288,19 +290,29 @@ $(document).on('mouseout', ".room_pick", function(e) {
   //          $('#pin_name').append('<div id="name_'+pin_data['names_'+i]+'" class="room_label" rel="popover" style="position: absolute;  bottom: '+pin_data["bottom_name_"+i]+'px; left: '+pin_data['left_name_'+i]+'px;color: #fff;background-color:#363636;opacity:0.7;padding:1px;font-size:0.8em;">'+ pin_data['names_'+i]+'</div>');
   //          }
   // }
-
   var datapage=[];
   var time='today';
+  function statPage() {
+    endProcess();
+      if(datapage){
+        console.log(datapage);
+      buildingchart('container_sum',datapage['powerChart']);
+      Donutchart('container_pie0','',datapage['donutChart']['donutArea']);
+      Donutchart('container_pie1', '',datapage['donutChart']['donutLoad']);
+    }
+  }
   floorpage('{{$data->id_building}}','{{$data->id_floor}}',time).done(function(data){
     datapage=data;
+    console.log(data);
+    statPage();
   });
 
   //render page chart
-  setTimeout(function(){
-    buildingchart('container_sum',datapage['powerChart']);
-    Donutchart('container_pie0','',datapage['donutChart']['donutArea']);
-    Donutchart('container_pie1', '',datapage['donutChart']['donutLoad']);
-  },1000);
+  // setTimeout(function(){
+  //   buildingchart('container_sum',datapage['powerChart']);
+  //   Donutchart('container_pie0','',datapage['donutChart']['donutArea']);
+  //   Donutchart('container_pie1', '',datapage['donutChart']['donutLoad']);
+  // },1000);
 
 
 

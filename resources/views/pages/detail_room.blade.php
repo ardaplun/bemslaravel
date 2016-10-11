@@ -350,7 +350,7 @@ $(document).ready(function() {
 
 <script type="text/javascript">
 // $('#slimscroll').append(html_string);
-
+startProcess();
 $('#slimscroll').slimscroll({
     height: '360px',
     width: '100%'
@@ -362,16 +362,19 @@ $('.hidden-node').attr('title', 'Expand this branch').find(' > i').addClass('ico
 //get data for page all value
 var datapage=[];
 var time='today';
+function statPage() {
+  endProcess();
+    if(datapage){
+      $('#energy_num').html(datapage['energy'].toLocaleString()+' kWh');
+      Donutchart('container_pie0', '{{$data->id_room}}',datapage['donutLoad']);
+      buildingchart('container_sum',datapage['powerChart']);
+  }
+}
 roompage('{{$data->id_room}}',time).done(function(data){
   datapage=data;
+  statPage();
 });
 
-//render page chart
-setTimeout(function(){
-  $('#energy_num').html(datapage['energy']+' kWh');
-  Donutchart('container_pie0', '{{$data->id_room}}',datapage['donutLoad']);
-  buildingchart('container_sum',datapage['powerChart']);
-},1000);
 
 </script>
 
