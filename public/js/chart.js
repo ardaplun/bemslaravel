@@ -1,8 +1,13 @@
 var now = new Date;
 var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate(),0,0,0,0);
+// var tmp=moment().startOf('day').format("HH:MM");
+// var time=[];
+// for (var i = 0; i < 96; i++) {
+//   time[i]=tmp+'-';
+// }
 
 function mainchart(container,data){
-
+// console.log(time);
             var chart = new Highcharts.Chart({
               chart: {
                 margin: [15, 10, 60, 40],
@@ -48,27 +53,15 @@ function mainchart(container,data){
               },
               tooltip: {
                 formatter: function() {
-                  var dateToday = moment().utc().startOf('day').format("dddd, MMMM Do YYYY");
-                  var dateYesterday = moment().subtract(1, 'day').startOf('day').format("dddd, MMMM Do YYYY,");
-                  // var dateYesterday = moment().subtract(1, 'day').startOf('day').format("dddd, MMMM Do YYYY, h:mm:ss a");
-			//var s=[];
-			//console.log(this);
-			//$.each(this.points, function(i,point){
-			//console.log(s);
-			//if (point.series.name == 'today') {
-                	//s.push( '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(150, 150, 150, 1);">'+point.series.name+': </span><b>'+point.y +' kW</b></span>');
-                  	//} else {
-                   	//   	s.push('<span>'+dateYesterday+'</span><br>'+point.series.name+': </span><b>'+point.y+' kW</b></span>');
-                  	//}
-			//return s.join(' <br> ');
-
-		  	//});
+                  // var dateToday = moment().utc().startOf('day').format("dddd, MMMM Do YYYY");
+                  // var dateYesterday = moment().subtract(1, 'day').startOf('day').format("dddd, MMMM Do YYYY,");
+			            // console.log(this);
 
                   if (this.points[2]) {
-                      return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+this.points[2].series.name+': </span><b>'+this.points[2].y +' kW</b></span>'+
+                      return '<span style="font-size:x-small;">'+moment(data.time[this.points[0].point.x][0]).format("dddd, MMMM Do YYYY HH:mm")+'-'+moment(data.time[this.points[0].point.x][1]).format("HH:mm")+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+this.points[2].series.name+': </span><b>'+this.points[2].y +' kW</b></span>'+
 				'<br>'+this.points[1].series.name+': </span><b>'+this.points[1].y+' kW</b></span>';
                   } else {
-                      return '<span style="font-size:x-small;">' +dateToday+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+
+                      return '<span style="font-size:x-small;">'+moment(data.time[this.points[0].point.x][0]).format("dddd, MMMM Do YYYY HH:mm")+'-'+moment(data.time[this.points[0].point.x][1]).format("HH:mm")+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+
 				'<br>'+this.points[1].series.name+': </span><b>'+this.points[1].y+' kW</b></span>';
                   }
                 },shared:true

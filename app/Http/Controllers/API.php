@@ -125,6 +125,10 @@ class API extends Controller
           }
         }
       }
+      $tdy = \Carbon\Carbon::now()->startOfDay();
+      for ($i=0; $i < 96; $i++) {
+        $data['time'][] = [$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString()];
+      }
       //query data for energy
       $data['energy']['total'] = round((collect(\DB::table('get_energy')->select('energy')->whereRaw('month(time) = ?', [$thsmonth])->get())->sum('energy'))/1000,2);
       $data['energy']['today'] = round((collect(\DB::table('get_energy')->select('energy')->whereRaw('date(time) = ?', [$today])->get())->sum('energy'))/1000,2);
