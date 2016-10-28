@@ -7,7 +7,7 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   background:;
   position: relative;
   font-weight:400px;
@@ -35,7 +35,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .btn:hover,
@@ -52,7 +52,7 @@ a#scrollUp {
   bottom: 0px;
   right: 10px;
   padding: 5px 10px;
-  background: #FE980F;
+  background: #8CBDFF;
   color: #FFF;
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
@@ -78,7 +78,7 @@ a#scrollUp i{
 .contactinfo ul li a{
   font-size: 12px;
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 
@@ -221,8 +221,8 @@ a#scrollUp i{
 
 
 .header-bottom {
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .navbar-collapse.collapse{

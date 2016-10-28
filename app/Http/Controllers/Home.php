@@ -18,34 +18,38 @@ class Home extends Controller
         return view('pages/home', array('page' => 'home'));
     }
 
-    public function maps()
-    {
-        return view('pages/maps', array('page' => 'maps'));
-    }
-
     public function detail_building($building)
     {
-        return view('pages/building', array('page' => 'detail-building', 'building'=> $building ));
+        $data_floor = \DB::table('data_floor')->orderBy('id_floor', 'asc')->where('id_building',$building)->get();
+        if ($data_floor==NULL) {
+          return view('errors/404');
+        }else{
+          return view('pages/building', array('page' => 'detail-building', 'building'=> $building, 'data_floors'=>$data_floor ));
+        }
     }
 
     public function detail_floor($building, $floor)
     {
-      return view('pages/detail_floor', array('page' => 'detail-floor', 'building' => $building, 'floor' => $floor));
+      $data = \DB::table('data_floor')->where(['id_building'=>$building, 'id_floor'=>$floor])->first();
+      $data_pin = \DB::table('data_room')->where(['id_building'=>$building, 'id_floor'=>$floor])->get();
+      if ($data==NULL) {
+        return view('errors/404');
+      }else{
+        return view('pages/detail_floor', array('page' => 'detail-floor', 'data'=>$data,'data_pin'=>$data_pin));
+      }
     }
 
     public function detail_room($building, $floor, $room)
     {
-        return view('pages/detail_room', array('page' => 'detail-room', 'building' => $building, 'floor' => $floor, 'room' => $room));
-    }
+        $data = \DB::table('data_room')->where(['id_building'=>$building, 'id_floor'=>$floor, 'id_room'=>$room])->first();
+        $data_site = \DB::table('data_floor')->leftJoin('data_room', 'data_floor.id_floor', '=', 'data_room.id_floor')->get();
+        $data_device = \DB::table('data_device')->where(['id_room'=>$room])->get();
 
-    public function about_us()
-    {
-        return view('pages/about_us', array('page' => 'about-us'));
-    }
-
-    public function menu()
-    {
-        return view('menu', array('page' => 'menu'));
+        if ($data==NULL) {
+          return view('errors/404');
+        }else{
+          return view('pages/detail_room', array('page' => 'detail-room', 'data'=>$data, 'data_site'=>$data_site, 'data_device'=>$data_device));
+        }
     }
 
     public function login()

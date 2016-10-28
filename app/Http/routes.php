@@ -11,10 +11,25 @@
 |
 */
 Route::get('/', 'Home@index');
-Route::get('/menu', 'Home@menu');
+// Route::get('/menu', 'Home@menu');
 Route::get('/about-us', 'Home@about_us');
 Route::get('/login', 'Home@login');
-Route::get('/maps', 'Home@maps');
 Route::get('/building/{building}', 'Home@detail_building');
 Route::get('/building/{building}/floor/{floor}', ['building' => 'building', 'floor' => 'floor', 'uses' => 'Home@detail_floor']);
 Route::get('/building/{building}/floor/{floor}/room/{room}', ['building' => 'building', 'floor' => 'floor', 'room' => 'room', 'uses' => 'Home@detail_room']);
+
+// API get data for webapp
+Route::group(['prefix' => 'api/v1/view/'], function()
+{
+    Route::post('home', 'API@home');
+    Route::post('building', 'API@building');
+    Route::post('floor', 'API@floor');
+    Route::post('room', 'API@room');
+});
+
+//API insert data from device
+Route::group(['prefix' => 'api/v1/data/'], function()
+{
+    Route::get('sensor', 'API@sensor');
+    Route::get('power', 'API@power');
+});
