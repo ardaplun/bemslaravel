@@ -3,6 +3,7 @@
 @section('content')
 <script type="text/javascript">
   var datadonut=[];
+  startProcess();
 </script>
 <body>
   <div class="container">
@@ -27,7 +28,7 @@
 
             <ul class="mepet" >
             @forelse ($data_floors as $data_floor)
-
+            @if($data_floor->id_floor!='main')
              <li id="show_{{$data_floor->id_floor}}">
                <a href="{{url('/building/')}}/{{$building}}/floor/{{$data_floor->id_floor}}" title="Go to {{$data_floor->floor_name}} floor detail page."><div class="col-sm-12 mepet">
                    <div class="mepet" style="width:54%;display:inline-block;">
@@ -81,18 +82,17 @@
                }
              }
 
-             startProcess();
                 floorlist('{{$building}}','{{$data_floor->id_floor}}').done(function(data){
-                  endProcess();
                   $('#'+'{{$building}}'+"_show_energy_"+'{{$data_floor->id_floor}}').html(data['energy']['total'].toLocaleString());
                   $('#'+'{{$building}}'+"_daily-consumed_"+'{{$data_floor->id_floor}}').html(data['energy']['today'].toLocaleString());
                   $('#'+'{{$building}}'+"_show_power_"+'{{$data_floor->id_floor}}').html(data['power']['current'].toLocaleString());
                   $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max'].toLocaleString());
                   buildingchart('{{$data_floor->id_floor}}_chart',data['powerChart']);
                   datadonut.push({
-                    'name':'{{$data_floor->floor_name}} Floor<br>'+data['energy']['total']+' kWh',
+                    'name':'{{$data_floor->floor_name}} Floor',
                     'y' : data['energy']['total']});
                     statDonut();
+                    endProcess();
                 });
 
                  setInterval(function(){floorlist('{{$building}}','{{$data_floor->id_floor}}').done(function(data){
@@ -102,17 +102,18 @@
                    $('#'+'{{$building}}'+"_show_max_power_"+'{{$data_floor->id_floor}}').html(data['power']['max'].toLocaleString());
                    buildingchart('{{$data_floor->id_floor}}_chart',data['powerChart']);
                    datadonut.push({
-                     'name':'{{$data_floor->floor_name}} Floor<br>'+data['energy']['total']+' kWh',
+                     'name':'{{$data_floor->floor_name}} Floor',
                      'y' : data['energy']['total']});
                     statDonut();
 
                  });}, 5*60000);
              </script>
+             @endif
              @empty
                 <p>No data for this building</p>
              @endforelse
 
-             <li><div id="{{$building}}_container_pie" style="width: 100%;display:inline-block;"></div></li>            
+             <li><div id="{{$building}}_container_pie" style="width: 100%;display:inline-block;"></div></li>
              </ul>
             <hr style="background-color: #44ACD1;height:2px;">
 

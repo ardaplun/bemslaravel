@@ -83,8 +83,16 @@
 
 #faculty-name{
 	width:75%;
-	display:inline-block;
+	/*display:inline-block;*/
 	margin:0px 0 0 14px;
+	color:#666;
+	font-size: 1.2em;
+	font-weight: 300;
+}
+#university-name{
+	width:75%;
+	/* display:inline-block; */
+	/*margin:0px 0 0 14px;*/
 	color:#666;
 	font-size: 1.2em;
 	font-weight: 300;

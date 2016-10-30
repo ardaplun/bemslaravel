@@ -1,12 +1,12 @@
 var urlget = 'api/v1/view/';
 
 
-function homepage(){
+function homepage(building){
 
     return $.ajax({
         url: urlget+'home',
         type: "post",
-        data: {'building':'DTETI'},
+        data: {'building':building},
         dataType:'json',
         // success: function(data){
         //   // parse data from api and put in html page

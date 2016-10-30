@@ -5,7 +5,12 @@ var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate(),0,0
 // for (var i = 0; i < 96; i++) {
 //   time[i]=tmp+'-';
 // }
-
+Highcharts.setOptions({
+  lang: {
+    decimalPoint: '.',
+    thousandsSep: ','
+  }
+});
 function mainchart(container,data){
 // console.log(time);
             var chart = new Highcharts.Chart({
@@ -44,7 +49,7 @@ function mainchart(container,data){
                   pointPadding: 1,
                   groupPadding: 1,
                   borderWidth: 1,
-		  grouping:false
+		                grouping:false
                 },
 
                 line: {
@@ -81,8 +86,8 @@ function mainchart(container,data){
                 categories: ['0', '', '', '', '', '', '', '', '2', '', '', '', '', '', '', '', '4', '', '', '', '', '', '', '', '6', '', '', '', '', '', '', '', '8', '', '', '', '', '', '', '', '10', '', '', '', '', '', '', '', '12', '', '', '', '', '', '', '', '14', '', '', '', '', '', '', '', '16', '', '', '', '', '', '', '', '18', '', '', '', '', '', '', '', '20', '', '', '', '', '', '', '', '22', '', '', '', '', '', '', '', ]
               }],
               yAxis: [{ // Primary yAxis
-                plotLines: [{ // Light air
-                          value: 210,
+                plotLines: [{ // warning
+                          value: data.alert.warning_level,
                           color : 'rgba(255, 200, 0,1)',
                           dashStyle : 'solid',
                           zIndex: 4,
@@ -94,8 +99,8 @@ function mainchart(container,data){
                               style: {
                                   color: 'rgba(255, 200, 0, 1)',  fontWeight: 'bold' ,borderWidth:0.1}
                           }
-                      }, { // Light breeze
-                          value: 230,
+                      }, { // alert
+                          value: data.alert.alert_level,
                           width:1,
                           color: 'rgba(220, 20, 60, 1)',
                           dashStyle : 'solid',
@@ -164,7 +169,7 @@ function mainchart(container,data){
                 color: "rgba(112, 220, 26, 1)", //green
                 // data: [15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8, 20.8,	20.1, 20.2,	19.3,	19,	19.4,	21.5,	19.3, 18.8,	18,	17.7,	19.2,	17.1,	17.2,	17.3,	18.2, 19.1,	21.8,	20.7,	23.9,	39,	43.4,	46.2,	53.3, 57.2,	70.2,	74.2,	79.2, 94,	102.1,	109.5,	109.5, 114.6,	116.7,	126.2,	130.9,	135.8,	130.3,	130.8,	135.7, 137.1,	143.8,	148.2,	150,	148.5,	147.2,	161.9,173.1, 191,	199.8,	183.9,	178,	172.1,	165.2,	164.3,	159, 156.3, 154.5,	141.7,	142.9,	126,	119.2,	115.7,	107.4, 101.7,	98.9,	86.3,	80.3,	77.2,	77,	76.3,	71.8, 68.3,	59.9,	52.6,	54.2,	49.9,	49.4,	52.4, 49.1],
                 data: data.today,
-		zIndex:3
+		              zIndex:3
               }]
             });
           return chart;
@@ -296,6 +301,9 @@ function Donutchart(container,title,datadonut){
         plotShadow: false,
         renderTo: container,
         type: 'pie',
+        lang: {
+    			thousandsSep: ','
+    		},
         options3d: {
                 enabled: true,
                 alpha: 45
@@ -317,8 +325,8 @@ function Donutchart(container,title,datadonut){
     },
     tooltip: {
         enabled:true,
-        headerFormat: '<span style="font-size:larger; font-weight:bold; text-transform:uppercase;">{point.key}</span><br/>',
-        pointFormat: 'energy: <b>{point.y:.1f} kWh. ({point.percentage:.1f}%)</b>',
+        headerFormat: '<span style="font-size:larger; font-weight:bold; text-transform:uppercase; color:{point.color};">{point.key}</span><br/>',
+        pointFormat: 'energy: <b>{point.y:,.2f} kWh. ({point.percentage:.1f}%)</b>',
     },
     credits:{
         enabled:false,
@@ -333,14 +341,14 @@ function Donutchart(container,title,datadonut){
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-            enabled: true,
-            distance: 20,
-            connectorWidth: 2,
-            size:"100%",
-            format: '<span style="color:{point.color};font-size:2em">{point.percentage:.1f} %</span><br /> {point.name}',
-            style: {
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
+              enabled: true,
+              distance: 20,
+              connectorWidth: 2,
+              size:"100%",
+              format: '<span style="color:{point.color};font-size:2em">{point.percentage:.1f} %</span><br /> {point.name} : {point.y:,.2f} kWh',
+              style: {
+                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                  }
             }
         }
     },
