@@ -88,7 +88,7 @@
   <div style="position:relative;width:56em;height:35em;margin:0 auto;" >
       <div id="map-img">
         <img src="{{asset('images/map/teknik.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:1;" />
-        <a onclick="getOverview('DTETI')"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
+        <a href="#DTETI" onclick="getOverview('DTETI')"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
         <!-- <a href="{{url('building/DTETI')}}"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a> -->
       </div>
 
@@ -101,7 +101,7 @@
         </div>
         <div style="position: absolute;left: 5em;top: 5em;color:#707070">
           <span style="font-size: 20px;">DTETI Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-energy-map"></span> kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-energy-map"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dteti"></span> kWh</span>
         </div>
       </div>
@@ -139,7 +139,7 @@
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.3em;top: 3em;"></div>
         </div>
         <div style="position: absolute;left: -7em;top: -1.7em;color:#707070">
-          <span style="font-size: 15px;">DTAP Bld.</span><br>
+          <a href="#" onclick="getOverview('DTAP')"><span style="font-size: 15px;">DTAP Bld.</span><br></a>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
@@ -266,10 +266,10 @@ startProcess();
 function getOverview(building) {
   $("#show-maps").hide();
   $("#show-overview").show();
-  startProcess();
-  
+  // startProcess();
+// $.blockUI({ message: 'Just a moment...</h1>' });
   setTimeout(function(){
-    homepage('DTETI').done(function(data){
+    homepage(building).done(function(data){
       // console.log(data);
       // $('#aboutus').modal('toggle');
       // parse data from api and put in html page
@@ -283,11 +283,13 @@ function getOverview(building) {
       $("#dept-name").html(data['building']['building_name']);
       $("#faculty-name").html(data['building']['faculty_name']);
       energy_level(data['energy']['total'],data['alert']['kwh_target']);
+      // console.log(building);
       mainchart('chart_container',data);
-      Donutchart('Donutchart','EE&IT',data['donutData']);
+      Donutchart('Donutchart',building,data['donutData']);
       }).complete(function(){endProcess();});
   },750);
 }
+
 setTimeout(function(){
   homepage('DTETI').done(function(data){
     // console.log(data);
@@ -303,8 +305,8 @@ setTimeout(function(){
     $("#dept-name").html(data['building']['building_name']);
     $("#faculty-name").html(data['building']['faculty_name']);
     energy_level(data['energy']['total'],data['alert']['kwh_target']);
-    mainchart('chart_container',data);
-    Donutchart('Donutchart','EE&IT',data['donutData']);
+    // mainchart('chart_container',data);
+    // Donutchart('Donutchart','EE&IT',data['donutData']);
     }).complete(function(){endProcess();});
 },750);
 

@@ -15,7 +15,11 @@ class Home extends Controller
      */
     public function index()
     {
-        return view('pages/home', array('page' => 'home'));
+        return view('pages/maps', array('page' => 'maps'));
+    }
+    public function overview($building)
+    {
+        return view('pages/overview', array('page' => 'overview', 'building'=> $building));
     }
 
     public function detail_building($building)

@@ -82,6 +82,29 @@ class API extends Controller
 
 
 // API get data for webapp
+    public function maps()
+    {
+      $data['energy']=[];
+      $buildings=Building::getBuildings();
+      foreach ($buildings as $building) {
+        $where[1]['id_building']=$building->id_building;
+        $where[1]['id_floor']='main';
+        $where[1]['room_category']='MDP';
+        $where[2]['id_room']=Room::getMDP($where[1]);
+        $where[3]['id_device']=Device::getDevice($where[2]);
+
+        $etot['thsMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::today()->toDateString());
+        $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->subMonth()->endOfMonth()->toDateString());
+
+        $data['alert'][$building->id_building]=Alert::getAlert(['id_building'=>$building->id_building,'id_floor'=>'main']);
+        if(( $etot['thsMonth']-$etot['lstMonth'])<0){
+          $data['energy'][$building->id_building]=0;
+        }else{
+          $data['energy'][$building->id_building]=$etot['thsMonth']-$etot['lstMonth'];
+        }
+      }
+      return \Response::json($data);
+    }
 
     public function home()
     {
@@ -154,6 +177,7 @@ class API extends Controller
       $where[1]['room_category']='MDP';
       $where[2]['id_room']=Room::getMDP($where[1]);
       $where[3]['id_device']=Device::getDevice($where[2]);
+      $data['where']=$where;
 
       // get chart power data
       $tdy = \Carbon\Carbon::now()->startOfDay();
@@ -183,8 +207,8 @@ class API extends Controller
       // get energy
       $etot['tdy']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::today()->toDateString());
       $etot['yst']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::yesterday()->toDateString());
-      $etot['thsMonth']=Energy::getEnergy($where[3],'month(time) = ?',\Carbon\Carbon::now()->month);
-      $etot['lstMonth']=Energy::getEnergy($where[3],'month(time) = ?',\Carbon\Carbon::now()->subMonth()->month);
+      $etot['thsMonth']=$etot['tdy'];
+      $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->subMonth()->endOfMonth()->toDateString());
 
       // total energy today by subtract today and yesterday total energy
       if(($etot['tdy']-$etot['yst'])<0){
@@ -197,7 +221,7 @@ class API extends Controller
       }else{
       $data['energy']['total'] = $etot['thsMonth']-$etot['lstMonth'];
       }
-      
+
       // get data for donut chart
       $floors=Floor::getFloor(['id_building'=>$input['building']]);
       ksort($floors);

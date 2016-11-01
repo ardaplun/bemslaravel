@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'Home@index');
+Route::get('/overview/{building}', 'Home@overview');
 // Route::get('/menu', 'Home@menu');
 Route::get('/about-us', 'Home@about_us');
 Route::get('/login', 'Home@login');
@@ -21,6 +22,7 @@ Route::get('/building/{building}/floor/{floor}/room/{room}', ['building' => 'bui
 // API get data for webapp
 Route::group(['prefix' => 'api/v1/view/'], function()
 {
+  Route::post('maps', 'API@maps');
     Route::post('home', 'API@home');
     Route::post('building', 'API@building');
     Route::post('floor', 'API@floor');
