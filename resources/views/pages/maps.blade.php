@@ -22,7 +22,7 @@
   <div style="position:relative;width:56em;height:35em;margin:0 auto;" >
       <div id="map-img">
         <img src="{{asset('images/map/teknik.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:1;" />
-        <a href="overview/DTETI"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
+        <a href="overview/DTETI"><img  id="DTETI-img"src="{{asset('images/map/DTETI-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
         <!-- <a href="{{url('building/DTETI')}}"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a> -->
       </div>
 
@@ -143,10 +143,6 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
-
-
-
-
       <!-- <div id="show-chart-map" style="float: right; position: relative; top: 20em; right: -76px;">
           <img src="{{asset('images/chart-btn.png')}}" class="pointer-mouse" style="cursor:pointer"><br>
       </div> -->
@@ -186,13 +182,16 @@ function energy_level(real,target,building){
   console.log(percentage);
   // $("#show_percent_energy").html(percentage);
   if(percentage < 85){
+    $("#"+building+"-img").attr('src', 'images/map/'+building+'-green.png');
     $("."+building+"-line").css("backgroundColor", "#44C049");
     $("."+building+"-line-2").css("borderColor", "#44C049");
 
   }else if(percentage >= 85 && percentage < 93){
+    $("#"+building+"-img").attr('src', 'images/map/'+building+'-yellow.png');
     $("."+building+"-line").css("backgroundColor", "#F5C922");
     $("."+building+"-line-2").css("borderColor", "#F5C922");
   }else{
+    $("#"+building+"-img").attr('src', 'images/map/'+building+'-red.png');
     $("."+building+"-line").css("backgroundColor", "#F44336");
     $("."+building+"-line-2").css("borderColor", "#F44336");
   }

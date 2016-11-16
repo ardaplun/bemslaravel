@@ -94,7 +94,7 @@ class API extends Controller
         $where[3]['id_device']=Device::getDevice($where[2]);
 
         $etot['thsMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::today()->toDateString());
-        $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->subMonth()->endOfMonth()->toDateString());
+        $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->endOfMonth()->toDateString());
 
         $data['alert'][$building->id_building]=Alert::getAlert(['id_building'=>$building->id_building,'id_floor'=>'main']);
         if(( $etot['thsMonth']-$etot['lstMonth'])<0){
@@ -177,7 +177,7 @@ class API extends Controller
       $where[1]['room_category']='MDP';
       $where[2]['id_room']=Room::getMDP($where[1]);
       $where[3]['id_device']=Device::getDevice($where[2]);
-      $data['where']=$where;
+      // $data['where']=$where;
 
       // get chart power data
       $tdy = \Carbon\Carbon::now()->startOfDay();
@@ -208,7 +208,7 @@ class API extends Controller
       $etot['tdy']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::today()->toDateString());
       $etot['yst']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::yesterday()->toDateString());
       $etot['thsMonth']=$etot['tdy'];
-      $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->subMonth()->endOfMonth()->toDateString());
+      $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->endOfMonth()->toDateString());
 
       // total energy today by subtract today and yesterday total energy
       if(($etot['tdy']-$etot['yst'])<0){
@@ -429,7 +429,8 @@ class API extends Controller
       {
         $time = \Carbon\Carbon::now();
         $datetime = $time->toDateTimeString();
-        $data = \DB::table('get_energy')->insert(array('id_device'=>$input['id'],'time'=>$datetime,'power'=>$input['pwr'],'energy'=>$input['energy'],'etotal'=>$input['total']));
+        $data = \DB::table('get_energy')->insert(array('id_device'=>$input['id'],'time'=>$datetime,'currentA'=>$input['cA'],'currentB'=>$input['cB'],'currentC'=>$input['cC'],'power'=>$input['pwr'],'energy'=>$input['energy'],'etotal'=>$input['total'],'thdA'=>$input['tcA'],'thdB'=>$input['tcB'],'thdC'=>$input['tcC'],'var'=>$input['rpw'],'pfA'=>$input['fA'],'pfB'=>$input['fB'],'pfC'=>$input['fC']));
+        // $data = \DB::table('get_energy')->insert(array('id_device'=>$input['id'],'time'=>$datetime,'power'=>$input['pwr'],'energy'=>$input['energy'],'etotal'=>$input['total']));
         $return = array(
           'error' => false,
           'inserted_at' => $datetime,
