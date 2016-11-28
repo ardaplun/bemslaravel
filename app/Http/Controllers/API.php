@@ -207,7 +207,7 @@ class API extends Controller
       // get energy
       $etot['tdy']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::today()->toDateString());
       $etot['yst']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::yesterday()->toDateString());
-      $etot['thsMonth']=$etot['tdy'];
+      $etot['thsMonth']=Energy::getEnergy($where[3],'month(time) = ?',\Carbon\Carbon::now()->month);
       $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->endOfMonth()->toDateString());
 
       // total energy today by subtract today and yesterday total energy

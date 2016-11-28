@@ -12,7 +12,7 @@
 */
 Route::get('/', 'Home@index');
 Route::get('/overview/{building}', 'Home@overview');
-// Route::get('/menu', 'Home@menu');
+Route::get('/load-profile', 'Home@loadprofile');
 Route::get('/about-us', 'Home@about_us');
 Route::get('/login', 'Home@login');
 Route::get('/building/{building}', 'Home@detail_building');

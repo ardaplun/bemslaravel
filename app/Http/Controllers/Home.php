@@ -22,6 +22,12 @@ class Home extends Controller
         return view('pages/overview', array('page' => 'overview', 'building'=> $building));
     }
 
+    public function loadprofile()
+    {
+        $building = \DB::table('data_building')->get();
+        return view('pages/load-profile', array('page' => 'load-profile', 'data_buildings'=>$building));
+    }
+
     public function detail_building($building)
     {
         $data_floor = \DB::table('data_floor')->orderBy('id_floor', 'asc')->where('id_building',$building)->get();

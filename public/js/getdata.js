@@ -1,11 +1,10 @@
 var urlget = 'api/v1/view/';
-var BASE_URL = window.location.origin;
-
+var BASE_URL = window.location.origin+'/bemslaravel/public/';
 
 function overview(building){
 
     return $.ajax({
-        url: '../'+urlget+'home',
+        url: BASE_URL+urlget+'home',
         type: "post",
         data: {'building':building},
         dataType:'json',
@@ -76,7 +75,7 @@ function homepage(building){
 function buildingpage(building,data){
     $(document).ready(function(){
         $.ajax({
-          url: '../'+urlget+'building',
+          url: BASE_URL+urlget+'building',
           type: "post",
           data: {'building':building, 'data':data,'type':'buildingpage'},
           dataType:'json',
@@ -151,7 +150,7 @@ function floorpage(building,floor,time){
 function roompage(room,time){
       // var result;
         return $.ajax({
-          url: '../../../../../'+urlget+'room',
+          url: BASE_URL+urlget+'room',
           type: "post",
           data: {'room':room,'type':'roompage','time':time},
           dataType:'json',
@@ -170,7 +169,7 @@ function roompage(room,time){
 function roomdetail(device){
 
       return $.ajax({
-          url: '../../../../../'+urlget+'room',
+          url: BASE_URL+urlget+'room',
           type: "post",
           data: {'id':device,'type':'device'},
           dataType:'json',
