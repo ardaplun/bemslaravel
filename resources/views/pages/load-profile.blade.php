@@ -27,7 +27,7 @@ for (var i = 0; i < 96; i++) {
               </div>
               <br />
                 <!--Grouping-->
-                <div style="height: 44px;" style="display:inline;">
+                <!-- <div style="height: 44px;" style="display:inline;">
                     <div class="btn-group pull-right" data-toggle="buttons" style="border: 1px solid #B2B2B3;border-radius: 30px;">
                         <label class="btn" disabled>
                             GROUP :
@@ -45,7 +45,7 @@ for (var i = 0; i < 96; i++) {
 
                         </label>
                     </div>
-                </div>
+                </div> -->
 
                <div id="supply-box" style="border-bottom:2px solid #999;padding: 0px 0px 50px 0px;" >
                     <div style="font-size:2em;font-weight:bold;color:#008ec3;padding: 0px 0px;">SUPPLY</div>
@@ -119,7 +119,7 @@ for (var i = 0; i < 96; i++) {
                                 <div class="status_bar_box" id="total_generate_status_bar_supply">
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position: relative;top: 25%;">
                                      <div class="status_bar_txt">Energy</div>
-                                     <div class="progress-bar slide_lv0"style="width:75%;background-image:none;float:right;">
+                                     <div class="progress-bar slide_lv1"style="width:75%;background-image:none;float:right;">
                                        <div class="status_bar_val"><span id="{{$building->id_building}}_energy_status"></span> kWh.</div>
                                      </div>
                                    </div>
@@ -139,10 +139,6 @@ for (var i = 0; i < 96; i++) {
                         <script type="text/javascript">
                           startProcess();
                           var time='today';
-
-                          // roompage('LABSE',time).done(function(data){
-                          //   buildingchart('{{$building->id_building}}_profile_container_demand',data['powerChart']);
-                          // });
                           overview('{{$building->id_building}}').done(function(data){
                             console.log(data);
                             // parse data from api and put in html page

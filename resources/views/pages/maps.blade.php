@@ -22,7 +22,8 @@
   <div style="position:relative;width:56em;height:35em;margin:0 auto;" >
       <div id="map-img">
         <img src="{{asset('images/map/teknik.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:1;" />
-        <a href="overview/DTETI"><img  id="DTETI-img"src="{{asset('images/map/DTETI-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
+        <a href="overview/DTETI"><img id="DTETI-img" alt="" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
+        <a href="overview/DTAP"><img id="DTAP-img"alt="" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:4;top:1.4em;right:19.6em;" /></a>
         <!-- <a href="{{url('building/DTETI')}}"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a> -->
       </div>
 
@@ -66,13 +67,13 @@
         </div>
       </div>
 
-      <div id="JUTAP_enegy_show" style="position: absolute;top: 1em;left: 19em;width:15em;height:120px;z-index:200">
+      <div id="JUTAP_enegy_show" style="position: absolute;top: 0em;left: 19em;width:15em;height:120px;z-index:200">
         <div id="JUTAP_line">
           <div class="DTAP-line"style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:-0.3em;"></div>
           <div class="DTAP-line-2" style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;"></div>
           <div class="DTAP-line" style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.3em;top: 3em;"></div>
         </div>
-        <div style="position: absolute;left: -7em;top: -1.7em;color:#707070">
+        <div style="position: absolute;left: -7em;top: -0.7em;color:#707070">
           <a href="overview/DTAP"><span style="font-size: 15px;">DTAP Bld.</span><br></a>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-DTAP"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
