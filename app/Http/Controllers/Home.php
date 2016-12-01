@@ -31,10 +31,11 @@ class Home extends Controller
     public function detail_building($building)
     {
         $data_floor = \DB::table('data_floor')->orderBy('id_floor', 'asc')->where('id_building',$building)->get();
+        $data_building = \DB::table('data_building')->where('id_building',$building)->first();
         if ($data_floor==NULL) {
           return view('errors/404');
         }else{
-          return view('pages/building', array('page' => 'detail-building', 'building'=> $building, 'data_floors'=>$data_floor ));
+          return view('pages/building', array('page' => 'detail-building', 'building'=> $data_building, 'data_floors'=>$data_floor ));
         }
     }
 

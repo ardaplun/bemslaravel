@@ -8,8 +8,10 @@ var total_pwr_demand=0;
 var total_eng_demand=0;
 var total_peak_demand=0;
 var tmp=[];
+var chrt=[];
 for (var i = 0; i < 96; i++) {
   tmp[i]=0;
+  chrt[i]=0;
 }
 </script>
 <!-- title content -->
@@ -146,7 +148,6 @@ for (var i = 0; i < 96; i++) {
                               $("#{{$building->id_building}}_energy_status").html(data['energy'][time].toLocaleString());
                               $("#{{$building->id_building}}_power_status").html(data['power']['current'].toLocaleString());
                               $("#{{$building->id_building}}_peak_demand").html(data['power']['max'].toLocaleString());
-                              buildingchart('{{$building->id_building}}_profile_container_demand',data.today);
                               total_pwr_demand += data['power']['current'];
                               total_eng_demand += data['energy'][time];
                               total_peak_demand += data['power']['max'];
@@ -155,10 +156,12 @@ for (var i = 0; i < 96; i++) {
                               $("#total_peak_demand").html(total_peak_demand.toLocaleString());
                               for (var i = 0; i < data.today.length; i++) {
                                 if (data.today[i]) {
+                                  chrt[i]=data.today[i];
                                   tmp[i]+=data.today[i];
                                 }
                               }
                             }
+                            buildingchart('{{$building->id_building}}_profile_container_demand',chrt);
                             buildingchart('total_load_profile_container_demand',tmp);
                             });
                         </script>

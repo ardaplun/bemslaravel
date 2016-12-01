@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <div id="JUTAP_enegy_show" style="position: absolute;top: 0em;left: 19em;width:15em;height:120px;z-index:200">
+      <div id="JUTAP_enegy_show" style="position: absolute;top: 0em;left: 19em;width:15em;height:10px;z-index:200">
         <div id="JUTAP_line">
           <div class="DTAP-line"style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:-0.3em;"></div>
           <div class="DTAP-line-2" style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;"></div>

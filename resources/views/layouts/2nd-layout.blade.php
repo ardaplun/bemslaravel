@@ -115,7 +115,14 @@
                             <div class="mainmenu pull-right center-nav">
                                 <ul class="nav navbar-nav collapse navbar-collapse vertical">
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>HOME</a></li>
-                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>MENU</a></li>
+                                    <li class="dropdown" style="background-color:none">
+                                      <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">MENU</a>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                                        <li  style="float:left;width:100%;display:none" class="pointer-mouse"><a style="text-align:left;">Load Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('load-profile')}}" style="text-align:left;">Load Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="" style="text-align:left;">Chart</a></li>
+                                      </ul>
+                                    </li>
                                     <!-- <li style="padding: 0em 2em  0em 2em;"><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>ABOUT US</a></li> -->
                                     <li style="padding: 0em 2em  0em 2em;"><a href="#" data-toggle="modal" data-target="#aboutus">ABOUT US</a></li>
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>LOGIN</a></li>
