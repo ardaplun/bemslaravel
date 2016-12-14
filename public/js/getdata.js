@@ -28,7 +28,7 @@ function overview(building){
 function maps(){
 
     return $.ajax({
-        url: urlget+'maps',
+        url: BASE_URL+urlget+'maps',
         type: "post",
         // data: {},
         dataType:'json',

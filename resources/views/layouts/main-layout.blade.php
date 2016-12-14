@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <link rel="shortcut icon" href="{{asset('images/home/ugmico.ico')}}" type="image/x-icon" />
         <title>UGM Building Management System </title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
         <link href="{{asset('css/animate.css')}}" rel="stylesheet">
@@ -22,17 +22,17 @@
         <script src="{{asset('js/respond.min.js')}}"></script>
         <![endif]-->
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
-        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="{{asset('css/roboto.css')}}" rel='stylesheet' type='text/css'>
+        <script src="{{asset('js/highcharts.js')}}"></script>
+        <script src="{{asset('js/highcharts-3d.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/jquery-1.7.1.min.js')}}"></script>
+        <script src="{{asset('js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/chart.js')}}"></script>
         <script src="{{asset('js/getdata.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
-        <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+        <script src="{{asset('js/jquery-3.0.0.js')}}"></script>
         <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
         <script type="text/javascript">
         function startProcess(){

@@ -93,7 +93,7 @@ class API extends Controller
         $where[2]['id_room']=Room::getMDP($where[1]);
         $where[3]['id_device']=Device::getDevice($where[2]);
 
-        $etot['thsMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::today()->toDateString());
+        $etot['thsMonth']=Energy::getEnergy($where[3],'month(time) = ?',\Carbon\Carbon::now()->month);
         $etot['lstMonth']=Energy::getEnergy($where[3],'date(time) = ?',\Carbon\Carbon::now()->subMonth()->endOfMonth()->toDateString());
 
         $data['alert'][$building->id_building]=Alert::getAlert(['id_building'=>$building->id_building,'id_floor'=>'main']);
