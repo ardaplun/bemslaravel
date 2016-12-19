@@ -12,11 +12,18 @@
 */
 Route::get('/', 'Home@index');
 Route::get('/overview/{building}', 'Home@overview');
-Route::get('/load-profile', 'Home@loadprofile');
-Route::get('/usage-profile', 'UsageController@usageprofile');
+// Route::get('/load-profile', 'Home@loadprofile');
+Route::group(['prefix' => 'load-profile'], function()
+{
+  Route::get('/', 'LoadController@loadprofile');
+  Route::post('day', 'LoadController@day');
+  Route::post('month', 'LoadController@month');
+  Route::post('year', 'LoadController@year');
+});
+// Route::get('/usage-profile', 'UsageController@usageprofile');
 Route::group(['prefix' => 'usage-profile'], function()
 {
-  Route::post('/', 'UsageController@usageprofile');
+  Route::get('/', 'UsageController@usageprofile');
   Route::post('day', 'UsageController@day');
   Route::post('month', 'UsageController@month');
   Route::post('year', 'UsageController@year');

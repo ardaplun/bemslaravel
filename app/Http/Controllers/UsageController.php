@@ -22,7 +22,7 @@ class UsageController extends Controller
         $where[1]['id_building']  = $id_building;
 
         // <-- get data alert -->
-        $data['alert']=Alert::getAlert(['id_building'=>$building->id_building,'id_floor'=>'main']);
+        $data['alert']=Alert::getAlert(['id_building'=>$id_building,'id_floor'=>'main']);
 
         $tdy = Carbon::now()->startOfDay();
 

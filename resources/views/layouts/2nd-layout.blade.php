@@ -23,18 +23,19 @@
           <script src="{{asset('js/respond.min.js')}}"></script>
           <![endif]-->
           <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
-          <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-          <script src="https://code.highcharts.com/highcharts.js"></script>
-          <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-          <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-          <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <link href="{{asset('css/roboto.css')}}" rel='stylesheet' type='text/css'>
+          <script src="{{asset('js/highcharts.js')}}"></script>
+          <script src="{{asset('js/highcharts-3d.js')}}"></script>
+          <!-- <script type="text/javascript" src="{{asset('js/jquery-1.7.1.min.js')}}"></script> -->
+          <script src="{{asset('js/jquery.min.js')}}"></script>
+          <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
+          <script src="{{asset('js/bootstrap.min.js')}}"></script>
           <script src="{{asset('js/chart.js')}}"></script>
           <script src="{{asset('js/getdata.js')}}"></script>
           <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
-          <script type="text/javascript">
+          <script src="{{asset('js/jquery-3.0.0.js')}}"></script>
+          <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
+          <script>
           function startProcess(){
           	$.blockUI({
           		message: $('#progress-bar-box'),
@@ -121,6 +122,7 @@
                                         <li  style="float:left;width:100%;display:none" class="pointer-mouse"><a style="text-align:left;">Load Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('load-profile')}}" style="text-align:left;">Load Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('usage-profile')}}" style="text-align:left;">Usage Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('current-profile')}}" style="text-align:left;">Current Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="" style="text-align:left;">Chart</a></li>
                                       </ul>
                                     </li>
@@ -166,7 +168,7 @@
 
         </footer><!--/Footer-->
 
-        <script src="{{asset('js/jquery.js')}}"></script>
+        <!-- <script src="{{asset('js/jquery.js')}}"></script> -->
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>

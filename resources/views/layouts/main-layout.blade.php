@@ -122,6 +122,7 @@
                                         <li  style="float:left;width:100%;display:none" class="pointer-mouse"><a style="text-align:left;">Load Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('load-profile')}}" style="text-align:left;">Load Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('usage-profile')}}" style="text-align:left;">Usage Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('current-profile')}}" style="text-align:left;">Current Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="" style="text-align:left;">Chart</a></li>
                                       </ul>
                                     </li>

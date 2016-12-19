@@ -37,52 +37,97 @@ function showdata(energy,power,powermax,chart,id){
 function changedata(val){
   // var val = $(this).val();
   if (val == 'day') {
-    @foreach($page_data as $dt)
-      var energy    = {{$dt['energy']['totaltoday']}};
-      var power    = {{$dt['power']['currenttoday']}};
-      var powermax = {{$dt['power']['maxtoday']}};
-      var chart    = {{json_encode($dt['dttdy'])}};
-      showdata(energy,power,powermax,chart,"{{$dt['id_building']}}")
-      buildingchart('{{$dt['id_building']}}_profile_container_demand',chart);
-      for (var i = 0; i < chart.length; i++) {
-        if (chart[i]) {
-          chrt[i] += chart[i];
+    $.ajax({
+        url: BASE_URL+'load-profile/'+val,
+        type: "post",
+        dataType:'json',
+        beforeSend : startProcess(),
+        success: function(data){
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            var energy   = data[i]['energy']['totaltoday'];
+            var power    = data[i]['power']['currenttoday'];
+            var powermax = data[i]['power']['maxtoday'];
+            var chart    = data[i]['dttdy'];
+            showdata(energy,power,powermax,chart,data[i]['id_building']);
+            daychart(data[i]['id_building']+'_profile_container_demand',chart,'power');
+            for (var j = 0; j < chart.length; j++) {
+              if (chart[j]) {
+                chrt[j] += chart[j];
+              }
+            }
+            daychart('total_load_profile_container_demand',chrt,'power');
+          }
+          endProcess();
+          chrt=[];
+        },
+        error: function(e) {
+          console.log(e.responseText);
         }
-      }
-      buildingchart('total_load_profile_container_demand',chrt);
-    @endforeach
+      });
   }
   if (val == 'month') {
-    @foreach($page_data as $dt)
-      var energy    = {{$dt['energy']['totalmonth']}};
-      var power    = {{$dt['power']['currentmonth']}};
-      var powermax = {{$dt['power']['maxmonth']}};
-      var chart    = {{json_encode($dt['dtmnth'])}};
-      showdata(energy,power,powermax,chart,"{{$dt['id_building']}}")
-      monthchart('{{$dt['id_building']}}_profile_container_demand',chart);
-      for (var i = 0; i < chart.length; i++) {
-        if (chart[i]) {
-          chrtmnth[i] += chart[i];
+    $.ajax({
+        url: BASE_URL+'load-profile/'+val,
+        type: "post",
+        dataType:'json',
+        beforeSend : startProcess(),
+        success: function(data){
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            var energy   = data[i]['energy']['totalmonth'];
+            var power    = data[i]['power']['currentmonth'];
+            var powermax = data[i]['power']['maxmonth'];
+            var chart    = data[i]['dtmnth'];
+            showdata(energy,power,powermax,chart,data[i]['id_building']);
+            monthchart(data[i]['id_building']+'_profile_container_demand',chart,'power');
+            for (var j = 0; j < chart.length; j++) {
+              if (chart[j]) {
+                chrtmnth[j] += chart[j];
+              }
+            }
+            monthchart('total_load_profile_container_demand',chrtmnth,'power');
+          }
+          endProcess();
+          chrtmnth=[];
+        },
+        error: function(e) {
+          console.log(e.responseText);
         }
-      }
-      monthchart('total_load_profile_container_demand',chrtmnth);
-    @endforeach
+      });
   }
   if (val == 'year') {
-    @foreach($page_data as $dt)
-      var energy    = {{$dt['energy']['totalyear']}};
-      var power    = {{$dt['power']['currentyear']}};
-      var powermax = {{$dt['power']['maxyear']}};
-      var chart    = {{json_encode($dt['dtyr'])}};
-      showdata(energy,power,powermax,chart,"{{$dt['id_building']}}")
-      yearchart('{{$dt['id_building']}}_profile_container_demand',chart);
-      for (var i = 0; i < chart.length; i++) {
-        if (chart[i]) {
-          chrtyr[i] += chart[i];
+    $.ajax({
+        url: BASE_URL+'load-profile/'+val,
+        type: "post",
+        dataType:'json',
+        beforeSend : startProcess(),
+        success: function(data){
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            var energy   = data[i]['energy']['totalyear'];
+            var power    = data[i]['power']['currentyear'];
+            var powermax = data[i]['power']['maxyear'];
+            var chart    = data[i]['dtyr'];
+            showdata(energy,power,powermax,chart,data[i]['id_building']);
+            yearchart(data[i]['id_building']+'_profile_container_demand',chart,'power');
+            for (var j = 0; j < chart.length; j++) {
+              if (chart[j]) {
+                chrtyr[j] += chart[j];
+              }
+            }
+            yearchart('total_load_profile_container_demand',chrtyr,'power');
+          }
+          endProcess();
+          chrtyr=[];
+        },
+        error: function(e) {
+          console.log(e.responseText);
         }
-      }
-      yearchart('total_load_profile_container_demand',chrtyr);
-    @endforeach
+      });
   }
 
   // $("#total_demand_energy_status").html(total_eng_demand.toLocaleString());
@@ -230,15 +275,15 @@ function changedata(val){
                           $("#{{$dt['id_building']}}_peak_demand").html(powermax.toLocaleString());
                           $("#total_demand_power_status").html(total_pwr_demand.toLocaleString());
                           $("#total_peak_demand").html(total_peak_demand.toLocaleString());
-                          buildingchart('total_generate_profile_container_supply',[]);
+                          daychart('total_generate_profile_container_supply',[],'power');
 
-                            for (var i = 0; i < chart.length; i++) {
-                              if (chart[i] != null) {
-                                chrt[i] += chart[i];
-                              }
+                          for (var i = 0; i < chart.length; i++) {
+                            if (chart[i] != null) {
+                              chrt[i] += chart[i];
                             }
-                            buildingchart('total_load_profile_container_demand',chrt);
-                            buildingchart('{{$dt['id_building']}}_profile_container_demand',chart);
+                          }
+                          daychart('total_load_profile_container_demand',chrt,'power');
+                          daychart('{{$dt['id_building']}}_profile_container_demand',chart,'power');
 
                         </script>
                         @endforeach
