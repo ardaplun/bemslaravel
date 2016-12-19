@@ -215,7 +215,7 @@ setTimeout(function(){
 },750);
 
     setInterval(function(){
-      maps().done(function(data){
+      maps().complete(function(data){
         // parse data from api and put in html page
         for (var key in data['energy']) {
           $("#show-demand-map-"+key).html(data['energy'][key].toLocaleString());
@@ -223,5 +223,6 @@ setTimeout(function(){
       });
     }, 5*60000);
 </script>
+<script src="{{asset('js/jquery.js')}}"></script>
 
 @endsection

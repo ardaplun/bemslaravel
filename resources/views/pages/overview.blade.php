@@ -149,5 +149,6 @@ setTimeout(function(){
       });
     }, 5*60000);
 </script>
+<script src="{{asset('js/jquery.js')}}"></script>
 
 @endsection

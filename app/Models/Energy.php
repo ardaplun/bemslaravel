@@ -48,7 +48,11 @@ class Energy extends Model
     }
     $dt=$query->get();
     if(!empty($dt)){
-      $dt = $dt[0]->etotal - end($dt)->etotal;
+      if (!empty($dt[0]->etotal)) {
+        $dt = $dt[0]->etotal - end($dt)->etotal;
+      } else {
+        $dt = $dt[1]->etotal - end($dt)->etotal;
+      }
       return $dt;
     }else{
       return 0;
