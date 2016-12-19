@@ -8,7 +8,7 @@ use DB, Carbon;
 class Energy extends Model
 {
   static function getEnergy($where=array(),$time,$range){
-    $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');
+    $query = DB::table('view_etotal_mdp')->select('etotal');
     foreach ($where as $key => $val) {
       if (!empty($val)) {
         $query->where($key, $val);
@@ -22,52 +22,49 @@ class Energy extends Model
       return 0;
     }
   }
-  // static function getEnergyToday($where=array()){
-  //   $tdy = \Carbon\Carbon::now()->toDateString();
-  //   $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');
-  //   foreach ($where as $key => $val) {
-  //     if (!empty($val)) {
-  //       $query->where($key, $val);
-  //     }
-  //   }
-  //   $query->whereRaw('date(time) = ?', [$tdy]);
-  //   return round(($query->first()->etotal)/1000,2);
-  // }
-  // static function getEnergyYesterday($where=array()){
-  //   $yst = \Carbon\Carbon::now()->subDay()->toDateString();
-  //   $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');
-  //   foreach ($where as $key => $val) {
-  //     if (!empty($val)) {
-  //       $query->where($key, $val);
-  //     }
-  //   }
-  //   $query->whereRaw('date(time) = ?', [$yst]);
-  //   return round(($query->first()->etotal)/1000,2);
-  // }
 
-  // static function getEnergyThsMonth($where=array()){
-  //   $thsMonth =Carbon\Carbon::now()->month;
-  //   $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');;
-  //   foreach ($where as $key => $val) {
-  //     if (!empty($val)) {
-  //       $query->where($key, $val);
-  //     }
-  //   }
-  //   $query->whereRaw('month(time) = ?', [$thsMonth]);
-  //   return round(($query->first()->etotal)/1000,2);
-  // }
-  //
-  // static function getEnergyLstMont($where=array()){
-  //   $lstMonth =Carbon\Carbon::now()->subMonth()->month;
-  //   $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');
-  //   foreach ($where as $key => $val) {
-  //     if (!empty($val)) {
-  //       $query->where($key, $val);
-  //     }
-  //   }
-  //   $query->whereRaw('month(time) = ?', [$lstMonth]);
-  //   return round(($query->first()->etotal)/1000,2);
-  // }
+  static function getEnergies($where=array(),$time,$range){
+    $query = DB::table('view_etotal_mdp')->select('etotal');
+    foreach ($where as $key => $val) {
+      if (!empty($val)) {
+        $query->where($key, $val);
+      }
+    }
+    $query->whereRaw($time, [$range]);
+    $dt=$query->get();
+    if(!empty($dt)){
+      return $dt;
+    }else{
+      return 0;
+    }
+  }
+
+  static function getEnergyRange($where=array(),$start,$stop){
+    $query = DB::table('view_etotal_mdp')->select('etotal')->whereBetween('time', [$start,$stop]);
+    foreach ($where as $key => $val) {
+      if (!empty($val)) {
+        $query->where($key, $val);
+      }
+    }
+    $dt=$query->get();
+    if(!empty($dt)){
+      $dt = $dt[0]->etotal - end($dt)->etotal;
+      return $dt;
+    }else{
+      return 0;
+    }
+  }
+
+  static function getData($where=array(),$time,$range){
+    $query = DB::table('get_energy')->select('time','power','etotal')->orderBy('time', 'desc');
+    foreach ($where as $key => $val) {
+      if (!empty($val)) {
+        $query->where($key, $val);
+      }
+    }
+    $query->whereRaw($time, [$range]);
+    return $query->get();
+  }
 
   static function getEnergyInMont($where=array()){
 //still not in use, for main type in every floor

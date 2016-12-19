@@ -25,7 +25,7 @@
         <link href="{{asset('css/roboto.css')}}" rel='stylesheet' type='text/css'>
         <script src="{{asset('js/highcharts.js')}}"></script>
         <script src="{{asset('js/highcharts-3d.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/jquery-1.7.1.min.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{asset('js/jquery-1.7.1.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -34,19 +34,20 @@
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
         <script src="{{asset('js/jquery-3.0.0.js')}}"></script>
         <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
-        <script type="text/javascript">
+        <script>
         function startProcess(){
-        	$.blockUI({
-        		message: $('#progress-bar-box'),
-        		css : {
-        			padding:0,
-        			margin:0,
-        			border: 'none',
-        			backgroundColor: 'none',
-        		}
-        	});
+          $.blockUI({
+            message: $('#progress-bar-box'),
+            css : {
+              padding:0,
+              margin:0,
+              border: 'none',
+              backgroundColor: 'none',
+            }
+          });
         }
         $(document).ready(function () {
+
             $('.dropdown-toggle').dropdown();
         });
         function endProcess(){
@@ -120,6 +121,7 @@
                                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
                                         <li  style="float:left;width:100%;display:none" class="pointer-mouse"><a style="text-align:left;">Load Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('load-profile')}}" style="text-align:left;">Load Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('usage-profile')}}" style="text-align:left;">Usage Profile</a></li>
                                         <li  style="float:left;width:100%" class="pointer-mouse"><a href="" style="text-align:left;">Chart</a></li>
                                       </ul>
                                     </li>
@@ -169,7 +171,7 @@
 
         </footer><!--/Footer-->
 
-        <script src="{{asset('js/jquery.js')}}"></script>
+        <!-- <script src="{{asset('js/jquery.js')}}"></script> -->
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>

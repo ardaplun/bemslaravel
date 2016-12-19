@@ -13,6 +13,14 @@
 Route::get('/', 'Home@index');
 Route::get('/overview/{building}', 'Home@overview');
 Route::get('/load-profile', 'Home@loadprofile');
+Route::get('/usage-profile', 'UsageController@usageprofile');
+Route::group(['prefix' => 'usage-profile'], function()
+{
+  Route::post('/', 'UsageController@usageprofile');
+  Route::post('day', 'UsageController@day');
+  Route::post('month', 'UsageController@month');
+  Route::post('year', 'UsageController@year');
+});
 Route::get('/about-us', 'Home@about_us');
 Route::get('/login', 'Home@login');
 Route::get('/building/{building}', 'Home@detail_building');

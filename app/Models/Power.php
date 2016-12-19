@@ -19,7 +19,7 @@ class Power extends Model
     return $query->get();
   }
   static function getPower($where=array(),$time,$range){
-    $query = DB::table('get_energy')->select('power')->orderBy('time', 'desc');
+    $query = DB::table('view_power_mdp')->select('power');
     foreach ($where as $key => $val) {
       if (!empty($val)) {
         $query->where($key, $val);
@@ -33,9 +33,38 @@ class Power extends Model
       return 0;
     }
   }
+  static function getPowerCurrent($where=array(),$time,$range){
+    $query = DB::table('view_power_mdp');
+    foreach ($where as $key => $val) {
+      if (!empty($val)) {
+        $query->where($key, $val);
+      }
+    }
+    $query->whereRaw($time, [$range]);
+    $dt=$query->value('power');
+    if(!empty($dt)){
+      return $dt;
+    }else{
+      return 0;
+    }
+  }
+  static function getPowerMax($where=array(),$time,$range){
+    $query = DB::table('view_power_mdp');
+    foreach ($where as $key => $val) {
+      if (!empty($val)) {
+        $query->where($key, $val);
+      }
+    }
+    $query->whereRaw($time, [$range])->max('power');
+    $dt=$query->value('power');
+    if(!empty($dt)){
+      return $dt;
+    }else{
+      return 0;
+    }
+  }
   static function getPowerAvg($where=array(),$start,$stop){
-
-    $query = DB::table('get_energy')->select('power')->whereBetween('time', [$start,$stop]);
+    $query = DB::table('view_power_mdp')->select('power')->whereBetween('time', [$start,$stop]);
     foreach ($where as $key => $val) {
       if (!empty($val)) {
         $query->where($key, $val);
