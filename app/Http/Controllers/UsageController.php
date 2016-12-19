@@ -118,7 +118,7 @@ class UsageController extends Controller
 
         for ($i=0; $i < 96; $i++) {
           $tdy_etot_avg    = Energy::getEnergyRange($where[1],$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString());
-          $data['dttdy'][] = round(($tdy_etot_avg)/1000,2);
+          $data['dttdy'][] = ($tdy_etot_avg < 0) ? 0 : round(($tdy_etot_avg)/1000,2);
         }
         // <-- end of calculating today data -->
 
