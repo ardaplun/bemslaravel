@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <link rel="shortcut icon" href="{{asset('images/home/ugmico.ico')}}" type="image/x-icon" />
         <title>UGM Building Management System </title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
         <link href="{{asset('css/animate.css')}}" rel="stylesheet">
@@ -22,30 +22,34 @@
         <script src="{{asset('js/respond.min.js')}}"></script>
         <![endif]-->
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
-        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-        <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="{{asset('css/roboto.css')}}" rel='stylesheet' type='text/css'>
+        <script src="{{asset('js/highcharts.js')}}"></script>
+        <script src="{{asset('js/highcharts-3d.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{asset('js/jquery-1.7.1.min.js')}}"></script> -->
+        <script src="{{asset('js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/chart.js')}}"></script>
         <script src="{{asset('js/getdata.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/date_time.js')}}"></script>
-        <script type="text/javascript">
+        <script src="{{asset('js/jquery-3.0.0.js')}}"></script>
+        <script src="{{asset('js/blockui/jquery.blockUI.js')}}"></script>
+        <script>
         function startProcess(){
-        	$.blockUI({
-        		message: $('#progress-bar-box'),
-        		css : {
-        			padding:0,
-        			margin:0,
-        			border: 'none',
-        			backgroundColor: 'none',
-        		}
-        	});
+          $.blockUI({
+            message: $('#progress-bar-box'),
+            css : {
+              padding:0,
+              margin:0,
+              border: 'none',
+              backgroundColor: 'none',
+            }
+          });
         }
+        $(document).ready(function () {
 
+            $('.dropdown-toggle').dropdown();
+        });
         function endProcess(){
         	setTimeout(function(){
             $.unblockUI;
@@ -60,7 +64,7 @@
 
 
     </head><!--/head-->
-    <div id="progress-bar-box" class="progress-bar-box">
+    <div id="progress-bar-box" class="progress-bar-box" style="display:none">
         <div class="progress active">
             <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
               <span class="sr-only"></span>
@@ -108,13 +112,22 @@
                               <span class="show-weekday">{{date("l")}}</span>
                               <div class="show-date" >{{date(" M Y")}}</div>
                               <script type="text/javascript">date_time('date_time');</script>
-
-
                             </div>
                             <div class="mainmenu pull-right center-nav">
                                 <ul class="nav navbar-nav collapse navbar-collapse vertical">
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('')}}" {{$page == 'home' ? 'class=active' : ''}}>HOME</a></li>
-                                    <li style="padding: 0em 2em  0em 2em;"><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>MENU</a></li>
+                                    <li class="dropdown" style="background-color:none">
+                                      <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">MENU</a>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                                        <li  style="float:left;width:100%;display:none" class="pointer-mouse"><a style="text-align:left;">Load Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('load-profile')}}" style="text-align:left;">Load Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('usage-profile')}}" style="text-align:left;">Usage Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="{{url('current-profile')}}" style="text-align:left;">Current Profile</a></li>
+                                        <li  style="float:left;width:100%" class="pointer-mouse"><a href="" style="text-align:left;">Chart</a></li>
+                                      </ul>
+                                    </li>
+
+                                    <!-- <li style="padding: 0em 2em  0em 2em;"><a href="{{url('menu')}}" {{$page == 'menu' ? 'class=active' : ''}}>MENU</a></li> -->
                                     <!-- <li style="padding: 0em 2em  0em 2em;"><a href="{{url('about-us')}}" {{$page == 'about-us' ? 'class=active' : ''}}>ABOUT US</a></li> -->
                                     <li style="padding: 0em 2em  0em 2em;"><a href="#" data-toggle="modal" data-target="#aboutus">ABOUT US</a></li>
                                     <li style="padding: 0em 2em  0em 2em;"><a href="{{url('login')}}" {{$page == 'login' ? 'class=active' : ''}}>LOGIN</a></li>
@@ -159,7 +172,7 @@
 
         </footer><!--/Footer-->
 
-        <script src="{{asset('js/jquery.js')}}"></script>
+        <!-- <script src="{{asset('js/jquery.js')}}"></script> -->
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>

@@ -1,13 +1,61 @@
 var urlget = 'api/v1/view/';
+var BASE_URL = window.location.origin+'/bemslaravel/public/';
 
+function overview(building){
 
-function homepage(){
+    return $.ajax({
+        url: BASE_URL+urlget+'home',
+        type: "post",
+        data: {'building':building},
+        dataType:'json',
+        // beforeSend : startProcess(),
+        // success: function(data){
+        //   // parse data from api and put in html page
+        //   $("#show-energy").html(data['energy']['total']);
+        //   $("#show-energy-map").html(data['energy']['total']);
+        //   $("#daily-energy").html(data['energy']['today']);
+        //   $("#show_power").html(data['power']['current']);
+        //   $("#show_max_power").html(data['power']['max']);
+        //
+        // },
+        error: function(e) {
+          console.log(e.responseText);
+        }
+      });
+
+}
+
+function maps(){
+
+    return $.ajax({
+        url: BASE_URL+urlget+'maps',
+        type: "post",
+        // data: {},
+        dataType:'json',
+        // beforeSend : startProcess(),
+        // success: function(data){
+        //   // parse data from api and put in html page
+        //   $("#show-energy").html(data['energy']['total']);
+        //   $("#show-energy-map").html(data['energy']['total']);
+        //   $("#daily-energy").html(data['energy']['today']);
+        //   $("#show_power").html(data['power']['current']);
+        //   $("#show_max_power").html(data['power']['max']);
+        //
+        // },
+        error: function(e) {
+          console.log(e.responseText);
+        }
+      });
+
+}
+function homepage(building){
 
     return $.ajax({
         url: urlget+'home',
         type: "post",
-        data: {'building':'DTETI'},
+        data: {'building':building},
         dataType:'json',
+        // beforeSend : startProcess(),
         // success: function(data){
         //   // parse data from api and put in html page
         //   $("#show-energy").html(data['energy']['total']);
@@ -27,7 +75,7 @@ function homepage(){
 function buildingpage(building,data){
     $(document).ready(function(){
         $.ajax({
-          url: '../'+urlget+'building',
+          url: BASE_URL+urlget+'building',
           type: "post",
           data: {'building':building, 'data':data,'type':'buildingpage'},
           dataType:'json',
@@ -102,7 +150,7 @@ function floorpage(building,floor,time){
 function roompage(room,time){
       // var result;
         return $.ajax({
-          url: '../../../../../'+urlget+'room',
+          url: BASE_URL+urlget+'room',
           type: "post",
           data: {'room':room,'type':'roompage','time':time},
           dataType:'json',
@@ -121,7 +169,7 @@ function roompage(room,time){
 function roomdetail(device){
 
       return $.ajax({
-          url: '../../../../../'+urlget+'room',
+          url: BASE_URL+urlget+'room',
           type: "post",
           data: {'id':device,'type':'device'},
           dataType:'json',

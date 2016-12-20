@@ -2,33 +2,8 @@
 
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
-<script type="text/javascript">
-
-// var urlget = 'api/v1/view/';
-// $(document).ready(function(){
-//     $.ajax({
-//       url: urlget+'home',
-//       type: "post",
-//       data: {'building':'lol'},
-//       dataType:'json',
-//       success: function(data){
-//         console.log(data);
-//         console.log(data['e_total']);
-//         $("#show-energy").html(data['e_total']);
-//         $("#show-energy-map").html(data['e_total']);
-//         $("#daily-energy").html(data['e_today']);
-//         $("#show_power").html(data['p_current']);
-//         $("#show_max_power").html(data['p_max']);
-//
-//       },
-//       error: function(e) {
-//         console.log(e.responseText);
-//       }
-//     });
-// });
-</script>
 <!-- title content -->
-<div id="show-overview">
+<div id="show-overview" style="display:none">
 <body>
   <div class="container">
     <div id="chart-title">
@@ -43,7 +18,7 @@
         <div style="background-color:white;width:105%">
           <div id="top-status">
             <span id="status-jam" class="show-date">{{date(" M Y")}}</span>
-            <span id="faculty-name" >Faculty of Engineering, Universitas Gadjah Mada</span>
+            <span id="faculty-name">Faculty of Engineering</span><span id="university-name">, Universitas Gadjah Mada</span>
             <script type="text/javascript">date_time('date_time');</script>
           </div>
           <div id="middle-status" style="background-color:#DCEBFF;line-height:1.3em;">
@@ -56,14 +31,14 @@
           <div id="status-big">
             <div style="height:8.3em;background:-webkit-linear-gradient(top,#fff,#f6f6f6);background:-moz-linear-gradient(top,#fff,#F1EFEF);">
                 <div style="width:20%;font-weight:bold;display:inline-block;text-align:center;color:#999;position:relative;top:0px;font-size:1.4em">1<sup>st</sup> - Today</div>
-                <div style="font-size:3.4em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:bold;"><span id="show-energy"> ... </span><span style="font-size:50%;font-weight:lighter;">&nbsp kWh</span></div>
-                <div class="box-percentage-status" style="background-color:#F5C922;margin-top:0.1em"><span style="font-size:1.4em;" id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
+                <div style="font-size:3.4em;text-align:right;width:55%;display:inline-block;margin-top:25px;color:#707070;font-weight:normal;"><span id="show-energy"> ... </span><span style="font-size:50%;font-weight:lighter;">&nbsp kWh</span></div>
+                <div class="box-percentage-status percentage" style="background-color:transparent;margin-top:0.1em"><span style="font-size:1.4em;" id="show_percent_energy">100</span><span style="font-size:40%;">%</span></div>
             </div>
           </div>
           <div id="status-chart-acc">
             <div style="height:2.5em;background:-webkit-linear-gradient(top,#eee,#e0e0e0);background:-moz-linear-gradient(top,#eee,#e0e0e0);">
               <span id="daily-consumed">Daily Consumed Energy Accumulation <span id="daily-energy"> ... </span> kWh</span>
-              <span class="text-percentage-status" style="background-color:#F5C922;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Level 2</span>
+              <span class="text-percentage-status percentage" style="background-color:transparent;line-height:1.6em;display:inline-block;width:8.3em;text-align:center;font-size:0.9em;float:right;margin:8px 6px 4px 6px;color:white;font-weight:bold;">Level 2</span>
             </div>
             <div style="height:40px;line-height:40px;font-size:1.2em;color:#707070;">
               <span style="margin:0 0 0 4px;">Current Demand <span id="show_power"> ... </span> kW</span>
@@ -74,8 +49,8 @@
 
             <div id="chart_container" style="height:200px; width:100%;" >
             </div>
-              <span style="margin:0 0 0 4px;"><hr style="background-color:#F5C922;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Warning Level 98 kW</span>
-              <span style="float:right;margin-right:4px;"><hr style="background-color:#bc250c;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Alert Level 87 kW</span>
+              <span style="margin:0 0 0 4px;"><hr style="background-color:#F5C922;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Warning Level <span id="warning_level"></span> kW</span>
+              <span style="float:right;margin-right:4px;"><hr style="background-color:#bc250c;height:3px;float:left;width:20px;margin-top:5px;">&emsp;Alert Level <span id="alert_level"></span> kW</span>
           </div>
           <div id="Donutchart">
 
@@ -94,15 +69,9 @@
 </body>
 </div>
 
-<div id="show-maps" style="display:none">
-
-
-
-
+<div id="show-maps">
 <body>
   <div class="container">
-
-
   <div id="maps-title">
     <div class="upline-title">MAIN MAP</div>
         <div class="line-title">
@@ -119,7 +88,8 @@
   <div style="position:relative;width:56em;height:35em;margin:0 auto;" >
       <div id="map-img">
         <img src="{{asset('images/map/teknik.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:1;" />
-        <a href="{{url('building/DTETI')}}"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
+        <a href="#DTETI" onclick="getOverview('DTETI')"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a>
+        <!-- <a href="{{url('building/DTETI')}}"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a> -->
       </div>
 
 
@@ -131,7 +101,7 @@
         </div>
         <div style="position: absolute;left: 5em;top: 5em;color:#707070">
           <span style="font-size: 20px;">DTETI Bld.</span><br>
-          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-energy-map"></span> kWh</span>
+          <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-energy-map"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dteti"></span> kWh</span>
         </div>
       </div>
@@ -169,7 +139,7 @@
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.3em;top: 3em;"></div>
         </div>
         <div style="position: absolute;left: -7em;top: -1.7em;color:#707070">
-          <span style="font-size: 15px;">DTAP Bld.</span><br>
+          <a href="#" onclick="getOverview('DTAP')"><span style="font-size: 15px;">DTAP Bld.</span><br></a>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
@@ -251,7 +221,6 @@
 
 </div>
 
-
 <div id="alert-main-map" class="circle" style="float:right;position:relative;bottom: 345px;right: -613px;display: none;">
     <span class="glyphicon glyphicon-exclamation-sign" style="background-color: rgb(216, 22, 39);right: -163px;height: 50px;width: 50px;top: -28px;border-radius: 50%;vertical-align: middle;text-align: center;line-height: 50px;color: white;font-size: xx-large;"></span>
     <div style="float:right;position:absolute;bottom: 120px;left: 14px;font-size: large;font-weight: bolder;color: rgb(252, 252, 252);text-align: left;">Current</div>
@@ -269,55 +238,91 @@
     $("#show-main-map").click(function(){
        $("#show-maps").show();
        $("#show-overview").hide();
-
-
     });
     $("#show-chart-map").click(function(){
        $("#show-maps").hide();
        $("#show-overview").show();
-
-
     });
 
 </script>
 <!-- get data -->
 <script type="text/javascript">
+function energy_level(real,target){
+  var percentage = Math.round((real/target)*100)
+  $("#show_percent_energy").html(percentage);
+  if(percentage < 85){
+    $(".percentage").css("backgroundColor", "#44C049");
+    $(".text-percentage-status").html("Level 1");
+  }else if(percentage >= 85 && percentage < 93){
+    $(".percentage").css("backgroundColor", "#F5C922");
+    $(".text-percentage-status").html("Level 2");
+  }else{
+    $(".percentage").css("backgroundColor", "#F44336");
+    $(".text-percentage-status").html("Level 3");
+  }
+}
 startProcess();
-setTimeout(function(){
-  homepage().done(function(data){
-    console.log(data);
-    // endProcess();
-    $('#progress-bar-box').hide();
-    $('#aboutus').modal('toggle');
 
+function getOverview(building) {
+  $("#show-maps").hide();
+  $("#show-overview").show();
+  // startProcess();
+// $.blockUI({ message: 'Just a moment...</h1>' });
+  setTimeout(function(){
+    homepage(building).done(function(data){
+      // console.log(data);
+      // $('#aboutus').modal('toggle');
+      // parse data from api and put in html page
+      $("#show-energy").html(data['energy']['total'].toLocaleString());
+      $("#show-energy-map").html(data['energy']['total'].toLocaleString());
+      $("#daily-energy").html(data['energy']['today'].toLocaleString());
+      $("#show_power").html(data['power']['current'].toLocaleString());
+      $("#show_max_power").html(data['power']['max'].toLocaleString());
+      $("#alert_level").html(data['alert']['alert_level'].toLocaleString());
+      $("#warning_level").html(data['alert']['warning_level'].toLocaleString());
+      $("#dept-name").html(data['building']['building_name']);
+      $("#faculty-name").html(data['building']['faculty_name']);
+      energy_level(data['energy']['total'],data['alert']['kwh_target']);
+      // console.log(building);
+      mainchart('chart_container',data);
+      Donutchart('Donutchart',building,data['donutData']);
+      }).complete(function(){endProcess();});
+  },750);
+}
+
+setTimeout(function(){
+  homepage('DTETI').done(function(data){
+    // console.log(data);
+    // $('#aboutus').modal('toggle');
     // parse data from api and put in html page
     $("#show-energy").html(data['energy']['total'].toLocaleString());
     $("#show-energy-map").html(data['energy']['total'].toLocaleString());
     $("#daily-energy").html(data['energy']['today'].toLocaleString());
     $("#show_power").html(data['power']['current'].toLocaleString());
     $("#show_max_power").html(data['power']['max'].toLocaleString());
-    // console.log(data);
-    mainchart('chart_container',data);
-    Donutchart('Donutchart','EE&IT',data['donutData']);
+    $("#alert_level").html(data['alert']['alert_level'].toLocaleString());
+    $("#warning_level").html(data['alert']['warning_level'].toLocaleString());
+    $("#dept-name").html(data['building']['building_name']);
+    $("#faculty-name").html(data['building']['faculty_name']);
+    energy_level(data['energy']['total'],data['alert']['kwh_target']);
+    // mainchart('chart_container',data);
+    // Donutchart('Donutchart','EE&IT',data['donutData']);
     }).complete(function(){endProcess();});
 },750);
 
     setInterval(function(){
-      homepage().done(function(data){
+      homepage('DTETI').done(function(data){
         // parse data from api and put in html page
         $("#show-energy").html(data['energy']['total'].toLocaleString());
         $("#show-energy-map").html(data['energy']['total'].toLocaleString());
         $("#daily-energy").html(data['energy']['today'].toLocaleString());
         $("#show_power").html(data['power']['current'].toLocaleString());
         $("#show_max_power").html(data['power']['max'].toLocaleString());
-        // console.log(data);
+        energy_level(data['energy']['total'],data['alert']['kwh_target']);
         mainchart('chart_container',data);
         Donutchart('Donutchart','EE&IT',data['donutData']);
       });
     }, 5*60000);
 </script>
-<!-- chart  -->
-<!-- <script type="text/javascript"> mainchart('chart_container');</script>
-<script type="text/javascript">Donutchart('Donutchart','EE&IT',[{'name':'2nd Floor','y':123},{'name':'3rd Floor','y':456}]);</script> -->
 
 @endsection
