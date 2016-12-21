@@ -31,23 +31,23 @@
       <div id="DTETI_enegy_show" style="position: absolute;top: 230px;left:-10em;width:210px;height:120px;z-index:200">
         <div id="DTETI_line">
           <div class="DTETI-line" style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;right: 6.6em;top:3.5em;"></div>
-          <div class="DTETI-line-2" style="border-left: 1px solid #bc250c;border-top: 1px solid #bc250c;width: 140px;height: 58px;background-color: transparent;position: absolute;left: 8em"></div>
-          <div class="DTETI-line" style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;left:18em;top: -0.75em;"></div>
+          <div class="DTETI-line-2" style="border-left: 1px solid #bc250c;border-top: 1px solid #bc250c;width: 152px;height: 58px;background-color: transparent;position: absolute;left: 8em"></div>
+          <div class="DTETI-line" style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;left:19em;top: -0.75em;"></div>
         </div>
-        <div style="position: absolute;left: 5em;top: 5em;color:#707070">
-          <span style="font-size: 20px;">DTETI Bld.</span><br>
+        <div style="position: absolute;left: 5.5em;top: 5em;color:#707070">
+          <span style="font-size: 15px;">DTETI Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-DTETI"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-supply-map-dteti"></span> kWh</span>
         </div>
       </div>
 
-      <div id="DTMI_enegy_show" style="position: absolute;top: 8em;left: -10em;width:15em;height:120px;z-index:200">
+      <div id="DTMI_enegy_show" style="position: absolute;top: 9em;left: -10em;width:15em;height:120px;z-index:200">
         <div id="DTMI_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 9.7em;top:-0.3em;"></div>
           <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;position: absolute;left: 5em"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:15.28em;top: 3em;"></div>
         </div>
-        <div style="position: absolute;left: -2em;top: -1.7em;color:#707070">
+        <div style="position: absolute;left: -2em;top: -0.7em;color:#707070">
           <span style="font-size: 15px;">DTMI Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
@@ -60,7 +60,7 @@
           <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 5em;background-color: transparent;"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.28em;top: 5em;"></div>
         </div>
-        <div style="position: absolute;left: -7em;top: -1.7em;color:#707070">
+        <div style="position: absolute;left: -6.5em;top: -0.7em;color:#707070">
           <span style="font-size: 15px;">DTK Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
@@ -70,11 +70,11 @@
       <div id="JUTAP_enegy_show" style="position: absolute;top: 0em;left: 19em;width:15em;height:10px;z-index:200">
         <div id="JUTAP_line">
           <div class="DTAP-line"style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:-0.3em;"></div>
-          <div class="DTAP-line-2" style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;"></div>
-          <div class="DTAP-line" style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.3em;top: 3em;"></div>
+          <div class="DTAP-line-2" style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 4em;background-color: transparent;"></div>
+          <div class="DTAP-line" style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.3em;top: 4em;"></div>
         </div>
         <div style="position: absolute;left: -7em;top: -0.7em;color:#707070">
-          <a href="overview/DTAP"><span style="font-size: 15px;">DTAP Bld.</span><br></a>
+          <span style="font-size: 15px;">DTAP Bld.</span><br></a>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-DTAP"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
@@ -86,20 +86,20 @@
           <div style="border-left: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 11em;height: 3em;background-color: transparent;"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-0.6em;top: 3em;"></div>
         </div>
-        <div style="position: absolute;left: 13em;top: -1.7em;color:#707070">
+        <div style="position: absolute;left: 13em;top: -0.7em;color:#707070">
           <span style="font-size: 15px;">DTG Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
 
-      <div id="JTSL_enegy_show" style="position: absolute;top: 11em;right: -14em;width:26em;height:120px;z-index:200">
+      <div id="JTSL_enegy_show" style="position: absolute;top: 11em;right: -12em;width:26em;height:120px;z-index:200">
         <div id="JTSL_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 12.7em;top:2.6em;"></div>
           <div style="border-left: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 13em;height: 3em;background-color: transparent;"></div>
           <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-0.68em;top: -1em;"></div>
         </div>
-        <div style="position: absolute;left: 15em;top: 1.3em;color:#707070">
+        <div style="position: absolute;left: 15em;top: 2.3em;color:#707070">
           <span style="font-size: 15px;">DTSL Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
@@ -109,11 +109,11 @@
       <div id="DTNF_enegy_show" style="position: absolute;top: 25em;left: 7em;width:15em;height:120px;z-index:200">
         <div id="DTNF_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:4.6em;"></div>
-          <div style="border-right: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 11em;height: 5em;background-color: transparent;"></div>
-          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:10.28em;top: -1em;"></div>
+          <div style="border-right: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 12em;height: 5em;background-color: transparent;"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:11.28em;top: -1em;"></div>
         </div>
-        <div style="position: absolute;left: -7em;top:4em;color:#707070">
-          <span style="font-size: 15px;">DNTF Bld.</span><br>
+        <div style="position: absolute;left: -7em;top:4.1em;color:#707070">
+          <span style="font-size: 15px;">DTNTF Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
@@ -121,11 +121,11 @@
 
       <div id="KPFT_enegy_show" style="position: absolute;top: 25em;left: 25em;width:26em;height:120px;z-index:200">
         <div id="KPFT_line">
-          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 12.7em;top:2.6em;"></div>
-          <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 13em;height: 13.4em;background-color: transparent;position: absolute;left: 0em;top:-10.4em;"></div>
-          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-0.68em;top: -11em;"></div>
+          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 10.7em;top:0.6em;"></div>
+          <div style="border-right: 1px solid #008ec3;border-top: 1px solid #008ec3;width: 13em;height: 11.4em;background-color: transparent;position: absolute;left: -2em;top:-10.4em;"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-2.68em;top: -11em;"></div>
         </div>
-        <div style="position: absolute;left: 15em;top: 1.3em;color:#707070">
+        <div style="position: absolute;left: 13em;top: 0.3em;color:#707070">
           <span style="font-size: 15px;">KPFT Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
@@ -134,11 +134,11 @@
 
       <div id="DTGL_enegy_show" style="position: absolute;top: 30em;left: 27em;width:23em;height:120px;z-index:200">
         <div id="DTGL_line">
-          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 6.7em;top:2.6em;"></div>
-          <div style="border-left: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 7em;height: 8.4em;background-color: transparent;position: absolute;left: 0em;top:-5.4em;"></div>
-          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-0.68em;top: -6em;"></div>
+          <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 4.7em;top:1.6em;"></div>
+          <div style="border-left: 1px solid #008ec3;border-bottom: 1px solid #008ec3;width: 7em;height: 8.4em;background-color: transparent;position: absolute;left: -2em;top:-6.4em;"></div>
+          <div style="width: 20px;height: 20px;border: 2px solid #fff;border-radius: 25px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left:-2.68em;top: -8em;"></div>
         </div>
-        <div style="position: absolute;left: 9em;top: 1.3em;color:#707070">
+        <div style="position: absolute;left: 7em;top: 1.3em;color:#707070">
           <span style="font-size: 15px;">DTGL Bld.</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Demand :<span id="show-demand-map-dtmi"></span> kWh</span><br>
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
