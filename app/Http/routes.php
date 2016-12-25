@@ -20,6 +20,7 @@ Route::group(['prefix' => 'load-profile'], function()
   Route::post('month', 'LoadController@month');
   Route::post('year', 'LoadController@year');
 });
+
 // Route::get('/usage-profile', 'UsageController@usageprofile');
 Route::group(['prefix' => 'usage-profile'], function()
 {
@@ -28,6 +29,13 @@ Route::group(['prefix' => 'usage-profile'], function()
   Route::post('month', 'UsageController@month');
   Route::post('year', 'UsageController@year');
 });
+
+Route::group(['prefix' => 'current-profile'], function()
+{
+  Route::get('/', 'CurrentController@currentprofile');
+  Route::post('getCurrent', 'CurrentController@getCurrent');
+});
+
 Route::get('/about-us', 'Home@about_us');
 Route::get('/login', 'Home@login');
 Route::get('/building/{building}', 'Home@detail_building');

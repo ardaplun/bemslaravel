@@ -289,6 +289,167 @@ function buildingchart(container,data){
         return chart;
 
 }
+
+function currentGauge(container,data,type){
+    if (type == 'current') {
+      var yname = 'Current';
+      var variabel = 'A';
+    } else if (type == 'thd') {
+      var yname = 'Total Harmonic Distortion';
+      var variabel = '%';
+    } else if (type == 'pv') {
+      var yname = 'Power Factor';
+      var variabel = '%';
+    }
+      var chart = new Highcharts.Chart({
+        chart: {
+            type: 'gauge',
+            renderTo: container,
+            plotBorderWidth: 1,
+            backgroundColor: { linearGradient: { x1: 0, y1: 1, x2: 0, y2: 0  }, stops: [[0, '#F9FAFC'],[0.5, '#E6E6E6'],[1, '#E6E6E6']]   },
+            //     linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+            //     stops: [
+            //         [0, '#FFF4C6'],
+            //         [0.3, '#FFFFFF'],
+            //         [1, '#FFF4C6']
+            //     ]
+            // },
+            plotBackgroundImage: null,
+        },
+
+        title: {
+          text:'',
+            // text: yname,
+            // align: 'center',
+            // verticalAlign: 'bottom',
+            // y: -125,
+            // style: {
+            //     fontSize: '15px'
+            // }
+        },
+
+        pane: [{
+            startAngle: -60,
+            endAngle: 60,
+            background: null,
+            center: ['17%', '80%'],
+            size: 130
+        }, {
+            startAngle: -60,
+            endAngle: 60,
+            background: null,
+            center: ['50%', '80%'],
+            size: 130
+        }, {
+            startAngle: -60,
+            endAngle: 60,
+            background: null,
+            center: ['83%', '80%'],
+            size: 130
+        }],
+
+        tooltip: {
+            enabled: false
+        },
+
+        yAxis: [{
+            min: 0,
+            max: 50,
+            minorTickPosition: 'outside',
+            tickPosition: 'outside',
+            labels: {
+                rotation: 'auto',
+                distance: 15
+            },
+            plotBands: [{
+                from: 30,
+                to: 50,
+                color: '#C02316',
+                innerRadius: '100%',
+                outerRadius: '105%'
+            }],
+            pane: 0,
+            title: {
+                text: '('+variabel+')<br/><span style="font-size:8px">Channel A</span>',
+                // y:
+            }
+        }, {
+            min: 0,
+            max: 50,
+            minorTickPosition: 'outside',
+            tickPosition: 'outside',
+            labels: {
+                rotation: 'auto',
+                distance: 15
+            },
+            plotBands: [{
+                from: 30,
+                to: 50,
+                color: '#C02316',
+                innerRadius: '100%',
+                outerRadius: '105%'
+            }],
+            pane: 1,
+            title: {
+                text: '('+variabel+')<br/><span style="font-size:8px">Channel B</span>',
+                // y: 12
+            }
+        }, {
+            min: 0,
+            max: 50,
+            minorTickPosition: 'outside',
+            tickPosition: 'outside',
+            labels: {
+                rotation: 'auto',
+                distance: 15
+            },
+            plotBands: [{
+                from: 30,
+                to: 50,
+                color: '#C02316',
+                innerRadius: '100%',
+                outerRadius: '105%'
+            }],
+            pane: 2,
+            title: {
+                text: '('+variabel+')<br/><span style="font-size:8px">Channel C</span>',
+                // y: 12
+            }
+        }],
+
+        plotOptions: {
+            gauge: {
+                dataLabels: {
+                    enabled: false
+                },
+                dial: {
+                    radius: '100%'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // series : data
+        series: [{
+            name: 'Channel A',
+            data: [data[0]],
+            yAxis: 0
+        }, {
+            name: 'Channel B',
+            data: [data[1]],
+            yAxis: 1
+        }, {
+            name: 'Channel C',
+            data: [data[2]],
+            yAxis: 2
+        }]
+
+    });
+        return chart;
+
+}
+
 function daychart(container,data,type){
     if (type == 'power') {
       var yname = 'Power (kW)';
@@ -811,5 +972,4 @@ function Sensorchart(container){
           }
           });
         return chart;
-
 }

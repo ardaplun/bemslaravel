@@ -51,7 +51,7 @@ class Energy extends Model
       if (!empty($dt[0]->etotal)) {
         $dt = $dt[0]->etotal - end($dt)->etotal;
       } else {
-        $dt = $dt[1]->etotal - end($dt)->etotal;
+        $dt = $dt[5]->etotal - end($dt)->etotal;
       }
       return $dt;
     }else{
