@@ -40,7 +40,7 @@ class CurrentController extends Controller
         $tdy_curr = Current::getCurrent($where[1],'date(time) = ?',$tdy->toDateString());
         $i = 0;
         foreach ($tdy_curr as $key => $value) {
-          $data['dtcurr'][]   = $value;
+          $data['dtcurr'][]   = round($value,2);
         }
         $data['id_building']  = $building->id_building;
         $dt[] = $data;
@@ -74,7 +74,7 @@ class CurrentController extends Controller
         $tdy_curr = Current::getCurrent($where[1],'date(time) = ?',$tdy->toDateString());
         $i = 0;
         foreach ($tdy_curr as $key => $value) {
-          $data['dtcurr'][]   = $value;
+          $data['dtcurr'][]   = round($value,2);
         }
         $data['id_building']  = $building->id_building;
         $dt[] = $data;
