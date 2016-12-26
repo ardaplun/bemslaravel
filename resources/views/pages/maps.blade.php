@@ -1,4 +1,5 @@
 @extends('layouts.main-layout')
+
 @section('content')
 <script src="{{asset('js/chart.js')}}"></script>
 <!-- title content -->
@@ -25,6 +26,8 @@
         <a href="overview/DTAP"><img id="DTAP-img"alt="" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:4;top:1.4em;right:19.6em;" /></a>
         <!-- <a href="{{url('building/DTETI')}}"><img src="{{asset('images/map/teti-red.png')}}" alt="building" usemap="#bemsmap" style="position:absolute;background:transparent;z-index:3;top:12.6em;left:4.5em;" /></a> -->
       </div>
+
+
       <div id="DTETI_enegy_show" style="position: absolute;top: 230px;left:-10em;width:210px;height:120px;z-index:200">
         <div id="DTETI_line">
           <div class="DTETI-line" style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #bc250c;position: absolute;right: 6.6em;top:3.5em;"></div>
@@ -37,6 +40,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-supply-map-dteti"></span> kWh</span>
         </div>
       </div>
+
       <div id="DTMI_enegy_show" style="position: absolute;top: 9em;left: -10em;width:15em;height:120px;z-index:200">
         <div id="DTMI_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 9.7em;top:-0.3em;"></div>
@@ -49,6 +53,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="DTK_enegy_show" style="position: absolute;top: 4em;left: 2em;width:15em;height:120px;z-index:200">
         <div id="DTK_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:-0.3em;"></div>
@@ -61,6 +66,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="JUTAP_enegy_show" style="position: absolute;top: 0em;left: 19em;width:15em;height:10px;z-index:200">
         <div id="JUTAP_line">
           <div class="DTAP-line"style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:-0.3em;"></div>
@@ -73,6 +79,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="JUTEG_enegy_show" style="position: absolute;top: 3em;right: -7em;width:26em;height:120px;z-index:200">
         <div id="JUTEG_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 10.7em;top:-0.35em;"></div>
@@ -85,6 +92,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="JTSL_enegy_show" style="position: absolute;top: 11em;right: -12em;width:26em;height:120px;z-index:200">
         <div id="JTSL_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 12.7em;top:2.6em;"></div>
@@ -97,6 +105,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="DTNF_enegy_show" style="position: absolute;top: 25em;left: 7em;width:15em;height:120px;z-index:200">
         <div id="DTNF_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;right: 14.7em;top:4.6em;"></div>
@@ -109,6 +118,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="KPFT_enegy_show" style="position: absolute;top: 25em;left: 25em;width:26em;height:120px;z-index:200">
         <div id="KPFT_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 10.7em;top:0.6em;"></div>
@@ -121,6 +131,7 @@
           <span id="ee_map_data" style="font-size: 11px;">Supply :<span id="show-energy-map-dtmi"></span> kWh</span>
         </div>
       </div>
+
       <div id="DTGL_enegy_show" style="position: absolute;top: 30em;left: 27em;width:23em;height:120px;z-index:200">
         <div id="DTGL_line">
           <div style="width: 10px;height: 10px;radius: 25px;border-radius: 25px;background-color: #008ec3;position: absolute;left: 4.7em;top:1.6em;"></div>
@@ -137,7 +148,10 @@
           <img src="{{asset('images/chart-btn.png')}}" class="pointer-mouse" style="cursor:pointer"><br>
       </div> -->
   </div>
+
+
 </div>
+
 <div id="alert-main-map" class="circle" style="float:right;position:relative;bottom: 345px;right: -613px;display: none;">
     <span class="glyphicon glyphicon-exclamation-sign" style="background-color: rgb(216, 22, 39);right: -163px;height: 50px;width: 50px;top: -28px;border-radius: 50%;vertical-align: middle;text-align: center;line-height: 50px;color: white;font-size: xx-large;"></span>
     <div style="float:right;position:absolute;bottom: 120px;left: 14px;font-size: large;font-weight: bolder;color: rgb(252, 252, 252);text-align: left;">Current</div>
@@ -160,6 +174,7 @@
        $("#show-maps").hide();
        $("#show-overview").show();
     });
+
 </script>
 <!-- get data -->
 <script type="text/javascript">
@@ -171,6 +186,7 @@ function energy_level(real,target,building){
     $("#"+building+"-img").attr('src', 'images/map/'+building+'-green.png');
     $("."+building+"-line").css("backgroundColor", "#44C049");
     $("."+building+"-line-2").css("borderColor", "#44C049");
+
   }else if(percentage >= 85 && percentage < 93){
     $("#"+building+"-img").attr('src', 'images/map/'+building+'-yellow.png');
     $("."+building+"-line").css("backgroundColor", "#F5C922");
@@ -182,17 +198,22 @@ function energy_level(real,target,building){
   }
 }
 startProcess();
+
+
 setTimeout(function(){
   maps().done(function(data){
     console.log(data);
     // $('#aboutus').modal('toggle');
     // parse data from api and put in html page
+
     for (var key in data['energy']) {
       $("#show-demand-map-"+key).html(data['energy'][key].toLocaleString());
       energy_level(data['energy'][key],data['alert'][key]['kwh_target'],key);
+
     }
     }).complete(function(){endProcess();});
 },750);
+
     setInterval(function(){
       maps().complete(function(data){
         // parse data from api and put in html page
@@ -203,4 +224,5 @@ setTimeout(function(){
     }, 5*60000);
 </script>
 <script src="{{asset('js/jquery.js')}}"></script>
+
 @endsection
