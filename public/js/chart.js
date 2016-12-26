@@ -58,6 +58,10 @@ function mainchart(container,data){
               },
               tooltip: {
                 formatter: function() {
+                  // var dateToday = moment().utc().startOf('day').format("dddd, MMMM Do YYYY");
+                  // var dateYesterday = moment().subtract(1, 'day').startOf('day').format("dddd, MMMM Do YYYY,");
+			            // console.log(this);
+
                   if (this.points[2]) {
                       return '<span style="font-size:x-small;">'+moment(data.time[this.points[0].point.x][0]).format("dddd, MMMM Do YYYY HH:mm")+'-'+moment(data.time[this.points[0].point.x][1]).format("HH:mm")+'</span><br>'+'<br /><span style="color:rgba(112, 220, 26, 1);">'+this.points[2].series.name+': </span><b>'+this.points[2].y +' kW</b></span>'+
 				'<br>'+this.points[1].series.name+': </span><b>'+this.points[1].y+' kW</b></span>';
@@ -143,6 +147,7 @@ function mainchart(container,data){
                 zIndex: 1,
                 dataGrouping: {enabled: false},
                 //pointRange: period,
+                // data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 27,	24.9,	26.5,	23.8,	16.9,	17.5,	16.1,	16.9],
                 data: data.yst_bar,
                 color: "rgba(171, 168, 168, 0.5)",
               }, {
@@ -154,6 +159,7 @@ function mainchart(container,data){
                 lineWidth: 1,
                 //color: "rgba(171, 168, 168, 0.5)",
                 color: "rgba(111, 108, 108, 0.5)", //gray
+                // data: [15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8,27,	24.9,	26.5,	23.8,	16.9,	17.5,	16.1,	16.9],
                 data: data.yst_line,
                 zIndex: 2
               }, {
@@ -161,6 +167,7 @@ function mainchart(container,data){
                 type: 'column',
                 dataGrouping: {enabled: false},
                 color: "rgba(112, 220, 26, 1)", //green
+                // data: [15.2,	15.7,	19.5,	18.2,	16.8,	15.2,	15.4,	18.8, 20.8,	20.1, 20.2,	19.3,	19,	19.4,	21.5,	19.3, 18.8,	18,	17.7,	19.2,	17.1,	17.2,	17.3,	18.2, 19.1,	21.8,	20.7,	23.9,	39,	43.4,	46.2,	53.3, 57.2,	70.2,	74.2,	79.2, 94,	102.1,	109.5,	109.5, 114.6,	116.7,	126.2,	130.9,	135.8,	130.3,	130.8,	135.7, 137.1,	143.8,	148.2,	150,	148.5,	147.2,	161.9,173.1, 191,	199.8,	183.9,	178,	172.1,	165.2,	164.3,	159, 156.3, 154.5,	141.7,	142.9,	126,	119.2,	115.7,	107.4, 101.7,	98.9,	86.3,	80.3,	77.2,	77,	76.3,	71.8, 68.3,	59.9,	52.6,	54.2,	49.9,	49.4,	52.4, 49.1],
                 data: data.today,
 		              zIndex:3
               }]
@@ -282,317 +289,6 @@ function buildingchart(container,data){
         return chart;
 
 }
-
-function currentGauge(container,data,datapf,type){
-    if (type == 'current') {
-      var yname = 'Current';
-      var variabel = 'A';
-    } else if (type == 'thd') {
-      var yname = 'Total Harmonic Distortion';
-      var variabel = '%';
-    } else if (type == 'pv') {
-      var yname = 'Power Factor';
-      var variabel = '%';
-    }
-      var chart = new Highcharts.Chart({
-        chart: {
-            type: 'solidgauge',
-            renderTo: container,
-            plotBorderWidth: 1,
-            backgroundColor: { linearGradient: { x1: 0, y1: 1, x2: 0, y2: 0  }, stops: [[0, '#F9FAFC'],[0.5, '#E6E6E6'],[1, '#E6E6E6']]   },
-            plotBackgroundImage: null,
-        },
-
-        title: {
-          text:'',
-        },
-
-        pane: [{
-          startAngle: -90,
-          endAngle: 90,
-          background: {
-              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-              innerRadius: '60%',
-              outerRadius: '100%',
-              shape: 'arc'
-          },
-          center: ['17%', '60%'],
-          size: 130
-        }, {
-          startAngle: -90,
-          endAngle: 90,
-          background: {
-              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-              innerRadius: '60%',
-              outerRadius: '100%',
-              shape: 'arc'
-          },
-          center: ['50%', '60%'],
-          size: 130
-        }, {
-          startAngle: -90,
-          endAngle: 90,
-          background: {
-              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-              innerRadius: '60%',
-              outerRadius: '100%',
-              shape: 'arc'
-          },
-          center: ['83%', '60%'],
-          size: 130
-        }],
-
-        tooltip: {
-            enabled: false
-        },
-
-        yAxis: [{
-            min: 0,
-            max: 90,
-            stops: [
-                [0.1, '#55BF3B'], // green
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#DF5353'] // red
-            ],
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickAmount: 2,
-            labels: {
-                y: 16
-            },
-            pane: 0,
-            title: {
-                text: '<span style="font-size:1em">Power Factor: '+datapf[0]+' %</span>',
-                y: 80
-            }
-        }, {
-            min: 0,
-            max: 90,
-            stops: [
-                [0.1, '#55BF3B'], // green
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#DF5353'] // red
-            ],
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickAmount: 2,
-            labels: {
-                y: 16
-            },
-            pane: 1,
-            title: {
-                text: '<span style="font-size:1em">Power Factor: '+datapf[1]+' %</span>',
-                y: 80
-            }
-        }, {
-            min: 0,
-            max: 90,
-            stops: [
-                [0.1, '#55BF3B'], // green
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#DF5353'] // red
-            ],
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickAmount: 2,
-            labels: {
-                y: 16
-            },
-            pane: 2,
-            title: {
-                text: '<span style="font-size:1em">Power Factor: '+datapf[2]+' %</span>',
-                y: 80
-            }
-        }],
-
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: -10,
-                    borderWidth: 0,
-                    useHTML: true
-                }
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'Channel A',
-            data: [data[0]],
-            yAxis: 0,
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:1.3em;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:0.8em;color:silver">(Amphere)</span></div>'
-            },
-        }, {
-            name: 'Channel B',
-            data: [data[1]],
-            yAxis: 1,
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:1.3em;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:0.8em;color:silver">(Amphere)</span></div>'
-            },
-        }, {
-            name: 'Channel C',
-            data: [data[2]],
-            yAxis: 2,
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:1.3em;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:0.8em;color:silver">(Amphere)</span></div>'
-            },
-        }]
-
-    });
-        return chart;
-}
-// function currentGauge(container,data,type){
-//     if (type == 'current') {
-//       var yname = 'Current';
-//       var variabel = 'A';
-//     } else if (type == 'thd') {
-//       var yname = 'Total Harmonic Distortion';
-//       var variabel = '%';
-//     } else if (type == 'pv') {
-//       var yname = 'Power Factor';
-//       var variabel = '%';
-//     }
-//       var chart = new Highcharts.Chart({
-//         chart: {
-//             type: 'gauge',
-//             renderTo: container,
-//             plotBorderWidth: 1,
-//             backgroundColor: { linearGradient: { x1: 0, y1: 1, x2: 0, y2: 0  }, stops: [[0, '#F9FAFC'],[0.5, '#E6E6E6'],[1, '#E6E6E6']]   },
-//             plotBackgroundImage: null,
-//         },
-//
-//         title: {
-//           text:'',
-//         },
-//
-//         pane: [{
-//             startAngle: -60,
-//             endAngle: 60,
-//             background: null,
-//             center: ['17%', '80%'],
-//             size: 130
-//         }, {
-//             startAngle: -60,
-//             endAngle: 60,
-//             background: null,
-//             center: ['50%', '80%'],
-//             size: 130
-//         }, {
-//             startAngle: -60,
-//             endAngle: 60,
-//             background: null,
-//             center: ['83%', '80%'],
-//             size: 130
-//         }],
-//
-//         tooltip: {
-//             enabled: false
-//         },
-//
-//         yAxis: [{
-//             min: 0,
-//             max: 50,
-//             minorTickPosition: 'outside',
-//             tickPosition: 'outside',
-//             labels: {
-//                 rotation: 'auto',
-//                 distance: 15
-//             },
-//             plotBands: [{
-//                 from: 30,
-//                 to: 50,
-//                 color: '#C02316',
-//                 innerRadius: '100%',
-//                 outerRadius: '105%'
-//             }],
-//             pane: 0,
-//             title: {
-//                 text: '('+variabel+')<br/><span style="font-size:8px">Channel A</span>',
-//                 // y:
-//             }
-//         }, {
-//             min: 0,
-//             max: 50,
-//             minorTickPosition: 'outside',
-//             tickPosition: 'outside',
-//             labels: {
-//                 rotation: 'auto',
-//                 distance: 15
-//             },
-//             plotBands: [{
-//                 from: 30,
-//                 to: 50,
-//                 color: '#C02316',
-//                 innerRadius: '100%',
-//                 outerRadius: '105%'
-//             }],
-//             pane: 1,
-//             title: {
-//                 text: '('+variabel+')<br/><span style="font-size:8px">Channel B</span>',
-//                 // y: 12
-//             }
-//         }, {
-//             min: 0,
-//             max: 50,
-//             minorTickPosition: 'outside',
-//             tickPosition: 'outside',
-//             labels: {
-//                 rotation: 'auto',
-//                 distance: 15
-//             },
-//             plotBands: [{
-//                 from: 30,
-//                 to: 50,
-//                 color: '#C02316',
-//                 innerRadius: '100%',
-//                 outerRadius: '105%'
-//             }],
-//             pane: 2,
-//             title: {
-//                 text: '('+variabel+')<br/><span style="font-size:8px">Channel C</span>',
-//                 // y: 12
-//             }
-//         }],
-//
-//         plotOptions: {
-//             gauge: {
-//                 dataLabels: {
-//                     enabled: false
-//                 },
-//                 dial: {
-//                     radius: '100%'
-//                 }
-//             }
-//         },
-//         credits: {
-//             enabled: false
-//         },
-//         series: [{
-//             name: 'Channel A',
-//             data: [data[0]],
-//             yAxis: 0
-//         }, {
-//             name: 'Channel B',
-//             data: [data[1]],
-//             yAxis: 1
-//         }, {
-//             name: 'Channel C',
-//             data: [data[2]],
-//             yAxis: 2
-//         }]
-//
-//     });
-//         return chart;
-// }
-
 function daychart(container,data,type){
     if (type == 'power') {
       var yname = 'Power (kW)';
@@ -1115,4 +811,5 @@ function Sensorchart(container){
           }
           });
         return chart;
+
 }

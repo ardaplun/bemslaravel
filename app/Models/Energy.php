@@ -40,14 +40,19 @@ class Energy extends Model
   }
 
   static function getEnergyRange($where=array(),$start,$stop){
-    $query = DB::table('view_energy_mdp')->select('energy')->whereBetween('time', [$start,$stop]);
+    $query = DB::table('view_etotal_mdp')->select('etotal')->whereBetween('time', [$start,$stop]);
     foreach ($where as $key => $val) {
       if (!empty($val)) {
         $query->where($key, $val);
       }
     }
-    $dt=collect($query->get())->sum('energy');
+    $dt=$query->get();
     if(!empty($dt)){
+      if (!empty($dt[0]->etotal)) {
+        $dt = $dt[0]->etotal - end($dt)->etotal;
+      } else {
+        $dt = $dt[1]->etotal - end($dt)->etotal;
+      }
       return $dt;
     }else{
       return 0;
