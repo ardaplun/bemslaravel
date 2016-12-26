@@ -25,9 +25,6 @@
         <link href="{{asset('css/roboto.css')}}" rel='stylesheet' type='text/css'>
         <script src="{{asset('js/highcharts.js')}}"></script>
         <script src="{{asset('js/highcharts-3d.js')}}"></script>
-        <script src="https://code.highcharts.com/highcharts-more.js"></script>
-        <script src="https://code.highcharts.com/highcharts-more.js"></script>
-        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
         <!-- <script type="text/javascript" src="{{asset('js/jquery-1.7.1.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
