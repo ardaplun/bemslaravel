@@ -175,6 +175,7 @@ function showdata(energy,power,powermax,chart,id){
                           for (var i = 0; i < pf.length; i++) {
                             if (pf[i] != null) {
                               pf[i]  = Math.round(pf[i] * 100) / 100;
+                              curr[i]  = Math.round(curr[i] * 100) / 100;
                             }
                           }
                           currentGauge('total_load_profile_container_demand',curr,pf,'current');
@@ -250,8 +251,15 @@ $(function(){
                   pf[i]   += dtpf[i];
                 }
               }
-              currentGauge('total_load_profile_container_demand',curr,pf,'current');
+              // currentGauge('total_load_profile_container_demand',curr,pf,'current');
             }
+            for (var i = 0; i < pf.length; i++) {
+              if (pf[i] != null) {
+                pf[i]  = Math.round(pf[i] * 100) / 100;
+                curr[i]  = Math.round(curr[i] * 100) / 100;
+              }
+            }
+            currentGauge('total_load_profile_container_demand',curr,pf,'current');
             endProcess();
             curr = [0,0,0];
             pf   = [0,0,0];
