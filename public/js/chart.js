@@ -316,7 +316,7 @@ function currentGauge(container,data,datapf,type){
               outerRadius: '100%',
               shape: 'arc'
           },
-          center: ['17%', '60%'],
+          center: ['17%', '50%'],
           size: 130
         }, {
           startAngle: -90,
@@ -327,7 +327,7 @@ function currentGauge(container,data,datapf,type){
               outerRadius: '100%',
               shape: 'arc'
           },
-          center: ['50%', '60%'],
+          center: ['50%', '50%'],
           size: 130
         }, {
           startAngle: -90,
@@ -338,7 +338,7 @@ function currentGauge(container,data,datapf,type){
               outerRadius: '100%',
               shape: 'arc'
           },
-          center: ['83%', '60%'],
+          center: ['83%', '50%'],
           size: 130
         }],
 
@@ -362,8 +362,8 @@ function currentGauge(container,data,datapf,type){
             },
             pane: 0,
             title: {
-                text: '<span style="font-size:1em">Power Factor: '+datapf[0]+' %</span>',
-                y: 80
+                text: '<span style="font-size:1em">Power Factor: '+datapf[0]+' %</span><br><span style="font-size:1.4em;font-weight:bold;">A</span>',
+                y: 75
             }
         }, {
             min: 0,
@@ -381,8 +381,8 @@ function currentGauge(container,data,datapf,type){
             },
             pane: 1,
             title: {
-                text: '<span style="font-size:1em">Power Factor: '+datapf[1]+' %</span>',
-                y: 80
+                text: '<span style="font-size:1em">Power Factor: '+datapf[1]+' %</span><br><span style="font-size:1.4em;font-weight:bold;">B</span>',
+                y: 75
             }
         }, {
             min: 0,
@@ -400,8 +400,8 @@ function currentGauge(container,data,datapf,type){
             },
             pane: 2,
             title: {
-                text: '<span style="font-size:1em">Power Factor: '+datapf[2]+' %</span>',
-                y: 80
+                text: '<span style="font-size:1em">Power Factor: '+datapf[2]+' %</span><br><span style="font-size:1.4em;font-weight:bold;">C</span>',
+                y: 75
             }
         }],
 
@@ -424,7 +424,7 @@ function currentGauge(container,data,datapf,type){
             dataLabels: {
                 format: '<div style="text-align:center"><span style="font-size:1.3em;color:' +
                     ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:0.8em;color:silver">(Amphere)</span></div>'
+                       '<span style="font-size:0.8em;color:silver">(Amp)</span></div>'
             },
         }, {
             name: 'Channel B',
@@ -433,7 +433,7 @@ function currentGauge(container,data,datapf,type){
             dataLabels: {
                 format: '<div style="text-align:center"><span style="font-size:1.3em;color:' +
                     ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:0.8em;color:silver">(Amphere)</span></div>'
+                       '<span style="font-size:0.8em;color:silver">(Amp)</span></div>'
             },
         }, {
             name: 'Channel C',
@@ -442,7 +442,7 @@ function currentGauge(container,data,datapf,type){
             dataLabels: {
                 format: '<div style="text-align:center"><span style="font-size:1.3em;color:' +
                     ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:0.8em;color:silver">(Amphere)</span></div>'
+                       '<span style="font-size:0.8em;color:silver">(Amp)</span></div>'
             },
         }]
 
