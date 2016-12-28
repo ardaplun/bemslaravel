@@ -9,6 +9,7 @@ var total_eng_demand=0;
 var total_peak_demand=0;
 var curr = [0,0,0];
 var pf   = [0,0,0];
+var pflength;
 function showdata(energy,power,powermax,chart,id){
   total_eng_demand  += energy;
   total_pwr_demand  += power;
@@ -168,16 +169,18 @@ function showdata(energy,power,powermax,chart,id){
                               }
                             }
                           // currentGauge('total_load_profile_container_demand',curr,pf,'current');
-
                         </script>
                         @endforeach
                         <script type="text/javascript">
+                        pflength = {{count($page_data)}};
                           for (var i = 0; i < pf.length; i++) {
                             if (pf[i] != null) {
+                              pf[i]  = pf[i]/ pflength;
                               pf[i]  = Math.round(pf[i] * 100) / 100;
                               curr[i]  = Math.round(curr[i] * 100) / 100;
                             }
                           }
+                          console.log(pf);
                           currentGauge('total_load_profile_container_demand',curr,pf,'current',1500);
                         </script>
 
@@ -255,11 +258,12 @@ $(function(){
             }
             for (var i = 0; i < pf.length; i++) {
               if (pf[i] != null) {
-                pf[i]  = Math.round(pf[i] * 100) / 100;
                 curr[i]  = Math.round(curr[i] * 100) / 100;
+                pf[i]  = pf[i]/ pflength;
+                pf[i]  = Math.round(pf[i] * 100) / 100;
               }
             }
-            currentGauge('total_load_profile_container_demand',curr,pf,'current',1500);
+            currentGauge('total_load_profile_container_demand',curr,pf,'current',1499);
             endProcess();
             curr = [0,0,0];
             pf   = [0,0,0];

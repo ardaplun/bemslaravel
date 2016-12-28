@@ -362,7 +362,7 @@ function currentGauge(container,data,datapf,type,max){
             },
             pane: 0,
             title: {
-                text: '<span style="font-size:1em">Pf: '+datapf[0]+'</span><br><span style="font-size:1.4em;font-weight:bold;">A</span>',
+                text: '<span style="font-size:1em;font-weight:bold;">Pf: '+datapf[0]+'</span><br><span style="font-size:1.4em;font-weight:bold;">A</span>',
                 y: 75
             }
         }, {
@@ -381,7 +381,7 @@ function currentGauge(container,data,datapf,type,max){
             },
             pane: 1,
             title: {
-                text: '<span style="font-size:1em">Pf: '+datapf[1]+'</span><br><span style="font-size:1.4em;font-weight:bold;">B</span>',
+                text: '<span style="font-size:1em;font-weight:bold;">Pf: '+datapf[1]+'</span><br><span style="font-size:1.4em;font-weight:bold;">B</span>',
                 y: 75
             }
         }, {
@@ -400,7 +400,7 @@ function currentGauge(container,data,datapf,type,max){
             },
             pane: 2,
             title: {
-                text: '<span style="font-size:1em">Pf: '+datapf[2]+'</span><br><span style="font-size:1.4em;font-weight:bold;">C</span>',
+                text: '<span style="font-size:1em;font-weight:bold;">Pf: '+datapf[2]+'</span><br><span style="font-size:1.4em;font-weight:bold;">C</span>',
                 y: 75
             }
         }],
