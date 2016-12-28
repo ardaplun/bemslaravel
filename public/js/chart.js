@@ -283,7 +283,7 @@ function buildingchart(container,data){
 
 }
 
-function currentGauge(container,data,datapf,type){
+function currentGauge(container,data,datapf,type,max){
     if (type == 'current') {
       var yname = 'Current';
       var variabel = 'A';
@@ -348,7 +348,7 @@ function currentGauge(container,data,datapf,type){
 
         yAxis: [{
             min: 0,
-            max: 90,
+            max: max,
             stops: [
                 [0.1, '#55BF3B'], // green
                 [0.5, '#DDDF0D'], // yellow
@@ -367,7 +367,7 @@ function currentGauge(container,data,datapf,type){
             }
         }, {
             min: 0,
-            max: 90,
+            max: max,
             stops: [
                 [0.1, '#55BF3B'], // green
                 [0.5, '#DDDF0D'], // yellow
@@ -386,7 +386,7 @@ function currentGauge(container,data,datapf,type){
             }
         }, {
             min: 0,
-            max: 90,
+            max: max,
             stops: [
                 [0.1, '#55BF3B'], // green
                 [0.5, '#DDDF0D'], // yellow

@@ -159,8 +159,8 @@ function showdata(energy,power,powermax,chart,id){
                           $("#{{$dt['id_building']}}_peak_demand").html(powermax.toLocaleString());
                           $("#total_demand_power_status").html(total_pwr_demand.toLocaleString());
                           $("#total_peak_demand").html(total_peak_demand.toLocaleString());
-                          currentGauge('{{$dt['id_building']}}_profile_container_demand',chart,dtpf,'current');
-                          currentGauge('total_generate_profile_container_supply',[0,0,0],[0,0,0],'current');
+                          currentGauge('{{$dt['id_building']}}_profile_container_demand',chart,dtpf,'current',200);
+                          currentGauge('total_generate_profile_container_supply',[0,0,0],[0,0,0],'current',1500);
                             for (var i = 0; i < chart.length; i++) {
                               if (chart[i] != null) {
                                 curr[i] += chart[i];
@@ -178,7 +178,7 @@ function showdata(energy,power,powermax,chart,id){
                               curr[i]  = Math.round(curr[i] * 100) / 100;
                             }
                           }
-                          currentGauge('total_load_profile_container_demand',curr,pf,'current');
+                          currentGauge('total_load_profile_container_demand',curr,pf,'current',1500);
                         </script>
 
                         <!-- <div class="load_profile_chart_style" style="border: 3px solid #F5C922;" >
@@ -244,7 +244,7 @@ $(function(){
               var chart    = data[i]['dtcurr'];
               var dtpf     = data[i]['dtpf'];
               showdata(energy,power,powermax,chart,data[i]['id_building']);
-              currentGauge(data[i]['id_building']+'_profile_container_demand',chart,dtpf,'current');
+              currentGauge(data[i]['id_building']+'_profile_container_demand',chart,dtpf,'current',200);
               for (var j = 0; j < chart.length; j++) {
                 if (chart[i] != null) {
                   curr[i] += chart[i];
@@ -259,7 +259,7 @@ $(function(){
                 curr[i]  = Math.round(curr[i] * 100) / 100;
               }
             }
-            currentGauge('total_load_profile_container_demand',curr,pf,'current');
+            currentGauge('total_load_profile_container_demand',curr,pf,'current',1500);
             endProcess();
             curr = [0,0,0];
             pf   = [0,0,0];
