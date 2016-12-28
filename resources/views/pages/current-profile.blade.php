@@ -67,13 +67,13 @@ function showdata(energy,power,powermax,chart,id){
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position: relative;top: 25%;">
                                      <div class="status_bar_txt">Energy</div>
                                      <div class="progress-bar slide_lv0"style="width:75%;background-image:none;float:right;">
-                                       <div class="status_bar_val">0 kWh.</div>
+                                       <div class="status_bar_val">0 kWh</div>
                                      </div>
                                    </div>
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position:relative;top:25%">
                                      <div class="status_bar_txt">Power</div>
                                      <div class="progress-bar slide_lv0"  style="width:75%;background-image:none;float:right;">
-                                       <div class="status_bar_val">0 kW.</div>
+                                       <div class="status_bar_val">0 kW</div>
                                      </div>
                                    </div>
                                   <div style="font-size:80%;float:right;position: relative;top: 25%;"><small>Peak Generation 0 kW</small></div>
@@ -98,13 +98,13 @@ function showdata(energy,power,powermax,chart,id){
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position: relative;top: 25%;">
                                      <div class="status_bar_txt">Energy</div>
                                      <div class="progress-bar slide_lv1"style="width:75%;background-image:none;float:right;">
-                                       <div class="status_bar_val"><span id="total_demand_energy_status"></span> kWh.</div>
+                                       <div class="status_bar_val"><span id="total_demand_energy_status"></span> kWh</div>
                                      </div>
                                    </div>
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position:relative;top:25%">
                                      <div class="status_bar_txt">Power</div>
                                      <div class="progress-bar slide_lv1"  style="width:75%;background-image:none;float:right;">
-                                       <div class="status_bar_val"><span id="total_demand_power_status"></span>  kW.</div>
+                                       <div class="status_bar_val"><span id="total_demand_power_status"></span>  kW</div>
                                      </div>
                                    </div>
                                   <div style="font-size:80%;float:right;position: relative;top: 25%;">
@@ -127,13 +127,13 @@ function showdata(energy,power,powermax,chart,id){
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position: relative;top: 25%;">
                                      <div class="status_bar_txt">Energy</div>
                                      <div class="progress-bar slide_lv1"style="width:75%;background-image:none;float:right;">
-                                       <div class="status_bar_val"><span id="{{$dt['id_building']}}_energy_status"></span> kWh.</div>
+                                       <div class="status_bar_val"><span id="{{$dt['id_building']}}_energy_status"></span> kWh</div>
                                      </div>
                                    </div>
                                    <div class="level progress" style="width:100%;margin-bottom: 5px;position:relative;top:25%">
                                      <div class="status_bar_txt">Power</div>
                                      <div class="progress-bar slide_lv1"  style="width:75%;background-image:none;float:right;">
-                                       <div class="status_bar_val"><span id="{{$dt['id_building']}}_power_status"></span> kW.</div>
+                                       <div class="status_bar_val"><span id="{{$dt['id_building']}}_power_status"></span> kW</div>
                                      </div>
                                    </div>
                                   <div style="font-size:80%;float:right;position: relative;top: 25%;">
