@@ -37,23 +37,6 @@ function showdata(energy,power,powermax,chart,id){
                 <div class="bottomline-title">PROFILE</div>
               </div>
               <br />
-                <!--Grouping-->
-                <!-- <div style="height: 44px;" style="display:inline;">
-                    <div class="btn-group pull-right" data-toggle="buttons" style="border: 1px solid #B2B2B3;border-radius: 30px;">
-                        <label class="btn" disabled>
-                            GROUP :
-                        </label>
-                        <label class="btn range_pick active" id="klikday" value="day" onclick="changedata('day')">
-                            <input name="groupdata" id="day_goup" type="radio"  >Day
-                        </label>
-                        <label class="btn range_pick" value="month" onclick="changedata('month')">
-                            <input name="groupdata" id="month_goup" type="radio" >Month
-                        </label>
-                        <label class="btn range_pick" value="year" onclick="changedata('year')">
-                            <input name="groupdata" id="year_goup" type="radio" >Year
-                        </label>
-                    </div>
-                </div> -->
 
                <div id="supply-box" style="border-bottom:2px solid #999;padding: 0px 0px 50px 0px;" >
                     <div style="font-size:2em;font-weight:bold;color:#008ec3;padding: 0px 0px;">SUPPLY</div>
@@ -225,10 +208,7 @@ function showdata(energy,power,powermax,chart,id){
             </body>
           </div>
 
-<!-- get data -->
 <script>
-// console.log(<?php print_r($page_data);?>)
-
 $(function(){
     setInterval(function() {
       curr = [0,0,0];
