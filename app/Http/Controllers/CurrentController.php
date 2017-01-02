@@ -91,10 +91,28 @@ class CurrentController extends Controller
         $data['energy']['totaltoday'] = (($etotDLast-$etotDFirst) < 0) ? 0 : round(($etotDLast-$etotDFirst)/1000,2);
 
         $tdy_curr = Current::getCurrent($where[1],'date(time) = ?',$tdy->toDateString());
-        $i = 0;
-        foreach ($tdy_curr as $key => $value) {
-          $data['dtcurr'][]   = round($value,2);
+        $tdy_pf = PF::getPF($where[1],'date(time) = ?',$tdy->toDateString());
+
+        if (!empty($tdy_curr)) {
+          foreach ($tdy_curr as $key => $value) {
+            $data['dtcurr'][]   = round($value,2);
+          }
+        } else {
+          for ($i=0; $i < 3; $i++) {
+            $data['dtcurr'][]   = 0;
+          }
         }
+
+        if (!empty($tdy_pf)) {
+          foreach ($tdy_pf as $key => $value) {
+            $data['dtpf'][]   = round($value,2);
+          }
+        } else {
+          for ($i=0; $i < 3; $i++) {
+            $data['dtpf'][]   = 0;
+          }
+        }
+
         $data['id_building']  = $building->id_building;
         $dt[] = $data;
         $data = []; //flush data

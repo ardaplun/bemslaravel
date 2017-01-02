@@ -69,7 +69,7 @@ class UsageController extends Controller
         $etotDLast   = (empty($energyTdy)) ? 0 : reset($energyTdy)->etotal;
         $etotDFirst  = (empty($energyTdy)) ? 0 : end($energyTdy)->etotal;
         $data['energy']['totaltoday'] = (($etotDLast-$etotDFirst) < 0) ? 0 : round(($etotDLast-$etotDFirst)/1000,2);
-
+        
         for ($i=0; $i < 96; $i++) {
           $tdy_etot_avg    = Energy::getEnergyRange($where[1],$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString());
           $data['dttdy'][] = ($tdy_etot_avg < 0) ? 0 : round(($tdy_etot_avg)/1000,2);

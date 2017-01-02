@@ -163,7 +163,6 @@ function showdata(energy,power,powermax,chart,id){
                               curr[i]  = Math.round(curr[i] * 100) / 100;
                             }
                           }
-                          console.log(pf);
                           currentGauge('total_load_profile_container_demand',curr,pf,'current',1500);
                         </script>
 
@@ -211,16 +210,17 @@ function showdata(energy,power,powermax,chart,id){
 <script>
 $(function(){
     setInterval(function() {
-      curr = [0,0,0];
-      pf = [0,0,0];
       $.ajax({
           url: BASE_URL+'current-profile/getCurrent',
           type: "post",
           dataType:'json',
           success: function(data){
-            console.log(data);
+            curr = [0,0,0];
+            pf = [0,0,0];
+            total_eng_demand  = 0;
+            total_pwr_demand  = 0;
+            total_peak_demand = 0;
             for (var i = 0; i < data.length; i++) {
-              console.log(data[i]);
               var energy   = data[i]['energy']['totaltoday'];
               var power    = data[i]['power']['currenttoday'];
               var powermax = data[i]['power']['maxtoday'];
@@ -229,24 +229,24 @@ $(function(){
               showdata(energy,power,powermax,chart,data[i]['id_building']);
               currentGauge(data[i]['id_building']+'_profile_container_demand',chart,dtpf,'current',200);
               for (var j = 0; j < chart.length; j++) {
-                if (chart[i] != null) {
-                  curr[i] += chart[i];
-                  pf[i]   += dtpf[i];
+                if (chart[j] != null) {
+                  curr[j] += chart[j];
+                  pf[j]   += dtpf[j];
                 }
               }
               // currentGauge('total_load_profile_container_demand',curr,pf,'current');
             }
-            for (var i = 0; i < pf.length; i++) {
-              if (pf[i] != null) {
-                curr[i]  = Math.round(curr[i] * 100) / 100;
-                pf[i]  = pf[i]/ pflength;
-                pf[i]  = Math.round(pf[i] * 100) / 100;
+            for (var k = 0; k < pf.length; k++) {
+              if (pf[k] != null) {
+                pf[k]  = pf[k] / pflength;
+                pf[k]  = Math.round(pf[k] * 100) / 100;
+                curr[k]  = Math.round(curr[k] * 100) / 100;
               }
             }
-            currentGauge('total_load_profile_container_demand',curr,pf,'current',1499);
-            endProcess();
+            currentGauge('total_load_profile_container_demand',curr,pf,'current',1500);
             curr = [0,0,0];
             pf   = [0,0,0];
+
           },
           error: function(e) {
             console.log(e.responseText);

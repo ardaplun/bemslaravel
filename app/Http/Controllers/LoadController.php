@@ -148,8 +148,9 @@ class LoadController extends Controller
       $data['power']['maxyear']= round((collect($powerYr)->max('power'))/1000,2);
 
 
-      for ($j=1; $j <= 12; $j++) {
+      for ($j=0; $j < 12; $j++) {
         $tmpmnth        = Power::getPower($where[1],'date_format(time, "%m-%Y") = ?',$j.'-'.$thsyr);
+        $data['lol'][]  = $tmpmnth;
         $tmpmnth        = collect($tmpmnth)->avg('power');
         $data['dtyr'][] = round(($tmpmnth)/1000,2);
       }
