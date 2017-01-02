@@ -10,6 +10,7 @@ var total_peak_demand=0;
 var chrt=[];
 var chrtyr=[];
 var chrtmnth=[];
+var timeval;
 function flushchart(){
   for (var i = 0; i < 96; i++) {
     chrt[i]=0;
@@ -35,7 +36,7 @@ function showdata(energy,power,powermax,chart,id){
   $("#total_peak_demand").html(total_peak_demand.toLocaleString());
 }
 function changedata(val){
-  // var val = $(this).val();
+  timeval = val;
   if (val == 'day') {
     $.ajax({
         url: BASE_URL+'load-profile/'+val,
@@ -129,10 +130,102 @@ function changedata(val){
         }
       });
   }
-
-  // $("#total_demand_energy_status").html(total_eng_demand.toLocaleString());
-  // $("#total_demand_power_status").html(total_pwr_demand.toLocaleString());
-  // $("#total_peak_demand").html(total_peak_demand.toLocaleString());
+  total_eng_demand  = 0;
+  total_pwr_demand  = 0;
+  total_peak_demand = 0;
+  flushchart();
+}
+function reloaddata(val){
+  if (val == 'day') {
+    $.ajax({
+        url: BASE_URL+'load-profile/'+val,
+        type: "post",
+        dataType:'json',
+        success: function(data){
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            var energy   = data[i]['energy']['totaltoday'];
+            var power    = data[i]['power']['currenttoday'];
+            var powermax = data[i]['power']['maxtoday'];
+            var chart    = data[i]['dttdy'];
+            showdata(energy,power,powermax,chart,data[i]['id_building']);
+            daychart(data[i]['id_building']+'_profile_container_demand',chart,'power');
+            for (var j = 0; j < chart.length; j++) {
+              if (chart[j]) {
+                chrt[j] += chart[j];
+              }
+            }
+            daychart('total_load_profile_container_demand',chrt,'power');
+          }
+          endProcess();
+          chrt=[];
+        },
+        error: function(e) {
+          console.log(e.responseText);
+        }
+      });
+  }
+  if (val == 'month') {
+    $.ajax({
+        url: BASE_URL+'load-profile/'+val,
+        type: "post",
+        dataType:'json',
+        success: function(data){
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            var energy   = data[i]['energy']['totalmonth'];
+            var power    = data[i]['power']['currentmonth'];
+            var powermax = data[i]['power']['maxmonth'];
+            var chart    = data[i]['dtmnth'];
+            showdata(energy,power,powermax,chart,data[i]['id_building']);
+            monthchart(data[i]['id_building']+'_profile_container_demand',chart,'power');
+            for (var j = 0; j < chart.length; j++) {
+              if (chart[j]) {
+                chrtmnth[j] += chart[j];
+              }
+            }
+            monthchart('total_load_profile_container_demand',chrtmnth,'power');
+          }
+          endProcess();
+          chrtmnth=[];
+        },
+        error: function(e) {
+          console.log(e.responseText);
+        }
+      });
+  }
+  if (val == 'year') {
+    $.ajax({
+        url: BASE_URL+'load-profile/'+val,
+        type: "post",
+        dataType:'json',
+        success: function(data){
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            var energy   = data[i]['energy']['totalyear'];
+            var power    = data[i]['power']['currentyear'];
+            var powermax = data[i]['power']['maxyear'];
+            var chart    = data[i]['dtyr'];
+            showdata(energy,power,powermax,chart,data[i]['id_building']);
+            yearchart(data[i]['id_building']+'_profile_container_demand',chart,'power');
+            for (var j = 0; j < chart.length; j++) {
+              if (chart[j]) {
+                chrtyr[j] += chart[j];
+              }
+            }
+            yearchart('total_load_profile_container_demand',chrtyr,'power');
+          }
+          endProcess();
+          chrtyr=[];
+        },
+        error: function(e) {
+          console.log(e.responseText);
+        }
+      });
+  }
   total_eng_demand  = 0;
   total_pwr_demand  = 0;
   total_peak_demand = 0;
@@ -276,7 +369,7 @@ function changedata(val){
                           $("#total_demand_power_status").html(total_pwr_demand.toLocaleString());
                           $("#total_peak_demand").html(total_peak_demand.toLocaleString());
                           daychart('total_generate_profile_container_supply',[],'power');
-
+                          timeval = 'day';
                           for (var i = 0; i < chart.length; i++) {
                             if (chart[i] != null) {
                               chrt[i] += chart[i];
@@ -332,16 +425,11 @@ function changedata(val){
 <!-- get data -->
 <script>
 $(function(){
-    startProcess();
-    chrt      = [];
-    chrtmnth  = [];
-    chrtyr    = [];
-    // console.log(<?php print_r($page_data);?>)
-    var time='today';
-    setTimeout(function() {
-      endProcess();
-    },1000);
-}
+  setInterval(function() {
+    console.log(timeval);
+    reloaddata(timeval);
+  },60000);
+})
 </script>
 
 @endsection

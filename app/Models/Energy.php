@@ -54,27 +54,27 @@ class Energy extends Model
     }
   }
 
-  static function getData($where=array(),$time,$range){
-    $query = DB::table('get_energy')->select('time','power','etotal')->orderBy('time', 'desc');
-    foreach ($where as $key => $val) {
-      if (!empty($val)) {
-        $query->where($key, $val);
-      }
-    }
-    $query->whereRaw($time, [$range]);
-    return $query->get();
-  }
-
-  static function getEnergyInMont($where=array()){
-//still not in use, for main type in every floor
-    $lstMonth =Carbon\Carbon::now()->month;
-    $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');
-    foreach ($where as $key => $val) {
-      if (!empty($val)) {
-        $query->where($key, $val);
-      }
-    }
-    $query->whereRaw('month(time) = ?', [$lstMonth]);
-    return round(($query->first()->etotal)/1000,2);
-  }
+//   static function getData($where=array(),$time,$range){
+//     $query = DB::table('get_energy')->select('time','power','etotal')->orderBy('time', 'desc');
+//     foreach ($where as $key => $val) {
+//       if (!empty($val)) {
+//         $query->where($key, $val);
+//       }
+//     }
+//     $query->whereRaw($time, [$range]);
+//     return $query->get();
+//   }
+//
+//   static function getEnergyInMont($where=array()){
+// //still not in use, for main type in every floor
+//     $lstMonth =Carbon\Carbon::now()->month;
+//     $query = DB::table('get_energy')->select('etotal')->orderBy('time', 'desc');
+//     foreach ($where as $key => $val) {
+//       if (!empty($val)) {
+//         $query->where($key, $val);
+//       }
+//     }
+//     $query->whereRaw('month(time) = ?', [$lstMonth]);
+//     return round(($query->first()->etotal)/1000,2);
+//   }
 }
