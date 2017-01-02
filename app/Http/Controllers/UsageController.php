@@ -69,7 +69,7 @@ class UsageController extends Controller
         $etotDLast   = (empty($energyTdy)) ? 0 : reset($energyTdy)->etotal;
         $etotDFirst  = (empty($energyTdy)) ? 0 : end($energyTdy)->etotal;
         $data['energy']['totaltoday'] = (($etotDLast-$etotDFirst) < 0) ? 0 : round(($etotDLast-$etotDFirst)/1000,2);
-        
+
         for ($i=0; $i < 96; $i++) {
           $tdy_etot_avg    = Energy::getEnergyRange($where[1],$tdy->toDateTimeString(),$tdy->addMinutes(15)->toDateTimeString());
           $data['dttdy'][] = ($tdy_etot_avg < 0) ? 0 : round(($tdy_etot_avg)/1000,2);
@@ -151,9 +151,15 @@ class UsageController extends Controller
           $data['energy']['totalyear'] = $etot['thsYear']-$etot['lstYear'];
         }
 
-        for ($j=1; $j <= 12; $j++) {
-          $tmpmnth1       = Energy::getEnergy($where[1],'date_format(time, "%m-%Y") = ?',$j.'-'.$thsyr);
-          $tmpmnth2       = Energy::getEnergy($where[1],'date_format(time, "%m-%Y") = ?',($j-1).'-'.$thsyr);
+        for ($i=1; $i <= 12; $i++) {
+          if ($i==1) {
+            $tmpmnth1     = Energy::getEnergy($where[1],'date_format(time, "%m-%Y") = ?',str_pad($i, 2, '0', STR_PAD_LEFT).'-'.$thsyr);
+            $tmpmnth2     = $etot['lstYear'];
+          }else{
+            $tmpmnth1       = Energy::getEnergy($where[1],'date_format(time, "%m-%Y") = ?',str_pad($i, 2, '0', STR_PAD_LEFT).'-'.$thsyr);
+            $tmpmnth2       = Energy::getEnergy($where[1],'date_format(time, "%m-%Y") = ?',($i-1).'-'.$thsyr);
+          }
+          $data['lol'][]  = [$tmpmnth1,$etot['thsYear']];
           $data['dtyr'][] = round(($tmpmnth1-$tmpmnth2),2);
         }
         // <-- end of calculating year data -->
